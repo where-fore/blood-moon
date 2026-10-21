@@ -1,13 +1,16 @@
-to do
+## combat options:
+just he-is-coming, turn based barebones: hp & attack, triggers (wounded, first attack)
+full ATB: like neverend, time then decision
+slot ATB: oaken tower & ilk, each item has a cooldown & effect (can also just use this for 1 or 2 items, the big ones)
+
+i kinda like slot ATB - choosing one defining weapon and then all sorts of trinkets to buff it. i really liked the choose-one-unique-item-at-the-start-of-the-game, and this is the same idea - choose a class essentially. one big particularly splashy item that you really feel, lots of little stat boost rings or something, and really impactful armors or necklaces or something
+
+the turn based is of course totally fine and was fun, and works for he is coming, sorta.
+
+i think i want to try the slot ATB
 
 
-get some ui basics
-	9-patch: small (tooltip, popup) & large (main menu, side bars)
-	font chosen and styled in
-	
-	
-
-
+## assorted
 
 
 
