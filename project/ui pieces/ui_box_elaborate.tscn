@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bhb073mvlb6mj"]
+
+[ext_resource type="Texture2D" uid="uid://cjngg6742oocp" path="res://sprites/ui_box_large.png" id="1_043iu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d35kp"]
+content_margin_left = 11.0
+content_margin_top = 11.0
+content_margin_right = 11.0
+content_margin_bottom = 11.0
+texture = ExtResource("1_043iu")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 48, 48)
+
+[node name="UIBoxElaborate" type="PanelContainer" unique_id=1542736023]
+custom_maximum_size = Vector2(568, 320)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_d35kp")
