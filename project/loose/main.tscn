@@ -3,8 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://bhb073mvlb6mj" path="res://ui pieces/ui_box_elaborate.tscn" id="1_sup1h"]
 [ext_resource type="PackedScene" uid="uid://dt7jpbn71da3l" path="res://ui pieces/ui_box_streamlined.tscn" id="2_tafwd"]
 [ext_resource type="PackedScene" uid="uid://b7fjh8x3yifx4" path="res://ui pieces/spacer.tscn" id="2_wqdpu"]
+[ext_resource type="PackedScene" uid="uid://drn7hyslxtts4" path="res://ui pieces/ui_box_minimal.tscn" id="3_bfd2p"]
 [ext_resource type="Texture2D" uid="uid://keqhopsx8vwn" path="res://sprites/dirk.png" id="3_mex7b"]
 [ext_resource type="Texture2D" uid="uid://dd3c32ykhp1k0" path="res://sprites/vamp_blade.png" id="3_wqdpu"]
+[ext_resource type="Texture2D" uid="uid://bgv0xar3ewpfd" path="res://sprites/player.png" id="4_t27i6"]
+[ext_resource type="Texture2D" uid="uid://gw80on1ihg7f" path="res://sprites/heart.png" id="5_0vix3"]
+[ext_resource type="Texture2D" uid="uid://k4ccseptpqxp" path="res://sprites/sword_basic.png" id="6_c6an6"]
+[ext_resource type="Texture2D" uid="uid://dfay83r2c6v5v" path="res://sprites/enemy_skull.png" id="7_ave2a"]
 
 [node name="Node2D" type="Node2D" unique_id=383782260]
 
@@ -17,6 +22,120 @@ clip_contents = true
 layout_mode = 2
 
 [node name="Spacer" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=466240430 instance=ExtResource("2_wqdpu")]
+layout_mode = 2
+
+[node name="UIBoxStreamlined" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=1018818442 instance=ExtResource("2_tafwd")]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined" unique_id=1772241150]
+layout_mode = 2
+
+[node name="UIBoxMinimal" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer" unique_id=970874160 instance=ExtResource("3_bfd2p")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer/UIBoxMinimal" unique_id=1161578025]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("4_t27i6")
+
+[node name="ProgressBar" type="ProgressBar" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer" unique_id=1390151650]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+value = 25.0
+show_percentage = false
+
+[node name="Spacer" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer" unique_id=929488828 instance=ExtResource("2_wqdpu")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer" unique_id=155995394]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer/HBoxContainer" unique_id=2111243425]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("5_0vix3")
+
+[node name="Label" type="Label" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer/HBoxContainer" unique_id=2135164495]
+layout_mode = 2
+text = "200"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer" unique_id=1212980983]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer/HBoxContainer2" unique_id=576631082]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("6_c6an6")
+
+[node name="Label" type="Label" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer/HBoxContainer2" unique_id=1596420283]
+layout_mode = 2
+text = "30"
+
+[node name="Spacer2" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer" unique_id=1936070573 instance=ExtResource("2_wqdpu")]
+layout_mode = 2
+
+[node name="Spacer2" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=226584502 instance=ExtResource("2_wqdpu")]
+layout_mode = 2
+
+[node name="UIBoxStreamlined2" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=124855427 instance=ExtResource("2_tafwd")]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2" unique_id=1393319962]
+layout_mode = 2
+
+[node name="UIBoxMinimal" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2/VBoxContainer" unique_id=708474694 instance=ExtResource("3_bfd2p")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2/VBoxContainer/UIBoxMinimal" unique_id=1962244156]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("7_ave2a")
+
+[node name="ProgressBar" type="ProgressBar" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2/VBoxContainer" unique_id=573736599]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+value = 25.0
+show_percentage = false
+
+[node name="Spacer" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2/VBoxContainer" unique_id=938792618 instance=ExtResource("2_wqdpu")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2/VBoxContainer" unique_id=952987889]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2/VBoxContainer/HBoxContainer" unique_id=2132835000]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("5_0vix3")
+
+[node name="Label" type="Label" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2/VBoxContainer/HBoxContainer" unique_id=1393786266]
+layout_mode = 2
+text = "200"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2/VBoxContainer" unique_id=1545911163]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2/VBoxContainer/HBoxContainer2" unique_id=313509857]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("6_c6an6")
+
+[node name="Label" type="Label" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2/VBoxContainer/HBoxContainer2" unique_id=1693061532]
+layout_mode = 2
+text = "30"
+
+[node name="Spacer2" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2/VBoxContainer" unique_id=562158122 instance=ExtResource("2_wqdpu")]
+layout_mode = 2
+
+[node name="Spacer3" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=1767361082 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
 
 [node name="UIBoxElaborate" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=1997915480 instance=ExtResource("1_sup1h")]
