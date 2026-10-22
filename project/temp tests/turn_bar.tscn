@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bqoxy48346yrt"]
+
+[ext_resource type="Script" uid="uid://7fjrqb3btfiv" path="res://temp tests/progress_bar.gd" id="1_1w1nd"]
+
+[node name="ProgressBar" type="ProgressBar" unique_id=263909228]
+custom_minimum_size = Vector2(20, 20)
+value = 25.0
+show_percentage = false
+script = ExtResource("1_1w1nd")

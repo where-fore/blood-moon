@@ -1,10 +1,10 @@
 
-- get a ui mockup in, and make sure it all looks good and scalable
+- get a ui mockup in with working fonts at resolution
 	- side bars with icons
 	- mouseover tooltip with readable text for that side bar icon
 	- central combat screen
 	- a nice font that works with a tooltip
-	this doesn't need to be perfect, i don't even know what the game will be, but basic stuff like tooltips and fonts would be great
+	this doesn't need to be perfect, i don't even know what the game will be, but i want to settle on a resolution that works with fonts and rescaling before making anything further - have them in their viewports or whatever is actually necessary
 
 - try out slot-ATB combat
 	- start out with just dagger (fast hit), sledgehammer (slow hit)
