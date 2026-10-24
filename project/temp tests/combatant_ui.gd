@@ -1,18 +1,15 @@
 extends PanelContainer
 
+@export var combatant_to_track:Combatant
 @export var health_label:Label
 @export var attack_label:Label
-@export var turn_indicator:ProgressBar
-@export var manager:Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	BasicEvents.ui_update.connect(update_values)
+	if not combatant_to_track: push_error(name, " was not assigned a combatant to track")
+	UiEvents.combatant_ui_update.connect(update)
 
-func update_values() -> void:
-	if turn_indicator.combatant_name == "Player":
-		health_label.text = str(manager.player_health)
-		attack_label.text = str(manager.player_attack)
-	if turn_indicator.combatant_name == "Enemy":
-		health_label.text = str(manager.enemy_health)
-		attack_label.text = str(manager.enemy_attack)
+func update(combatant:Combatant) -> void:
+	if combatant == combatant_to_track:
+		health_label.text = str(combatant.current_max_health - combatant.current_sustained_damage)
+		attack_label.text = str(combatant.current_attack)

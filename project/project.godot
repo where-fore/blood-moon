@@ -18,6 +18,7 @@ config/icon="res://loose/godot base/icon.svg"
 [autoload]
 
 BasicEvents="*uid://d106xelvglssr"
+UiEvents="*uid://dgtrw54h21gnc"
 
 [debug]
 

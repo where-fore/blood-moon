@@ -1,14 +1,12 @@
 extends ProgressBar
 
-@export var speed:int = 20
-@export var combatant_name:String
+@export var combatant_to_track:Combatant
 
 func _ready() -> void:
-	if not combatant_name: push_error("did not set combatant name on testing turn bar")
+	if not combatant_to_track: push_error(name, " was not assigned a combatant to track")
+	UiEvents.combatant_ui_update.connect(update)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	value += delta*speed
-	if value >= 100:
-		value = 0
-		BasicEvents.turn_ready.emit(combatant_name)
+func update(combatant_check:Combatant) -> void:
+	if combatant_check == combatant_to_track:
+		max_value = combatant_check.turn_cooldown
+		value = combatant_check.elapsed_turn_timer

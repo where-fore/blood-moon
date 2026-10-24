@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://k4ccseptpqxp" path="res://sprites/sword_basic.png" id="6_c6an6"]
 [ext_resource type="Texture2D" uid="uid://dfay83r2c6v5v" path="res://sprites/enemy_skull.png" id="7_ave2a"]
 [ext_resource type="Script" uid="uid://clexac1mmhg6h" path="res://combat_manager.gd" id="12_0vix3"]
+[ext_resource type="Script" uid="uid://cfhjyw384c0sl" path="res://temp tests/start_combat.gd" id="13_4dsyv"]
+[ext_resource type="Script" uid="uid://crtv10cne2ea5" path="res://temp tests/winner.gd" id="14_4dsyv"]
+[ext_resource type="Script" uid="uid://dyeno2clhdjwo" path="res://temp tests/combatant.gd" id="14_ave2a"]
 
 [node name="Node2D" type="Node2D" unique_id=383782260]
 
@@ -27,14 +30,13 @@ layout_mode = 2
 [node name="Spacer" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=466240430 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
 
-[node name="UIBoxStreamlined" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=1018818442 node_paths=PackedStringArray("health_label", "attack_label", "turn_indicator", "manager") instance=ExtResource("2_tafwd")]
+[node name="UIBoxStreamlined" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=1018818442 node_paths=PackedStringArray("combatant_to_track", "health_label", "attack_label") instance=ExtResource("2_tafwd")]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 script = ExtResource("3_c6an6")
+combatant_to_track = NodePath("../../../../CombatManager/Player")
 health_label = NodePath("VBoxContainer/HBoxContainer/Label")
 attack_label = NodePath("VBoxContainer/HBoxContainer2/Label")
-turn_indicator = NodePath("VBoxContainer/ProgressBar")
-manager = NodePath("../../../../CombatManager")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined" unique_id=1772241150]
 layout_mode = 2
@@ -48,9 +50,9 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("4_t27i6")
 
-[node name="ProgressBar" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer" unique_id=263909228 instance=ExtResource("5_t27i6")]
+[node name="ProgressBar" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer" unique_id=263909228 node_paths=PackedStringArray("combatant_to_track") instance=ExtResource("5_t27i6")]
 layout_mode = 2
-combatant_name = "Player"
+combatant_to_track = NodePath("../../../../../../CombatManager/Player")
 
 [node name="Spacer" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer" unique_id=929488828 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
@@ -87,14 +89,13 @@ layout_mode = 2
 [node name="Spacer2" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=226584502 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
 
-[node name="UIBoxStreamlined2" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=124855427 node_paths=PackedStringArray("health_label", "attack_label", "turn_indicator", "manager") instance=ExtResource("2_tafwd")]
+[node name="UIBoxStreamlined2" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=124855427 node_paths=PackedStringArray("combatant_to_track", "health_label", "attack_label") instance=ExtResource("2_tafwd")]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 script = ExtResource("3_c6an6")
+combatant_to_track = NodePath("../../../../CombatManager/Enemy")
 health_label = NodePath("VBoxContainer/HBoxContainer/Label")
 attack_label = NodePath("VBoxContainer/HBoxContainer2/Label")
-turn_indicator = NodePath("VBoxContainer/ProgressBar")
-manager = NodePath("../../../../CombatManager")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2" unique_id=1393319962]
 layout_mode = 2
@@ -108,10 +109,9 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("7_ave2a")
 
-[node name="ProgressBar" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2/VBoxContainer" unique_id=199866892 instance=ExtResource("5_t27i6")]
+[node name="ProgressBar" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2/VBoxContainer" unique_id=199866892 node_paths=PackedStringArray("combatant_to_track") instance=ExtResource("5_t27i6")]
 layout_mode = 2
-speed = 50
-combatant_name = "Enemy"
+combatant_to_track = NodePath("../../../../../../CombatManager/Enemy")
 
 [node name="Spacer" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2/VBoxContainer" unique_id=938792618 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
@@ -193,5 +193,112 @@ layout_mode = 2
 texture = ExtResource("3_mex7b")
 expand_mode = 4
 
-[node name="CombatManager" type="Node2D" parent="." unique_id=241199902]
+[node name="Control" type="Control" parent="MainGame/UIBoxStreamlined" unique_id=432035369]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="MainGame/UIBoxStreamlined/Control" unique_id=55217983]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+script = ExtResource("13_4dsyv")
+
+[node name="ColorRect" type="ColorRect" parent="MainGame/UIBoxStreamlined/Control/Button" unique_id=239064893]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="MainGame/UIBoxStreamlined/Control/Button" unique_id=641167221]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start
+Combat"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UIBoxElaborate" parent="MainGame/UIBoxStreamlined/Control/Button" unique_id=297367461 instance=ExtResource("1_sup1h")]
+layout_mode = 1
+mouse_filter = 2
+
+[node name="Button2" type="Button" parent="MainGame/UIBoxStreamlined/Control" unique_id=1039482186]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+script = ExtResource("14_4dsyv")
+
+[node name="ColorRect" type="ColorRect" parent="MainGame/UIBoxStreamlined/Control/Button2" unique_id=1498177975]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="MainGame/UIBoxStreamlined/Control/Button2" unique_id=1526216548]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Enemy
+Deafeated"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UIBoxElaborate" parent="MainGame/UIBoxStreamlined/Control/Button2" unique_id=1530720811 instance=ExtResource("1_sup1h")]
+layout_mode = 1
+mouse_filter = 2
+
+[node name="CombatManager" type="Node2D" parent="." unique_id=241199902 node_paths=PackedStringArray("player_combatant", "enemy_combatant")]
 script = ExtResource("12_0vix3")
+player_combatant = NodePath("Player")
+enemy_combatant = NodePath("Enemy")
+
+[node name="Player" type="Node2D" parent="CombatManager" unique_id=140390826]
+script = ExtResource("14_ave2a")
+starting_max_health = 200
+starting_attack = 50
+starting_turn_cooldown = 1
+
+[node name="Enemy" type="Node2D" parent="CombatManager" unique_id=1896971410]
+script = ExtResource("14_ave2a")
+starting_max_health = 200
+starting_attack = 50
+starting_turn_cooldown = 2
+
+[connection signal="pressed" from="MainGame/UIBoxStreamlined/Control/Button" to="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined" method="_on_button_pressed"]
+[connection signal="pressed" from="MainGame/UIBoxStreamlined/Control/Button" to="MainGame/UIBoxStreamlined/Control/Button" method="_on_pressed"]
+[connection signal="pressed" from="MainGame/UIBoxStreamlined/Control/Button2" to="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined" method="_on_button_pressed"]
+[connection signal="pressed" from="MainGame/UIBoxStreamlined/Control/Button2" to="MainGame/UIBoxStreamlined/Control/Button2" method="_on_pressed"]

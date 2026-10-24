@@ -1,18 +1,27 @@
 extends Node2D
 
-var player_health:int = 200
-var player_attack:int = 125
-var enemy_health:int = 200
-var enemy_attack:int = 20
+@export var player_combatant:Combatant
+@export var enemy_combatant:Combatant
+var combatants:Array[Combatant]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	BasicEvents.turn_ready.connect(take_turn)
 	BasicEvents.ui_update.emit()
+	BasicEvents.start_combat.connect(start_combat)
+	@warning_ignore("untyped_declaration")
+	BasicEvents.combatant_died.connect(func(_dead_combatant:Combatant): end_combat())
+	
+	player_combatant.is_the_player = true
+	
+	combatants = [player_combatant, enemy_combatant]
+	player_combatant.current_target = enemy_combatant
+	enemy_combatant.current_target = player_combatant
 
-func take_turn(combatant:String) -> void:
-	if combatant == "Player":
-		enemy_health -= player_attack
-	elif combatant == "Enemy":
-		player_health -= enemy_attack
-	BasicEvents.ui_update.emit()
+func start_combat() -> void:
+	for combatant:Combatant in combatants:
+		combatant.active_in_combat = true
+
+func end_combat() -> void:
+	for combatant:Combatant in combatants:
+		combatant.active_in_combat = false
+		combatant.reset_after_combat()
