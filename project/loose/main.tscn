@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dt7jpbn71da3l" path="res://ui pieces/ui_box_streamlined.tscn" id="2_tafwd"]
 [ext_resource type="PackedScene" uid="uid://b7fjh8x3yifx4" path="res://ui pieces/spacer.tscn" id="2_wqdpu"]
 [ext_resource type="PackedScene" uid="uid://drn7hyslxtts4" path="res://ui pieces/ui_box_minimal.tscn" id="3_bfd2p"]
+[ext_resource type="Script" uid="uid://dxpeesw3qdsj0" path="res://temp tests/combatant_ui.gd" id="3_c6an6"]
 [ext_resource type="Texture2D" uid="uid://keqhopsx8vwn" path="res://sprites/dirk.png" id="3_mex7b"]
 [ext_resource type="Texture2D" uid="uid://dd3c32ykhp1k0" path="res://sprites/vamp_blade.png" id="3_wqdpu"]
 [ext_resource type="Texture2D" uid="uid://bgv0xar3ewpfd" path="res://sprites/player.png" id="4_t27i6"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bqoxy48346yrt" path="res://temp tests/turn_bar.tscn" id="5_t27i6"]
 [ext_resource type="Texture2D" uid="uid://k4ccseptpqxp" path="res://sprites/sword_basic.png" id="6_c6an6"]
 [ext_resource type="Texture2D" uid="uid://dfay83r2c6v5v" path="res://sprites/enemy_skull.png" id="7_ave2a"]
+[ext_resource type="Script" uid="uid://clexac1mmhg6h" path="res://combat_manager.gd" id="12_0vix3"]
 
 [node name="Node2D" type="Node2D" unique_id=383782260]
 
@@ -25,9 +27,14 @@ layout_mode = 2
 [node name="Spacer" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=466240430 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
 
-[node name="UIBoxStreamlined" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=1018818442 instance=ExtResource("2_tafwd")]
+[node name="UIBoxStreamlined" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=1018818442 node_paths=PackedStringArray("health_label", "attack_label", "turn_indicator", "manager") instance=ExtResource("2_tafwd")]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+script = ExtResource("3_c6an6")
+health_label = NodePath("VBoxContainer/HBoxContainer/Label")
+attack_label = NodePath("VBoxContainer/HBoxContainer2/Label")
+turn_indicator = NodePath("VBoxContainer/ProgressBar")
+manager = NodePath("../../../../CombatManager")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined" unique_id=1772241150]
 layout_mode = 2
@@ -80,9 +87,14 @@ layout_mode = 2
 [node name="Spacer2" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=226584502 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
 
-[node name="UIBoxStreamlined2" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=124855427 instance=ExtResource("2_tafwd")]
+[node name="UIBoxStreamlined2" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=124855427 node_paths=PackedStringArray("health_label", "attack_label", "turn_indicator", "manager") instance=ExtResource("2_tafwd")]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+script = ExtResource("3_c6an6")
+health_label = NodePath("VBoxContainer/HBoxContainer/Label")
+attack_label = NodePath("VBoxContainer/HBoxContainer2/Label")
+turn_indicator = NodePath("VBoxContainer/ProgressBar")
+manager = NodePath("../../../../CombatManager")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2" unique_id=1393319962]
 layout_mode = 2
@@ -180,3 +192,6 @@ custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("3_mex7b")
 expand_mode = 4
+
+[node name="CombatManager" type="Node2D" parent="." unique_id=241199902]
+script = ExtResource("12_0vix3")
