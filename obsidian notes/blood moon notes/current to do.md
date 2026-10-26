@@ -28,5 +28,6 @@
 - setup a nice combatant - ui update pipeline
 	- have a "tracked by ui stat" class, which is basically just an int/float that has a getter/setter in it that sends the ui signal with the parent combatant. health = Stat.new(50, self) in combatant
 		- this is cool, can also do this for things like export variables that auto fire errors
+		- also works well for non-combatants, something like a weapon knows what stats it can draw from
 	- have a global list of stat stringnames, and then each combatant makes a dictionary of each stat, and has their own function stats.get(name, 0), which returns the stat and signals the ui
 	- make sure there's a boilerplate for a ui object that listens to these updates

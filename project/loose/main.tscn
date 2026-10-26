@@ -10,8 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bgv0xar3ewpfd" path="res://sprites/player.png" id="4_t27i6"]
 [ext_resource type="Texture2D" uid="uid://gw80on1ihg7f" path="res://sprites/heart.png" id="5_0vix3"]
 [ext_resource type="PackedScene" uid="uid://bqoxy48346yrt" path="res://temp tests/turn_bar.tscn" id="5_t27i6"]
-[ext_resource type="Texture2D" uid="uid://k4ccseptpqxp" path="res://sprites/sword_basic.png" id="6_c6an6"]
 [ext_resource type="Texture2D" uid="uid://dfay83r2c6v5v" path="res://sprites/enemy_skull.png" id="7_ave2a"]
+[ext_resource type="Texture2D" uid="uid://bjkc5itfgl2aa" path="res://sprites/strength.png" id="8_16p2t"]
+[ext_resource type="Texture2D" uid="uid://cdrdpsiijftie" path="res://sprites/dexterity.png" id="9_hben2"]
 [ext_resource type="Script" uid="uid://clexac1mmhg6h" path="res://combat_manager.gd" id="12_0vix3"]
 [ext_resource type="Script" uid="uid://cfhjyw384c0sl" path="res://temp tests/start_combat.gd" id="13_4dsyv"]
 [ext_resource type="Script" uid="uid://crtv10cne2ea5" path="res://temp tests/winner.gd" id="14_4dsyv"]
@@ -30,13 +31,14 @@ layout_mode = 2
 [node name="Spacer" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=466240430 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
 
-[node name="UIBoxStreamlined" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=1018818442 node_paths=PackedStringArray("combatant_to_track", "health_label", "attack_label") instance=ExtResource("2_tafwd")]
+[node name="UIBoxStreamlined" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=1018818442 node_paths=PackedStringArray("combatant_to_track", "health_label", "attack_label", "speed_label") instance=ExtResource("2_tafwd")]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 script = ExtResource("3_c6an6")
 combatant_to_track = NodePath("../../../../CombatManager/Player")
 health_label = NodePath("VBoxContainer/HBoxContainer/Label")
 attack_label = NodePath("VBoxContainer/HBoxContainer2/Label")
+speed_label = NodePath("VBoxContainer/HBoxContainer3/Label")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined" unique_id=1772241150]
 layout_mode = 2
@@ -70,16 +72,29 @@ texture = ExtResource("5_0vix3")
 layout_mode = 2
 text = "200"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer" unique_id=1212980983]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer" unique_id=1784990364]
 layout_mode = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer/HBoxContainer2" unique_id=576631082]
+[node name="TextureRect" type="TextureRect" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer/HBoxContainer2" unique_id=313658189]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-texture = ExtResource("6_c6an6")
+texture = ExtResource("8_16p2t")
 
-[node name="Label" type="Label" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer/HBoxContainer2" unique_id=1596420283]
+[node name="Label" type="Label" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer/HBoxContainer2" unique_id=1026955465]
+layout_mode = 2
+text = "30"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer" unique_id=1228280604]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer/HBoxContainer3" unique_id=912606041]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("9_hben2")
+
+[node name="Label" type="Label" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined/VBoxContainer/HBoxContainer3" unique_id=1205761815]
 layout_mode = 2
 text = "30"
 
@@ -89,13 +104,14 @@ layout_mode = 2
 [node name="Spacer2" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=226584502 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
 
-[node name="UIBoxStreamlined2" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=124855427 node_paths=PackedStringArray("combatant_to_track", "health_label", "attack_label") instance=ExtResource("2_tafwd")]
+[node name="UIBoxStreamlined2" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=124855427 node_paths=PackedStringArray("combatant_to_track", "health_label", "attack_label", "speed_label") instance=ExtResource("2_tafwd")]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 script = ExtResource("3_c6an6")
 combatant_to_track = NodePath("../../../../CombatManager/Enemy")
 health_label = NodePath("VBoxContainer/HBoxContainer/Label")
 attack_label = NodePath("VBoxContainer/HBoxContainer2/Label")
+speed_label = NodePath("VBoxContainer/HBoxContainer3/Label")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2" unique_id=1393319962]
 layout_mode = 2
@@ -136,9 +152,22 @@ alignment = 1
 [node name="TextureRect" type="TextureRect" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2/VBoxContainer/HBoxContainer2" unique_id=313509857]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-texture = ExtResource("6_c6an6")
+texture = ExtResource("8_16p2t")
 
 [node name="Label" type="Label" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2/VBoxContainer/HBoxContainer2" unique_id=1693061532]
+layout_mode = 2
+text = "30"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2/VBoxContainer" unique_id=1194915612]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2/VBoxContainer/HBoxContainer3" unique_id=1321329155]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("9_hben2")
+
+[node name="Label" type="Label" parent="MainGame/UIBoxStreamlined/HBoxContainer/UIBoxStreamlined2/VBoxContainer/HBoxContainer3" unique_id=2103291860]
 layout_mode = 2
 text = "30"
 
@@ -240,6 +269,7 @@ layout_mode = 1
 mouse_filter = 2
 
 [node name="Button2" type="Button" parent="MainGame/UIBoxStreamlined/Control" unique_id=1039482186]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
