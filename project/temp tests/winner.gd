@@ -8,3 +8,6 @@ func _ready() -> void:
 
 func arrive() -> void:
 	visible = true
+
+func _on_pressed() -> void:
+	visible = false

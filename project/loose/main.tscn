@@ -202,7 +202,7 @@ layout_mode = 2
 
 [node name="RewardChoice" parent="MainGame/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=669457632 instance=ExtResource("12_g13l7")]
 layout_mode = 2
-reward = ExtResource("14_obmf6")
+reward = ExtResource("15_f4q0r")
 
 [node name="RewardChoice2" parent="MainGame/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=691708868 instance=ExtResource("12_g13l7")]
 layout_mode = 2
@@ -210,7 +210,7 @@ reward = ExtResource("13_npwt7")
 
 [node name="RewardChoice3" parent="MainGame/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=1392033396 instance=ExtResource("12_g13l7")]
 layout_mode = 2
-reward = ExtResource("15_f4q0r")
+reward = ExtResource("14_obmf6")
 
 [node name="Spacer2" parent="MainGame/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=212561815 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
@@ -311,7 +311,6 @@ layout_mode = 1
 mouse_filter = 2
 
 [node name="Button2" type="Button" parent="MainGame/UIBoxStreamlined/Control" unique_id=1039482186]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -370,11 +369,11 @@ starting_max_health = 200
 starting_attack = 50
 base_attack_speed = 2
 
-[node name="UIManager" type="Node2D" parent="." unique_id=1224659959 node_paths=PackedStringArray("enemy_combatant")]
+[node name="UIManager" type="Node2D" parent="." unique_id=1224659959 node_paths=PackedStringArray("enemy_screen", "reward_screen")]
 script = ExtResource("21_obmf6")
-enemy_combatant = NodePath("../MainGame/UIBoxStreamlined/HBoxContainer/EnemyCombatant")
+enemy_screen = NodePath("../MainGame/UIBoxStreamlined/HBoxContainer/EnemyCombatant")
+reward_screen = NodePath("../MainGame/UIBoxStreamlined/HBoxContainer/RewardScreen")
 
 [connection signal="pressed" from="MainGame/UIBoxStreamlined/Control/Button" to="MainGame/UIBoxStreamlined/HBoxContainer/PlayerCombatant" method="_on_button_pressed"]
 [connection signal="pressed" from="MainGame/UIBoxStreamlined/Control/Button" to="MainGame/UIBoxStreamlined/Control/Button" method="_on_pressed"]
-[connection signal="pressed" from="MainGame/UIBoxStreamlined/Control/Button2" to="MainGame/UIBoxStreamlined/HBoxContainer/PlayerCombatant" method="_on_button_pressed"]
 [connection signal="pressed" from="MainGame/UIBoxStreamlined/Control/Button2" to="MainGame/UIBoxStreamlined/Control/Button2" method="_on_pressed"]

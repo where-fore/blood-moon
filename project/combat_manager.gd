@@ -25,3 +25,4 @@ func end_combat() -> void:
 	for combatant:Combatant in combatants:
 		combatant.active_in_combat = false
 		combatant.reset_after_combat()
+	BasicEvents.swap_to_reward_screen.emit()

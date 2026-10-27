@@ -13,10 +13,10 @@ func _ready() -> void:
 	
 	var text_to_set:String = str(reward.value)
 	if reward.stat == Stats.stats.attack_speed_multiplier: text_to_set += "%"
-	
+	text_to_set = "+" + text_to_set
 	value_label.text = text_to_set
 
 
 func _on_button_pressed() -> void:
 	BasicEvents.reward_chosen.emit(reward)
-	#signal that rewards are done, and the scene should change or something
+	BasicEvents.swap_to_combat_screen.emit()

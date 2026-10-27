@@ -67,6 +67,7 @@ func upgrade_with_reward(reward:Reward) -> void:
 		Stats.stats.health: current_max_health += reward.value
 		Stats.stats.attack: current_attack += reward.value
 		Stats.stats.attack_speed_multiplier: current_attack_speed_multiplier += reward.value
+	UiEvents.combatant_ui_update.emit(self)
 
 func reset_stats_to_starting_base() -> void:
 	current_max_health = starting_max_health
