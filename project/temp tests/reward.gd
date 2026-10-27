@@ -1,10 +1,11 @@
-extends Node
+extends Resource
 class_name Reward
 
-var value:int
-var stat:StringName
+@export var value:int
+@export var stat:Stats.stats
+@export var image:Texture
 
-func setup(stat_name:StringName, value_to_add:int) -> void:
+func setup(stat_name:Stats.stats, value_to_add:int) -> void:
 	value = value_to_add
 	
 	if not stat_name in Stats.stats:

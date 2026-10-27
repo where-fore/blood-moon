@@ -14,4 +14,4 @@ func update(combatant:Combatant) -> void:
 	if combatant == combatant_to_track:
 		health_label.text = str(combatant.current_max_health - combatant.current_sustained_damage)
 		attack_label.text = str(combatant.current_attack)
-		speed_label.text = str(combatant.turn_cooldown)
+		speed_label.text = str(combatant.current_attack_speed)

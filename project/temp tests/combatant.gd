@@ -16,7 +16,7 @@ var current_attack:int
 var current_base_attack_speed:float
 var current_attack_speed_multiplier:int
 var current_attack_speed:float:
-	get(): return current_base_attack_speed / (100+current_attack_speed_multiplier)/100
+	get(): return current_base_attack_speed / ((100.0 + float(current_attack_speed_multiplier))/ 100.0)
 
 var active_in_combat:bool = false
 var current_target:Combatant

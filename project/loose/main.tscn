@@ -17,10 +17,11 @@
 [ext_resource type="Script" uid="uid://clexac1mmhg6h" path="res://combat_manager.gd" id="12_0vix3"]
 [ext_resource type="PackedScene" uid="uid://bu0baiemyj4g4" path="res://temp tests/reward_choice.tscn" id="12_g13l7"]
 [ext_resource type="Script" uid="uid://cfhjyw384c0sl" path="res://temp tests/start_combat.gd" id="13_4dsyv"]
+[ext_resource type="Resource" uid="uid://djxrgmdbopuo8" path="res://temp tests/basic_attack.tres" id="13_npwt7"]
 [ext_resource type="Script" uid="uid://crtv10cne2ea5" path="res://temp tests/winner.gd" id="14_4dsyv"]
 [ext_resource type="Script" uid="uid://dyeno2clhdjwo" path="res://temp tests/combatant.gd" id="14_ave2a"]
-[ext_resource type="Texture2D" uid="uid://b848ow16ocra5" path="res://sprites/blood.png" id="14_npwt7"]
-[ext_resource type="Texture2D" uid="uid://cxg0kn5on3sye" path="res://sprites/double_sided_axe.png" id="15_g13l7"]
+[ext_resource type="Resource" uid="uid://cwln6sdmi0rh0" path="res://temp tests/basic_attack_speed.tres" id="14_obmf6"]
+[ext_resource type="Resource" uid="uid://gcp47hshsibo" path="res://temp tests/basic_health.tres" id="15_f4q0r"]
 [ext_resource type="Script" uid="uid://6jgkwbsqcufi" path="res://temp tests/ui_manager.gd" id="21_obmf6"]
 
 [node name="Node2D" type="Node2D" unique_id=383782260]
@@ -201,21 +202,15 @@ layout_mode = 2
 
 [node name="RewardChoice" parent="MainGame/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=669457632 instance=ExtResource("12_g13l7")]
 layout_mode = 2
-image = ExtResource("3_mex7b")
-stat = "Speed"
-value_speed = 0.5
+reward = ExtResource("14_obmf6")
 
 [node name="RewardChoice2" parent="MainGame/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=691708868 instance=ExtResource("12_g13l7")]
 layout_mode = 2
-image = ExtResource("14_npwt7")
-stat = "Health"
-value = 100
+reward = ExtResource("13_npwt7")
 
 [node name="RewardChoice3" parent="MainGame/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=1392033396 instance=ExtResource("12_g13l7")]
 layout_mode = 2
-image = ExtResource("15_g13l7")
-stat = "Attack"
-value = 25
+reward = ExtResource("15_f4q0r")
 
 [node name="Spacer2" parent="MainGame/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=212561815 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
@@ -367,11 +362,13 @@ enemy_combatant = NodePath("Enemy")
 script = ExtResource("14_ave2a")
 starting_max_health = 200
 starting_attack = 50
+base_attack_speed = 1
 
 [node name="Enemy" type="Node2D" parent="CombatManager" unique_id=1896971410]
 script = ExtResource("14_ave2a")
 starting_max_health = 200
 starting_attack = 50
+base_attack_speed = 2
 
 [node name="UIManager" type="Node2D" parent="." unique_id=1224659959 node_paths=PackedStringArray("enemy_combatant")]
 script = ExtResource("21_obmf6")

@@ -5,10 +5,13 @@ extends Node
 
 var health:StringName = &"Health"
 var attack:StringName = &"Attack"
-var attack_speed:StringName = &"Attack Speed"
+var attack_speed_multiplier:StringName = &"Attack Speed"
 
-var stats:Array[StringName] = [
-	health, 
-	attack,
-	attack_speed,
-]
+enum stats {health, attack, attack_speed_multiplier}
+
+func return_name(stat_enum: stats) -> StringName:
+	match stat_enum:
+		stats.health: return health
+		stats.attack: return attack
+		stats.attack_speed_multiplier: return attack_speed_multiplier
+	return &""

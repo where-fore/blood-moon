@@ -8,5 +8,5 @@ func _ready() -> void:
 
 func update(combatant_check:Combatant) -> void:
 	if combatant_check == combatant_to_track:
-		max_value = combatant_check.turn_cooldown
+		max_value = combatant_check.current_attack_speed
 		value = combatant_check.elapsed_turn_timer

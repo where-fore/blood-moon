@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Reward" format=3 uid="uid://djxrgmdbopuo8"]
+
+[ext_resource type="Texture2D" uid="uid://bg51rs1q8l3gi" path="res://sprites/iron_axe.png" id="1_540q8"]
+[ext_resource type="Script" uid="uid://dglf4fk5cme0u" path="res://temp tests/reward.gd" id="1_swd2o"]
+
+[resource]
+script = ExtResource("1_swd2o")
+value = 25
+stat = 1
+image = ExtResource("1_540q8")
