@@ -367,13 +367,11 @@ enemy_combatant = NodePath("Enemy")
 script = ExtResource("14_ave2a")
 starting_max_health = 200
 starting_attack = 50
-starting_turn_cooldown = 1
 
 [node name="Enemy" type="Node2D" parent="CombatManager" unique_id=1896971410]
 script = ExtResource("14_ave2a")
 starting_max_health = 200
 starting_attack = 50
-starting_turn_cooldown = 2
 
 [node name="UIManager" type="Node2D" parent="." unique_id=1224659959 node_paths=PackedStringArray("enemy_combatant")]
 script = ExtResource("21_obmf6")

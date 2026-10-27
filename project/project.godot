@@ -19,6 +19,7 @@ config/icon="res://loose/godot base/icon.svg"
 
 BasicEvents="*uid://d106xelvglssr"
 UiEvents="*uid://dgtrw54h21gnc"
+Stats="*uid://d0ycmraajt78k"
 
 [debug]
 

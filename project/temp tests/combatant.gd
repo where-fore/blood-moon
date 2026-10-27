@@ -3,7 +3,7 @@ class_name Combatant
 
 @export var starting_max_health:int
 @export var starting_attack:int
-@export var starting_turn_cooldown:int
+@export var base_attack_speed:int
 
 var is_the_player:bool = false
 
@@ -13,20 +13,23 @@ var current_sustained_damage:int:
 		current_sustained_damage = value
 		UiEvents.combatant_ui_update.emit(self)
 var current_attack:int
+var current_base_attack_speed:float
+var current_attack_speed_multiplier:int
+var current_attack_speed:float:
+	get(): return current_base_attack_speed / (100+current_attack_speed_multiplier)/100
 
 var active_in_combat:bool = false
 var current_target:Combatant
 
-var turn_cooldown:float
 var elapsed_turn_timer:float = 0:
 	set(value):
 		elapsed_turn_timer = value
 		UiEvents.combatant_ui_update.emit(self)
 
 func _ready() -> void:
-	if starting_max_health < 1: push_error("starting_max_health not initialized on: ", name)
-	if starting_attack < 1: push_error("starting_attack not initialized on: ", name)
-	if starting_turn_cooldown < 1: push_error("starting_turn_cooldown not initialized on: ", name)
+	if not starting_max_health: push_error("starting_max_health not initialized on: ", name)
+	if not starting_attack: push_error("starting_attack not initialized on: ", name)
+	if not base_attack_speed: push_error("starting_turn_cooldown not initialized on: ", name)
 	reset_stats_to_starting_base()
 
 func _process(delta: float) -> void:
@@ -35,8 +38,8 @@ func _process(delta: float) -> void:
 
 func increment_turn_timer(delta:float) -> void:
 	elapsed_turn_timer += delta # *Globals.CombatTimeScale
-	while elapsed_turn_timer >= turn_cooldown:
-		elapsed_turn_timer -= turn_cooldown
+	while elapsed_turn_timer >= current_attack_speed:
+		elapsed_turn_timer -= current_attack_speed
 		take_turn()
 
 func take_damage(amount:int) -> void:
@@ -55,5 +58,8 @@ func reset_after_combat() -> void:
 func reset_stats_to_starting_base() -> void:
 	current_max_health = starting_max_health
 	current_attack = starting_attack
+	current_base_attack_speed = base_attack_speed
+	current_attack_speed_multiplier = 0
+	
 	current_sustained_damage = 0
-	turn_cooldown = starting_turn_cooldown
+	elapsed_turn_timer = 0
