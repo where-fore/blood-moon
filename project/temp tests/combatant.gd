@@ -5,7 +5,13 @@ class_name Combatant
 @export var starting_attack:int
 @export var base_attack_speed:int
 
-var is_the_player:bool = false
+var is_the_player:bool = false:
+	set(value):
+		is_the_player = value
+		if is_the_player: 
+			BasicEvents.reward_chosen.connect(upgrade_with_reward)
+		else:
+			BasicEvents.reward_chosen.disconnect(upgrade_with_reward)
 
 var current_max_health:int
 var current_sustained_damage:int:
@@ -31,6 +37,7 @@ func _ready() -> void:
 	if not starting_attack: push_error("starting_attack not initialized on: ", name)
 	if not base_attack_speed: push_error("starting_turn_cooldown not initialized on: ", name)
 	reset_stats_to_starting_base()
+	
 
 func _process(delta: float) -> void:
 	if active_in_combat:
@@ -54,6 +61,12 @@ func reset_after_combat() -> void:
 	current_sustained_damage = 0
 	elapsed_turn_timer = 0
 	UiEvents.combatant_ui_update.emit(self)
+
+func upgrade_with_reward(reward:Reward) -> void:
+	match reward.stat:
+		Stats.stats.health: current_max_health += reward.value
+		Stats.stats.attack: current_attack += reward.value
+		Stats.stats.attack_speed_multiplier: current_attack_speed_multiplier += reward.value
 
 func reset_stats_to_starting_base() -> void:
 	current_max_health = starting_max_health

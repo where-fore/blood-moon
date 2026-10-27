@@ -15,3 +15,8 @@ func _ready() -> void:
 	if reward.stat == Stats.stats.attack_speed_multiplier: text_to_set += "%"
 	
 	value_label.text = text_to_set
+
+
+func _on_button_pressed() -> void:
+	BasicEvents.reward_chosen.emit(reward)
+	#signal that rewards are done, and the scene should change or something
