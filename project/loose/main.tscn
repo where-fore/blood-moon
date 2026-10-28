@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://dyeno2clhdjwo" path="res://temp tests/combatant.gd" id="14_ave2a"]
 [ext_resource type="Resource" uid="uid://cwln6sdmi0rh0" path="res://temp tests/basic_attack_speed.tres" id="14_obmf6"]
 [ext_resource type="Resource" uid="uid://gcp47hshsibo" path="res://temp tests/basic_health.tres" id="15_f4q0r"]
+[ext_resource type="Script" uid="uid://2ik2h1rqg747" path="res://temp tests/lose_button.gd" id="21_f4q0r"]
 [ext_resource type="Script" uid="uid://6jgkwbsqcufi" path="res://temp tests/ui_manager.gd" id="21_obmf6"]
 
 [node name="Node2D" type="Node2D" unique_id=383782260]
@@ -311,6 +312,7 @@ layout_mode = 1
 mouse_filter = 2
 
 [node name="Button2" type="Button" parent="MainGame/UIBoxStreamlined/Control" unique_id=1039482186]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -352,6 +354,48 @@ vertical_alignment = 1
 layout_mode = 1
 mouse_filter = 2
 
+[node name="Button3" type="Button" parent="MainGame/UIBoxStreamlined/Control" unique_id=1718608174]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+script = ExtResource("21_f4q0r")
+
+[node name="ColorRect" type="ColorRect" parent="MainGame/UIBoxStreamlined/Control/Button3" unique_id=213018045]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="MainGame/UIBoxStreamlined/Control/Button3" unique_id=35079360]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "The evil is
+victorious..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UIBoxElaborate" parent="MainGame/UIBoxStreamlined/Control/Button3" unique_id=249333621 instance=ExtResource("1_sup1h")]
+layout_mode = 1
+mouse_filter = 2
+
 [node name="CombatManager" type="Node2D" parent="." unique_id=241199902 node_paths=PackedStringArray("player_combatant", "enemy_combatant")]
 script = ExtResource("12_0vix3")
 player_combatant = NodePath("Player")
@@ -377,3 +421,4 @@ reward_screen = NodePath("../MainGame/UIBoxStreamlined/HBoxContainer/RewardScree
 [connection signal="pressed" from="MainGame/UIBoxStreamlined/Control/Button" to="MainGame/UIBoxStreamlined/HBoxContainer/PlayerCombatant" method="_on_button_pressed"]
 [connection signal="pressed" from="MainGame/UIBoxStreamlined/Control/Button" to="MainGame/UIBoxStreamlined/Control/Button" method="_on_pressed"]
 [connection signal="pressed" from="MainGame/UIBoxStreamlined/Control/Button2" to="MainGame/UIBoxStreamlined/Control/Button2" method="_on_pressed"]
+[connection signal="pressed" from="MainGame/UIBoxStreamlined/Control/Button3" to="MainGame/UIBoxStreamlined/Control/Button3" method="_on_pressed"]

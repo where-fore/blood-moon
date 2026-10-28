@@ -8,8 +8,8 @@ var combatants:Array[Combatant]
 func _ready() -> void:
 	BasicEvents.ui_update.emit()
 	BasicEvents.start_combat.connect(start_combat)
-	@warning_ignore("untyped_declaration")
-	BasicEvents.combatant_died.connect(func(_dead_combatant:Combatant): end_combat())
+	BasicEvents.combatant_died.connect(end_combat)
+	BasicEvents.player_lost.connect(restart_game)
 	
 	player_combatant.is_the_player = true
 	
@@ -21,8 +21,16 @@ func start_combat() -> void:
 	for combatant:Combatant in combatants:
 		combatant.active_in_combat = true
 
-func end_combat() -> void:
+func end_combat(dead_combatant:Combatant) -> void:
+	end_of_combat_cleanup()
+	if not dead_combatant.is_the_player: BasicEvents.swap_to_reward_screen.emit()
+
+func restart_game() -> void:
+	end_of_combat_cleanup()
+	for combatant:Combatant in combatants:
+		combatant.reset_stats_to_starting_base()
+
+func end_of_combat_cleanup() -> void:
 	for combatant:Combatant in combatants:
 		combatant.active_in_combat = false
 		combatant.reset_after_combat()
-	BasicEvents.swap_to_reward_screen.emit()

@@ -53,6 +53,7 @@ func take_damage(amount:int) -> void:
 	current_sustained_damage += amount
 	if current_sustained_damage >= current_max_health:
 		BasicEvents.combatant_died.emit(self)
+		if is_the_player: BasicEvents.player_lost.emit()
 
 func take_turn() -> void:
 	current_target.take_damage(current_attack)
