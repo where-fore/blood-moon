@@ -10,6 +10,8 @@ func _ready() -> void:
 	BasicEvents.start_combat.connect(start_combat)
 	BasicEvents.combatant_died.connect(end_combat)
 	BasicEvents.player_lost.connect(restart_game)
+	@warning_ignore("untyped_declaration")
+	BasicEvents.reward_chosen.connect(func(_reward:Reward): strengthen_enemies())
 	
 	player_combatant.is_the_player = true
 	
@@ -29,6 +31,11 @@ func restart_game() -> void:
 	end_of_combat_cleanup()
 	for combatant:Combatant in combatants:
 		combatant.reset_stats_to_starting_base()
+
+func strengthen_enemies() -> void:
+	for combatant:Combatant in combatants:
+		if not combatant.is_the_player:
+			combatant.upgrade_over_time()
 
 func end_of_combat_cleanup() -> void:
 	for combatant:Combatant in combatants:

@@ -70,6 +70,11 @@ func upgrade_with_reward(reward:Reward) -> void:
 		Stats.stats.attack_speed_multiplier: current_attack_speed_multiplier += reward.value
 	UiEvents.combatant_ui_update.emit(self)
 
+func upgrade_over_time() -> void:
+	current_max_health += randi_range(10,30)
+	current_attack += randi_range(5,15)
+	current_attack_speed_multiplier += randi_range(0,10)
+
 func reset_stats_to_starting_base() -> void:
 	current_max_health = starting_max_health
 	current_attack = starting_attack
