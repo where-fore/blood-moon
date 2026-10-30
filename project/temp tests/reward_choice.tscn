@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://kftvdil0i2i1" path="res://temp tests/reward_choice.gd" id="1_eurla"]
 [ext_resource type="Texture2D" uid="uid://gw80on1ihg7f" path="res://sprites/heart.png" id="2_k1a4x"]
+[ext_resource type="PackedScene" uid="uid://drn7hyslxtts4" path="res://ui pieces/ui_box_minimal.tscn" id="3_k1a4x"]
 
 [node name="RewardChoice" type="Control" unique_id=1410422511 node_paths=PackedStringArray("texture_rect", "name_label", "value_label")]
 custom_minimum_size = Vector2(48, 48)
@@ -15,6 +16,10 @@ script = ExtResource("1_eurla")
 texture_rect = NodePath("HBoxContainer/TextureRect")
 name_label = NodePath("HBoxContainer/Label")
 value_label = NodePath("HBoxContainer/Label2")
+
+[node name="UIBoxMinimal" parent="." unique_id=1542736023 instance=ExtResource("3_k1a4x")]
+layout_mode = 1
+mouse_filter = 2
 
 [node name="Button" type="Button" parent="." unique_id=1575248241]
 layout_mode = 1
