@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Reward" format=3 uid="uid://533lghi30ttw"]
+
+[ext_resource type="Texture2D" uid="uid://gw80on1ihg7f" path="res://sprites/heart.png" id="1_6wae5"]
+[ext_resource type="Script" uid="uid://dglf4fk5cme0u" path="res://temp tests/reward.gd" id="2_mh2t1"]
+
+[resource]
+script = ExtResource("2_mh2t1")
+value = 100
+image = ExtResource("1_6wae5")

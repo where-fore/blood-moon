@@ -13,15 +13,20 @@
 [ext_resource type="Texture2D" uid="uid://dfay83r2c6v5v" path="res://sprites/enemy_skull.png" id="7_ave2a"]
 [ext_resource type="Texture2D" uid="uid://bjkc5itfgl2aa" path="res://sprites/strength.png" id="8_16p2t"]
 [ext_resource type="Texture2D" uid="uid://cdrdpsiijftie" path="res://sprites/dexterity.png" id="9_hben2"]
+[ext_resource type="Script" uid="uid://careygatuk6hp" path="res://temp tests/reward_screen.gd" id="11_f4q0r"]
 [ext_resource type="Texture2D" uid="uid://dhuid4jl0xyt7" path="res://sprites/bag.png" id="11_uaqc7"]
 [ext_resource type="Script" uid="uid://clexac1mmhg6h" path="res://combat_manager.gd" id="12_0vix3"]
 [ext_resource type="PackedScene" uid="uid://bu0baiemyj4g4" path="res://temp tests/reward_choice.tscn" id="12_g13l7"]
+[ext_resource type="Script" uid="uid://dglf4fk5cme0u" path="res://temp tests/reward.gd" id="12_qmb71"]
 [ext_resource type="Script" uid="uid://cfhjyw384c0sl" path="res://temp tests/start_combat.gd" id="13_4dsyv"]
 [ext_resource type="Resource" uid="uid://djxrgmdbopuo8" path="res://temp tests/basic_attack.tres" id="13_npwt7"]
 [ext_resource type="Script" uid="uid://crtv10cne2ea5" path="res://temp tests/winner.gd" id="14_4dsyv"]
 [ext_resource type="Script" uid="uid://dyeno2clhdjwo" path="res://temp tests/combatant.gd" id="14_ave2a"]
 [ext_resource type="Resource" uid="uid://cwln6sdmi0rh0" path="res://temp tests/basic_attack_speed.tres" id="14_obmf6"]
 [ext_resource type="Resource" uid="uid://gcp47hshsibo" path="res://temp tests/basic_health.tres" id="15_f4q0r"]
+[ext_resource type="Resource" uid="uid://d0mq1bgq1jmbe" path="res://temp tests/rare_attack.tres" id="16_1j0u7"]
+[ext_resource type="Resource" uid="uid://bdjxchvidh3mu" path="res://temp tests/rare_attack_speed.tres" id="17_ireyf"]
+[ext_resource type="Resource" uid="uid://533lghi30ttw" path="res://temp tests/rare_health.tres" id="18_rjmfi"]
 [ext_resource type="Script" uid="uid://2ik2h1rqg747" path="res://temp tests/lose_button.gd" id="21_f4q0r"]
 [ext_resource type="Script" uid="uid://6jgkwbsqcufi" path="res://temp tests/ui_manager.gd" id="21_obmf6"]
 
@@ -182,9 +187,13 @@ text = "30"
 [node name="Spacer2" parent="MainGame/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer" unique_id=562158122 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
 
-[node name="RewardScreen" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=965647272 instance=ExtResource("2_tafwd")]
+[node name="RewardScreen" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=965647272 node_paths=PackedStringArray("reward_buttons") instance=ExtResource("2_tafwd")]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+script = ExtResource("11_f4q0r")
+reward_buttons = [NodePath("VBoxContainer/RewardChoice"), NodePath("VBoxContainer/RewardChoice2")]
+basic_rewards = Array[ExtResource("12_qmb71")]([ExtResource("13_npwt7"), ExtResource("14_obmf6"), ExtResource("15_f4q0r")])
+rare_rewards = Array[ExtResource("12_qmb71")]([ExtResource("16_1j0u7"), ExtResource("17_ireyf"), ExtResource("18_rjmfi")])
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/RewardScreen" unique_id=1441539978]
 layout_mode = 2
@@ -208,10 +217,6 @@ reward = ExtResource("15_f4q0r")
 [node name="RewardChoice2" parent="MainGame/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=691708868 instance=ExtResource("12_g13l7")]
 layout_mode = 2
 reward = ExtResource("13_npwt7")
-
-[node name="RewardChoice3" parent="MainGame/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=1392033396 instance=ExtResource("12_g13l7")]
-layout_mode = 2
-reward = ExtResource("14_obmf6")
 
 [node name="Spacer2" parent="MainGame/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=212561815 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
