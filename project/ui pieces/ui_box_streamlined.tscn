@@ -18,6 +18,7 @@ region_rect = Rect2(0, 0, 48, 48)
 
 [node name="UIBoxStreamlined" type="PanelContainer" unique_id=1542736023]
 custom_maximum_size = Vector2(568, 320)
+clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
