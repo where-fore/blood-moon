@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bg2t1esiyewtm"]
+
+[ext_resource type="Script" uid="uid://kftvdil0i2i1" path="res://temp tests/reward_choice.gd" id="1_5f51x"]
+[ext_resource type="PackedScene" uid="uid://dt7jpbn71da3l" path="res://ui pieces/ui_box_streamlined.tscn" id="3_361l5"]
+[ext_resource type="PackedScene" uid="uid://drn7hyslxtts4" path="res://ui pieces/ui_box_minimal.tscn" id="4_4n0o0"]
+[ext_resource type="Texture2D" uid="uid://dvj4yhla7iisl" path="res://sprites/cross_swords.png" id="5_a1mnr"]
+
+[node name="LargeRewardChoice" type="Button" unique_id=720158436 node_paths=PackedStringArray("texture_rect", "name_label", "value_label", "blurb_label")]
+custom_minimum_size = Vector2(120, 190)
+script = ExtResource("1_5f51x")
+texture_rect = NodePath("UIBoxStreamlined/VBoxContainer/UIBoxMinimal/TextureRect")
+name_label = NodePath("UIBoxStreamlined/VBoxContainer/UIBoxMinimal2/HBoxContainer/Label")
+value_label = NodePath("UIBoxStreamlined/VBoxContainer/UIBoxMinimal2/HBoxContainer/Label2")
+blurb_label = NodePath("UIBoxStreamlined/VBoxContainer/Label")
+
+[node name="UIBoxStreamlined" parent="." unique_id=1542736023 instance=ExtResource("3_361l5")]
+custom_minimum_size = Vector2(120, 190)
+layout_mode = 1
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIBoxStreamlined" unique_id=1247434180]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="UIBoxMinimal" parent="UIBoxStreamlined/VBoxContainer" unique_id=1643753899 instance=ExtResource("4_4n0o0")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UIBoxStreamlined/VBoxContainer/UIBoxMinimal" unique_id=693048942]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture = ExtResource("5_a1mnr")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UIBoxStreamlined/VBoxContainer" unique_id=1499129086]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 12
+text = "Something cool"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="UIBoxMinimal2" parent="UIBoxStreamlined/VBoxContainer" unique_id=1196831164 instance=ExtResource("4_4n0o0")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UIBoxStreamlined/VBoxContainer/UIBoxMinimal2" unique_id=671140537]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="UIBoxStreamlined/VBoxContainer/UIBoxMinimal2/HBoxContainer" unique_id=869227009]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="UIBoxStreamlined/VBoxContainer/UIBoxMinimal2/HBoxContainer" unique_id=900783977]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "test2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_button_pressed"]

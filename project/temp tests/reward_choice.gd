@@ -2,9 +2,11 @@ extends Control
 class_name RewardChoice
 
 @export var reward:Reward
+@export_multiline var blurb:String
 @export var texture_rect:TextureRect
 @export var name_label:Label
 @export var value_label:Label
+@export var blurb_label:Label
 
 var looks_cooler:bool = false
 
@@ -25,6 +27,8 @@ func setup() -> void:
 	if reward.stat == Stats.stats.attack_speed_multiplier: text_to_set += "%"
 	text_to_set = "+" + text_to_set
 	value_label.text = text_to_set
+	
+	if blurb_label: blurb_label.text = blurb
 
 func _on_button_pressed() -> void:
 	BasicEvents.reward_chosen.emit(reward)

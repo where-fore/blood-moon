@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("2_nv1ti")
-value = 40
+value = 60
 stat = 1
 image = ExtResource("1_jdoai")
