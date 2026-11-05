@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("2_r17uf")
-value = 20
+value = 15
 stat = 1
 image = ExtResource("1_bvkib")

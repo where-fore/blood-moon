@@ -5,5 +5,5 @@
 
 [resource]
 script = ExtResource("2_mh2t1")
-value = 100
+value = 75
 image = ExtResource("1_6wae5")

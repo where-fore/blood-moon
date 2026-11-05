@@ -195,7 +195,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 script = ExtResource("11_f4q0r")
-reward_buttons = [NodePath("VBoxContainer/RewardChoice"), NodePath("VBoxContainer/RewardChoice2")]
+reward_buttons = [NodePath("VBoxContainer/RewardChoice"), NodePath("VBoxContainer/RewardChoice3"), NodePath("VBoxContainer/RewardChoice2")]
 basic_rewards = Array[ExtResource("12_qmb71")]([ExtResource("13_npwt7"), ExtResource("14_obmf6"), ExtResource("15_f4q0r")])
 rare_rewards = Array[ExtResource("12_qmb71")]([ExtResource("16_1j0u7"), ExtResource("17_ireyf"), ExtResource("18_rjmfi")])
 
@@ -215,6 +215,10 @@ texture = ExtResource("11_uaqc7")
 layout_mode = 2
 
 [node name="RewardChoice" parent="MainGame/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=669457632 instance=ExtResource("12_g13l7")]
+layout_mode = 2
+reward = ExtResource("15_f4q0r")
+
+[node name="RewardChoice3" parent="MainGame/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=1410422511 instance=ExtResource("12_g13l7")]
 layout_mode = 2
 reward = ExtResource("15_f4q0r")
 
