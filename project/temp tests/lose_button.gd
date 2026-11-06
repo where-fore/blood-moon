@@ -10,4 +10,3 @@ func arrive() -> void:
 
 func _on_pressed() -> void:
 	visible = false
-	BasicEvents.swap_to_combat_screen.emit()

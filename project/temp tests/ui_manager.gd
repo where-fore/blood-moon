@@ -7,10 +7,13 @@ extends Node2D
 func _ready() -> void:
 	enemy_screen.visible = false
 	reward_screen.visible = false
-	special_reward_screen.visible = true
+	special_reward_screen.visible = false
+	
+	show_special_reward()
 	
 	BasicEvents.swap_to_combat_screen.connect(swap_to_combat)
 	BasicEvents.swap_to_reward_screen.connect(swap_to_reward)
+	BasicEvents.player_lost.connect(show_special_reward)
 
 func swap_to_combat() -> void:
 	enemy_screen.visible = true
@@ -20,3 +23,6 @@ func swap_to_combat() -> void:
 func swap_to_reward() -> void:
 	enemy_screen.visible = false
 	reward_screen.visible = true
+
+func show_special_reward() -> void:
+	special_reward_screen.visible = true
