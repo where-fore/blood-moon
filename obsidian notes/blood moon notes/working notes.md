@@ -7,5 +7,6 @@ atb specific cool mechanics:
 - half attack speed, triple damage
 - poise system where certain amounts of damage at once stuns (poe heavy strike)
 - enemies wait for x seconds, then enrage
+	- have execute abilities you can pick too, missing health damage or extra under threshold
 - health regen coupled to time, or damage vamp
 - basic % or flat bonuses work with varied attack speed

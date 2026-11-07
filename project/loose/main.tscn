@@ -315,7 +315,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Click here to
-Begin your quest"
+begin vanquishing foes"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -324,6 +324,7 @@ layout_mode = 1
 mouse_filter = 2
 
 [node name="Pick Three" type="Control" parent="MainGame/UIBoxStreamlined/Control" unique_id=464200515]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
