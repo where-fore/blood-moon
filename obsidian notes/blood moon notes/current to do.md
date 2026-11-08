@@ -7,15 +7,7 @@
 	this doesn't need to be perfect, i don't even know what the game will be, but i want to settle on a resolution that works with fonts and rescaling before making anything further - have them in their viewports or whatever is actually necessary
 
 - try out slot-ATB combat
-	- basically remake the original endless combat (poorly coded) with atb combat. try fast and loose prototyping
-		- no inventory, just +stat button choices which modify character
-		- fight - when someone loses, either end game and restart, or get +stat choice
-		- fight randomly stronger enemy (+5-15% power?)
-
-	- start out with just dagger (fast hit), sledgehammer (slow hit)
-		- later of course middle grounds, double hit items, magic that pierces armor, one hander & shield for defensives, bow for 2 turns free at start of combat, etc
-	- items that give flat or percentage damage, defensives
-		- limited charges per fight (first 3 hits do double)?
+	- do the interesting effects in the "working notes" section, to see if it's fun to play with
 	- two ATB approaches:
 		- literal real delta time. every frame calculate the time, remove it from the timer, if <0 then fire
 		- autonomous turn based with tiny turns which are mostly nothing: fire a turn for each side, then start a 0.1s dead air wait time and remove 0.1s from each sides timer. when it's your turn, if timer <0s, then do something.
