@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bg2t1esiyewtm"]
 
-[ext_resource type="Script" uid="uid://kftvdil0i2i1" path="res://temp tests/reward_choice.gd" id="1_5f51x"]
-[ext_resource type="PackedScene" uid="uid://dt7jpbn71da3l" path="res://ui pieces/ui_box_streamlined.tscn" id="3_361l5"]
-[ext_resource type="PackedScene" uid="uid://drn7hyslxtts4" path="res://ui pieces/ui_box_minimal.tscn" id="4_4n0o0"]
+[ext_resource type="Script" uid="uid://kftvdil0i2i1" path="res://systems/ui interpreter/reward_choice.gd" id="1_5f51x"]
+[ext_resource type="PackedScene" uid="uid://dt7jpbn71da3l" path="res://ui pieces/foundational/ui_box_streamlined.tscn" id="3_361l5"]
+[ext_resource type="PackedScene" uid="uid://drn7hyslxtts4" path="res://ui pieces/foundational/ui_box_minimal.tscn" id="4_4n0o0"]
 [ext_resource type="Texture2D" uid="uid://dvj4yhla7iisl" path="res://sprites/cross_swords.png" id="5_a1mnr"]
 
 [node name="LargeRewardChoice" type="Button" unique_id=720158436 node_paths=PackedStringArray("texture_rect", "name_label", "value_label", "blurb_label")]

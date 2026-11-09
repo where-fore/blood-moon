@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Reward" format=3 uid="uid://ix52wfwiyaqo"]
 
 [ext_resource type="Texture2D" uid="uid://b848ow16ocra5" path="res://sprites/blood.png" id="1_g1cob"]
-[ext_resource type="Script" uid="uid://dglf4fk5cme0u" path="res://temp tests/reward.gd" id="2_ibfdf"]
+[ext_resource type="Script" uid="uid://dglf4fk5cme0u" path="res://systems/ui interpreter/reward.gd" id="2_ibfdf"]
 
 [resource]
 script = ExtResource("2_ibfdf")

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Reward" format=3 uid="uid://slyp8gpcahiq"]
 
 [ext_resource type="Texture2D" uid="uid://bmw1m3ysv3g2p" path="res://sprites/single_spiked_axe.png" id="1_jdoai"]
-[ext_resource type="Script" uid="uid://dglf4fk5cme0u" path="res://temp tests/reward.gd" id="2_nv1ti"]
+[ext_resource type="Script" uid="uid://dglf4fk5cme0u" path="res://systems/ui interpreter/reward.gd" id="2_nv1ti"]
 
 [resource]
 script = ExtResource("2_nv1ti")
