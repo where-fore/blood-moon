@@ -25,10 +25,12 @@ mouse_filter = 2
 
 [node name="UIBoxMinimal" parent="UIBoxStreamlined/VBoxContainer" unique_id=1643753899 instance=ExtResource("4_4n0o0")]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="UIBoxStreamlined/VBoxContainer/UIBoxMinimal" unique_id=693048942]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("5_a1mnr")
 expand_mode = 3
 stretch_mode = 5
@@ -43,9 +45,11 @@ autowrap_mode = 3
 
 [node name="UIBoxMinimal2" parent="UIBoxStreamlined/VBoxContainer" unique_id=1196831164 instance=ExtResource("4_4n0o0")]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UIBoxStreamlined/VBoxContainer/UIBoxMinimal2" unique_id=671140537]
 layout_mode = 2
+mouse_filter = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="UIBoxStreamlined/VBoxContainer/UIBoxMinimal2/HBoxContainer" unique_id=869227009]
