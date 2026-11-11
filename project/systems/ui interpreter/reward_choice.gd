@@ -24,7 +24,7 @@ func setup() -> void:
 	name_label.text = Stats.return_name(reward.stat) + ":"
 	
 	var text_to_set:String = str(reward.value)
-	if reward.stat == Stats.names.attack_speed_multiplier: text_to_set += "%"
+	if reward.stat == Stats.Names.attack_speed_multiplier: text_to_set += "%"
 	text_to_set = "+" + text_to_set
 	value_label.text = text_to_set
 	

@@ -217,14 +217,17 @@ layout_mode = 2
 [node name="RewardChoice" parent="MainGame/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=669457632 instance=ExtResource("12_g13l7")]
 layout_mode = 2
 reward = ExtResource("15_f4q0r")
+blurb = null
 
 [node name="RewardChoice3" parent="MainGame/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=1410422511 instance=ExtResource("12_g13l7")]
 layout_mode = 2
 reward = ExtResource("15_f4q0r")
+blurb = null
 
 [node name="RewardChoice2" parent="MainGame/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=691708868 instance=ExtResource("12_g13l7")]
 layout_mode = 2
 reward = ExtResource("13_npwt7")
+blurb = null
 
 [node name="Spacer2" parent="MainGame/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=212561815 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
