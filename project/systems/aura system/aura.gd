@@ -1,9 +1,123 @@
-extends Node
+extends Resource
 class_name Aura
 
-var additive_dictionary:Dictionary[Stats.Names, int]
-var multiplicative_dictionary:Dictionary[Stats.Names, int]
+var aura_name:String
+var extra_tooltip:String
+var aura_categories:Array[StringName]
+var visible:bool
+
+signal expired(aura_instance:Aura)
+signal updated(aura_instance:Aura)
+
 var duration_type:Stats.DurationType
+var base_duration:int:
+	set(value):
+		current_duration = value
 var current_duration:int
-var icon:Texture2D
-var visible_to_player:bool = true
+
+var unique_id:String
+
+var additive_stat_dictionary:Dictionary[StringName, int] = {}
+var multiplicative_stat_dictionary:Dictionary[StringName, int] = {}
+
+func _init() -> void:
+	setup_aura_stats()
+
+func change_additive_aura(stat:StringName, value:int, sum_with_existing:bool) -> void:
+	change_aura(additive_stat_dictionary, stat, value, sum_with_existing)
+
+func change_multiplicative_aura(stat:StringName, value:int, sum_with_existing:bool) -> void:
+	change_aura(multiplicative_stat_dictionary, stat, value, sum_with_existing)
+
+func change_aura(aura_dict:Dictionary[StringName, int], stat:StringName, value:int, sum_with_existing:bool = false) -> void:
+	if sum_with_existing:
+		aura_dict[stat] = aura_dict.get(stat, 0) + value
+	else:
+		aura_dict[stat] = value
+	updated.emit()
+
+func create_aura(name:String = "", should_be_visible:bool = true, additive_init:Dictionary[StringName, int] = {}, multiplicative_init:Dictionary[StringName, int] = {}) -> Aura:
+	var this_aura:Aura = self.duplicate(true)
+	
+	if name: this_aura.aura_name = name
+	if should_be_visible: this_aura.visible = should_be_visible
+	
+	if additive_init: this_aura.additive_stat_dictionary = additive_init.duplicate()
+	else: this_aura.additive_stat_dictionary = additive_stat_dictionary.duplicate()
+	if multiplicative_init: this_aura.multiplicative_stat_dictionary = multiplicative_init.duplicate()
+	else: this_aura.multiplicative_stat_dictionary = multiplicative_stat_dictionary.duplicate()
+	
+	if not duration_type: this_aura.duration_type = Stats.DurationType.PERMANENT
+	if base_duration: this_aura.current_duration = base_duration
+	
+	return this_aura
+
+func get_id() -> String:
+	if not unique_id: unique_id = str(ResourceUID.create_id())
+	return unique_id
+
+#this is copied from item_base.gd
+func get_tooltip() -> String:
+	var tooltip_text:String = aura_name
+	
+	var to_add:String
+	if duration_type == Stats.DurationType.TURNS:
+		to_add = "\n" + "Aura, " + "Duration: " + str(current_duration) + " " + Stats.return_duration_type(duration_type)
+	else:
+		to_add = "\n" + "Aura, " + "Duration: " + Stats.return_duration_type(duration_type)
+	tooltip_text += to_add
+	
+	for stat_name:StringName in additive_stat_dictionary:
+		var change:String = "+"
+		if additive_stat_dictionary[stat_name] == 0: continue #skip this step of the for loop
+		if additive_stat_dictionary[stat_name] < 0: change = "-"
+		to_add = str(change, abs(additive_stat_dictionary[stat_name]), " ", stat_name)
+		tooltip_text += "\n" + to_add
+	for stat_name:StringName in multiplicative_stat_dictionary:
+		var change:String = "+"
+		if multiplicative_stat_dictionary[stat_name] == 0: continue #skip this step of the for loop
+		if multiplicative_stat_dictionary[stat_name] < 0: change = "-"
+		to_add = str(change, abs(multiplicative_stat_dictionary[stat_name]), "% ", stat_name)
+		tooltip_text += "\n" + to_add
+	
+	if extra_tooltip: tooltip_text += "\n" + extra_tooltip
+	return tooltip_text
+
+func decrement_duration_counter() -> void:
+	if duration_type == Stats.DurationType.TURNS:
+		current_duration -= 1
+		if current_duration <= 0:
+			expire_aura()
+
+func check_if_aura_expired_at_end_of_combat() -> void:
+	if duration_type == Stats.DurationType.THIS_COMBAT:
+		expire_aura()
+	elif duration_type == Stats.DurationType.TURNS:
+		expire_aura()
+
+func check_then_start_combat_aura() -> Aura:
+	if duration_type == Stats.DurationType.TURNS:
+		return create_aura()
+	else: return null
+
+func expire_aura() -> void:
+	expired.emit(self)
+
+#derived subclasses hook onto and override these functions
+func on_other_combatant_dying(_newly_dead_combatant:Combatant) -> void:
+	pass
+
+func on_damage_taken(_damage_taken:int, _source_of_damage:Combatant) -> void:
+	pass
+
+func on_attack(_source:Combatant, _target:Combatant) -> void:
+	pass
+
+func on_combat_start() -> void:
+	pass
+
+func on_combat_end() -> void:
+	pass
+
+func setup_aura_stats() -> void:
+	pass

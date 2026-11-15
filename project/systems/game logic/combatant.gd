@@ -65,9 +65,9 @@ func reset_after_combat() -> void:
 
 func upgrade_with_reward(reward:Reward) -> void:
 	match reward.stat:
-		Stats.Names.health: current_max_health += reward.value
-		Stats.Names.attack: current_attack += reward.value
-		Stats.Names.attack_speed_multiplier: current_attack_speed_multiplier += reward.value
+		Stats.Names.HEALTH: current_max_health += reward.value
+		Stats.Names.ATTACK: current_attack += reward.value
+		Stats.Names.ATTACK_SPEED_MULTIPLIER: current_attack_speed_multiplier += reward.value
 	UiEvents.combatant_ui_update.emit(self)
 
 func upgrade_over_time() -> void:
