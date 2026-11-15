@@ -2,8 +2,8 @@ extends Resource
 class_name Aura
 
 var aura_name:String
+var aura_icon:Texture
 var extra_tooltip:String
-var aura_categories:Array[StringName]
 var visible:bool
 
 signal expired(aura_instance:Aura)
@@ -56,7 +56,6 @@ func get_id() -> String:
 	if not unique_id: unique_id = str(ResourceUID.create_id())
 	return unique_id
 
-#this is copied from item_base.gd
 func get_tooltip() -> String:
 	var tooltip_text:String = aura_name
 	
