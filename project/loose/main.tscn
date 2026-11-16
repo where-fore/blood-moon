@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://bg2t1esiyewtm" path="res://ui pieces/large_reward_choice.tscn" id="27_80hqw"]
 [ext_resource type="Resource" uid="uid://sqyjxaykwhrm" path="res://content/rewards/starter_balanced.tres" id="28_h0uu6"]
 [ext_resource type="Resource" uid="uid://slyp8gpcahiq" path="res://content/rewards/starter_strength.tres" id="30_w1snj"]
+[ext_resource type="Script" uid="uid://dqmrmpdbu3gu2" path="res://ui pieces/score_counter.gd" id="31_cuuk2"]
 [ext_resource type="Resource" uid="uid://ix52wfwiyaqo" path="res://content/rewards/starter_special.tres" id="32_1fc2u"]
 
 [node name="Node2D" type="Node2D" unique_id=383782260]
@@ -473,6 +474,17 @@ vertical_alignment = 1
 [node name="UIBoxElaborate" parent="MainGame/UIBoxStreamlined/Control/GameLost" unique_id=249333621 instance=ExtResource("1_sup1h")]
 layout_mode = 1
 mouse_filter = 2
+
+[node name="ScoreContainer" type="Control" parent="MainGame/UIBoxStreamlined" unique_id=1611670649]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="MainGame/UIBoxStreamlined/ScoreContainer" unique_id=1905754201]
+layout_mode = 1
+offset_right = 554.0
+offset_bottom = 14.0
+text = "16"
+script = ExtResource("31_cuuk2")
 
 [node name="CombatManager" type="Node2D" parent="." unique_id=241199902 node_paths=PackedStringArray("player_combatant", "enemy_combatant")]
 script = ExtResource("12_0vix3")
