@@ -35,6 +35,7 @@
 [ext_resource type="Script" uid="uid://dqmrmpdbu3gu2" path="res://ui pieces/score_counter.gd" id="31_cuuk2"]
 [ext_resource type="Resource" uid="uid://ix52wfwiyaqo" path="res://content/rewards/starter_special.tres" id="32_1fc2u"]
 [ext_resource type="Material" uid="uid://db4ka5skbpxq4" path="res://loose/crt filter/crt_major.tres" id="35_80hqw"]
+[ext_resource type="Script" uid="uid://bx63smibeun4i" path="res://loose/debug_manager.gd" id="35_q5k8v"]
 
 [node name="Node2D" type="Node2D" unique_id=383782260]
 
@@ -509,6 +510,9 @@ script = ExtResource("21_obmf6")
 enemy_screen = NodePath("../MainGame/UIBoxStreamlined/HBoxContainer/EnemyCombatant")
 reward_screen = NodePath("../MainGame/UIBoxStreamlined/HBoxContainer/RewardScreen")
 special_reward_screen = NodePath("../MainGame/UIBoxStreamlined/Control/Pick Three")
+
+[node name="DebugManager" type="Node2D" parent="." unique_id=1958524432]
+script = ExtResource("35_q5k8v")
 
 [node name="CRTEffect" type="CanvasLayer" parent="." unique_id=1609245016]
 

@@ -37,14 +37,13 @@ func _ready() -> void:
 	if not starting_attack: push_error("starting_attack not initialized on: ", name)
 	if not base_attack_speed: push_error("starting_turn_cooldown not initialized on: ", name)
 	reset_stats_to_starting_base()
-	
 
 func _process(delta: float) -> void:
 	if active_in_combat:
 		increment_turn_timer(delta)
 
 func increment_turn_timer(delta:float) -> void:
-	elapsed_turn_timer += delta # *Globals.CombatTimeScale
+	elapsed_turn_timer += delta * GlobalSettings.combat_time_scale
 	while elapsed_turn_timer >= current_attack_speed:
 		elapsed_turn_timer -= current_attack_speed
 		take_turn()
