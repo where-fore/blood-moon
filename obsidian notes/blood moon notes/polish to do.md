@@ -9,7 +9,7 @@
 # UI
 - the 9 patch should probably be drawn at like 20x20 not 16x16, cause they usually used with a 2px inner border
 - the big choices should be their own part of a window probably, currently it's one window with three buttons, would rather three windows stacked
-- the 9 patch borders are black, the purple part isn't the final edging. i kinda like it, it gives a bit of a border
+- the 9 patch borders are black, the purple part isn't the final edging. i kinda like it, it gives a bit of a border.. wonder if that should be a 1px purple though? does it look weird? maybe it should be the same size as the border between the lines and the corner pieces?
 ![[Pasted image 20261118110221.png]]
-which looks great here, but could be a problem later when i'm not expecting it?
+looks great here, but could be a problem later when i'm not expecting it?
 - 
