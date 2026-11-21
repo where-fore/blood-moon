@@ -5,8 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://b7fjh8x3yifx4" path="res://ui pieces/foundational/spacer.tscn" id="2_wqdpu"]
 [ext_resource type="PackedScene" uid="uid://drn7hyslxtts4" path="res://ui pieces/foundational/ui_box_minimal.tscn" id="3_bfd2p"]
 [ext_resource type="Script" uid="uid://dxpeesw3qdsj0" path="res://systems/ui interpreter/combatant_ui.gd" id="3_c6an6"]
-[ext_resource type="Texture2D" uid="uid://keqhopsx8vwn" path="res://sprites/dirk.png" id="3_mex7b"]
-[ext_resource type="Texture2D" uid="uid://dd3c32ykhp1k0" path="res://sprites/vamp_blade.png" id="3_wqdpu"]
 [ext_resource type="Texture2D" uid="uid://bgv0xar3ewpfd" path="res://sprites/player.png" id="4_t27i6"]
 [ext_resource type="Texture2D" uid="uid://gw80on1ihg7f" path="res://sprites/heart.png" id="5_0vix3"]
 [ext_resource type="PackedScene" uid="uid://bqoxy48346yrt" path="res://ui pieces/turn_bar.tscn" id="5_t27i6"]
@@ -28,6 +26,8 @@
 [ext_resource type="Resource" uid="uid://533lghi30ttw" path="res://content/rewards/rare_health.tres" id="18_rjmfi"]
 [ext_resource type="Script" uid="uid://2ik2h1rqg747" path="res://systems/ui interpreter/lose_button.gd" id="21_f4q0r"]
 [ext_resource type="Script" uid="uid://6jgkwbsqcufi" path="res://systems/ui interpreter/ui_manager.gd" id="21_obmf6"]
+[ext_resource type="Script" uid="uid://cbuks5fcerdtp" path="res://systems/ui interpreter/aura_tracker.gd" id="22_w1snj"]
+[ext_resource type="PackedScene" uid="uid://bksdgxm552rkr" path="res://ui pieces/aura_icon.tscn" id="23_1fc2u"]
 [ext_resource type="PackedScene" uid="uid://bg2t1esiyewtm" path="res://ui pieces/large_reward_choice.tscn" id="27_80hqw"]
 [ext_resource type="Resource" uid="uid://sqyjxaykwhrm" path="res://content/rewards/starter_balanced.tres" id="28_h0uu6"]
 [ext_resource type="Resource" uid="uid://slyp8gpcahiq" path="res://content/rewards/starter_strength.tres" id="30_w1snj"]
@@ -235,50 +235,50 @@ layout_mode = 2
 [node name="Spacer3" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=1767361082 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
 
-[node name="Inventory" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=1997915480 instance=ExtResource("1_sup1h")]
+[node name="AuraTracker" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=1997915480 node_paths=PackedStringArray("vbox_for_aura_displays", "display_to_delete_on_runtime") instance=ExtResource("1_sup1h")]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+script = ExtResource("22_w1snj")
+aura_icon_scene = ExtResource("23_1fc2u")
+vbox_for_aura_displays = NodePath("ScrollContainer/VBoxContainer")
+display_to_delete_on_runtime = [NodePath("ScrollContainer/VBoxContainer/AuraIcon"), NodePath("ScrollContainer/VBoxContainer/AuraIcon2"), NodePath("ScrollContainer/VBoxContainer/AuraIcon3"), NodePath("ScrollContainer/VBoxContainer/AuraIcon4"), NodePath("ScrollContainer/VBoxContainer/AuraIcon5"), NodePath("ScrollContainer/VBoxContainer/AuraIcon6"), NodePath("ScrollContainer/VBoxContainer/AuraIcon7"), NodePath("ScrollContainer/VBoxContainer/AuraIcon8"), NodePath("ScrollContainer/VBoxContainer/AuraIcon9")]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/Inventory" unique_id=906113762]
+[node name="ScrollContainer" type="ScrollContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/AuraTracker" unique_id=762327374]
+layout_mode = 2
+vertical_scroll_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer" unique_id=906113762]
 clip_contents = true
 layout_mode = 2
-alignment = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="MainGame/UIBoxStreamlined/HBoxContainer/Inventory/VBoxContainer" unique_id=1950791732]
-custom_minimum_size = Vector2(16, 16)
+[node name="AuraIcon" parent="MainGame/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1327891929 instance=ExtResource("23_1fc2u")]
 layout_mode = 2
-texture = ExtResource("3_wqdpu")
-expand_mode = 4
 
-[node name="TextureRect2" type="TextureRect" parent="MainGame/UIBoxStreamlined/HBoxContainer/Inventory/VBoxContainer" unique_id=550898761]
-custom_minimum_size = Vector2(16, 16)
+[node name="AuraIcon2" parent="MainGame/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1355016088 instance=ExtResource("23_1fc2u")]
 layout_mode = 2
-texture = ExtResource("3_mex7b")
-expand_mode = 4
 
-[node name="TextureRect3" type="TextureRect" parent="MainGame/UIBoxStreamlined/HBoxContainer/Inventory/VBoxContainer" unique_id=1275501669]
-custom_minimum_size = Vector2(16, 16)
+[node name="AuraIcon3" parent="MainGame/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=212098475 instance=ExtResource("23_1fc2u")]
 layout_mode = 2
-texture = ExtResource("3_mex7b")
-expand_mode = 4
 
-[node name="TextureRect4" type="TextureRect" parent="MainGame/UIBoxStreamlined/HBoxContainer/Inventory/VBoxContainer" unique_id=1266326716]
-custom_minimum_size = Vector2(16, 16)
+[node name="AuraIcon4" parent="MainGame/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1148208731 instance=ExtResource("23_1fc2u")]
 layout_mode = 2
-texture = ExtResource("3_mex7b")
-expand_mode = 4
 
-[node name="TextureRect5" type="TextureRect" parent="MainGame/UIBoxStreamlined/HBoxContainer/Inventory/VBoxContainer" unique_id=342108302]
-custom_minimum_size = Vector2(16, 16)
+[node name="AuraIcon5" parent="MainGame/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1547594636 instance=ExtResource("23_1fc2u")]
 layout_mode = 2
-texture = ExtResource("3_mex7b")
-expand_mode = 4
 
-[node name="TextureRect6" type="TextureRect" parent="MainGame/UIBoxStreamlined/HBoxContainer/Inventory/VBoxContainer" unique_id=378661709]
-custom_minimum_size = Vector2(16, 16)
+[node name="AuraIcon6" parent="MainGame/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1043721779 instance=ExtResource("23_1fc2u")]
 layout_mode = 2
-texture = ExtResource("3_mex7b")
-expand_mode = 4
+
+[node name="AuraIcon7" parent="MainGame/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1460231650 instance=ExtResource("23_1fc2u")]
+layout_mode = 2
+
+[node name="AuraIcon8" parent="MainGame/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=128962693 instance=ExtResource("23_1fc2u")]
+layout_mode = 2
+
+[node name="AuraIcon9" parent="MainGame/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1384488659 instance=ExtResource("23_1fc2u")]
+layout_mode = 2
 
 [node name="Control" type="Control" parent="MainGame/UIBoxStreamlined" unique_id=432035369]
 layout_mode = 2

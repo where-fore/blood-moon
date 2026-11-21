@@ -1,0 +1,1 @@
+have the regular he-is-coming like map, but have a light source arc from right to left, sunrise to sunset, maybe with a colour filter. some dynamic shadows and the like

@@ -68,6 +68,7 @@ func upgrade_with_reward(reward:Reward) -> void:
 		Stats.Names.ATTACK: current_attack += reward.value
 		Stats.Names.ATTACK_SPEED_MULTIPLIER: current_attack_speed_multiplier += reward.value
 	UiEvents.combatant_ui_update.emit(self)
+	UiEvents.send_aura_to_tracker.emit(reward)
 
 func upgrade_over_time() -> void:
 	var multiplier:int = 7

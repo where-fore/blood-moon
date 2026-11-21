@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bksdgxm552rkr"]
+
+[ext_resource type="Texture2D" uid="uid://bjkc5itfgl2aa" path="res://sprites/strength.png" id="1_0n4cc"]
+[ext_resource type="Script" uid="uid://cakf3salod063" path="res://ui pieces/aura_icon.gd" id="1_voiqv"]
+
+[node name="AuraIcon" type="TextureRect" unique_id=1327891929]
+texture = ExtResource("1_0n4cc")
+expand_mode = 4
+script = ExtResource("1_voiqv")
