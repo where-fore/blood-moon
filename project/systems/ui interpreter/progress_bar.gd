@@ -1,12 +1,14 @@
 extends ProgressBar
+class_name TurnTimer
 
-@export var combatant_to_track:Combatant
+var combatant_to_track:Combatant
 
-func _ready() -> void:
-	if not combatant_to_track: push_error(name, " was not assigned a combatant to track")
-	UiEvents.combatant_ui_update.connect(update)
+func setup(combatant:Combatant) -> void:
+	combatant_to_track = combatant
 
-func update(combatant_check:Combatant) -> void:
-	if combatant_check == combatant_to_track:
-		max_value = combatant_check.current_attack_speed
-		value = combatant_check.elapsed_turn_timer
+func update() -> void:
+	if not combatant_to_track:
+		push_error(name, " was not assigned a combatant to track")
+		return
+	max_value = combatant_to_track.current_attack_speed
+	value = combatant_to_track.elapsed_turn_timer

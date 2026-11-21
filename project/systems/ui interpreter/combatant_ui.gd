@@ -1,13 +1,19 @@
 extends PanelContainer
+class_name CombatantUI
 
-@export var combatant_to_track:Combatant
+var combatant_to_track:Combatant
 @export var health_label:Label
 @export var attack_label:Label
 @export var speed_label:Label
+@export var turn_timer:TurnTimer
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func setup(combatant:Combatant) -> void:
+	combatant_to_track = combatant
 	if not combatant_to_track: push_error(name, " was not assigned a combatant to track")
+	
+	if not turn_timer: push_error(name, " was not assigned a turntimer to track")
+	turn_timer.setup(combatant_to_track)
+	
 	UiEvents.combatant_ui_update.connect(update)
 
 func update(combatant:Combatant) -> void:
@@ -15,3 +21,4 @@ func update(combatant:Combatant) -> void:
 		health_label.text = str(combatant.current_max_health - combatant.current_sustained_damage)
 		attack_label.text = str(combatant.current_attack)
 		speed_label.text = str(snappedf(combatant.current_attack_speed, 0.01))
+		turn_timer.update()

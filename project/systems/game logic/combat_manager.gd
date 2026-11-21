@@ -1,7 +1,9 @@
 extends Node2D
 
-@export var player_combatant:Combatant
-@export var enemy_combatant:Combatant
+@export var player_combatant_base_scene:PackedScene
+@export var enemy_combatant_base_scene:PackedScene
+var player_combatant:Combatant
+var enemy_combatant:Combatant
 var combatants:Array[Combatant]
 
 # Called when the node enters the scene tree for the first time.
@@ -13,11 +15,25 @@ func _ready() -> void:
 	@warning_ignore("untyped_declaration")
 	BasicEvents.reward_chosen.connect(func(_reward:Reward): strengthen_enemies())
 	
+	var new_player_combatant:Combatant = player_combatant_base_scene.instantiate()
+	add_child(new_player_combatant)
+	player_combatant = new_player_combatant
+	
+	var new_enemy_combatant:Combatant = enemy_combatant_base_scene.instantiate()
+	add_child(new_enemy_combatant)
+	enemy_combatant = new_enemy_combatant
+	
 	player_combatant.is_the_player = true
 	
 	combatants = [player_combatant, enemy_combatant]
 	player_combatant.current_target = enemy_combatant
 	enemy_combatant.current_target = player_combatant
+	
+	call_deferred("send_signals")
+
+func send_signals() -> void:
+	UiEvents.new_player_combatant.emit(player_combatant)
+	UiEvents.new_enemy_combatant.emit(enemy_combatant)
 
 func start_combat() -> void:
 	for combatant:Combatant in combatants:

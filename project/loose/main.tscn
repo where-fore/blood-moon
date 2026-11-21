@@ -21,7 +21,6 @@
 [ext_resource type="Script" uid="uid://cfhjyw384c0sl" path="res://systems/ui interpreter/start_combat.gd" id="13_4dsyv"]
 [ext_resource type="Resource" uid="uid://djxrgmdbopuo8" path="res://content/rewards/basic_attack.tres" id="13_npwt7"]
 [ext_resource type="Script" uid="uid://crtv10cne2ea5" path="res://systems/ui interpreter/winner.gd" id="14_4dsyv"]
-[ext_resource type="Script" uid="uid://dyeno2clhdjwo" path="res://systems/game logic/combatant.gd" id="14_ave2a"]
 [ext_resource type="Resource" uid="uid://cwln6sdmi0rh0" path="res://content/rewards/basic_attack_speed.tres" id="14_obmf6"]
 [ext_resource type="Resource" uid="uid://gcp47hshsibo" path="res://content/rewards/basic_health.tres" id="15_f4q0r"]
 [ext_resource type="Resource" uid="uid://d0mq1bgq1jmbe" path="res://content/rewards/rare_attack.tres" id="16_1j0u7"]
@@ -36,6 +35,8 @@
 [ext_resource type="Resource" uid="uid://ix52wfwiyaqo" path="res://content/rewards/starter_special.tres" id="32_1fc2u"]
 [ext_resource type="Material" uid="uid://db4ka5skbpxq4" path="res://loose/crt filter/crt_major.tres" id="35_80hqw"]
 [ext_resource type="Script" uid="uid://bx63smibeun4i" path="res://loose/debug_manager.gd" id="35_q5k8v"]
+[ext_resource type="PackedScene" uid="uid://cj3lkwi5lkv4j" path="res://content/combatants/player.tscn" id="35_w1snj"]
+[ext_resource type="PackedScene" uid="uid://dk6a5xx2ybrrb" path="res://content/combatants/enemy.tscn" id="36_1fc2u"]
 [ext_resource type="Script" uid="uid://r2elol7ll63j" path="res://ui pieces/scrolling_text.gd" id="36_h0uu6"]
 
 [node name="Node2D" type="Node2D" unique_id=383782260]
@@ -51,14 +52,14 @@ layout_mode = 2
 [node name="Spacer" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=466240430 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
 
-[node name="PlayerCombatant" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=1018818442 node_paths=PackedStringArray("combatant_to_track", "health_label", "attack_label", "speed_label") instance=ExtResource("2_tafwd")]
+[node name="PlayerCombatant" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=1018818442 node_paths=PackedStringArray("health_label", "attack_label", "speed_label", "turn_timer") instance=ExtResource("2_tafwd")]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 script = ExtResource("3_c6an6")
-combatant_to_track = NodePath("../../../../CombatManager/Player")
 health_label = NodePath("VBoxContainer/HBoxContainer/Label")
 attack_label = NodePath("VBoxContainer/HBoxContainer2/Label")
 speed_label = NodePath("VBoxContainer/HBoxContainer3/Label")
+turn_timer = NodePath("VBoxContainer/ProgressBar")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/PlayerCombatant" unique_id=1772241150]
 layout_mode = 2
@@ -72,9 +73,8 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("4_t27i6")
 
-[node name="ProgressBar" parent="MainGame/UIBoxStreamlined/HBoxContainer/PlayerCombatant/VBoxContainer" unique_id=263909228 node_paths=PackedStringArray("combatant_to_track") instance=ExtResource("5_t27i6")]
+[node name="ProgressBar" parent="MainGame/UIBoxStreamlined/HBoxContainer/PlayerCombatant/VBoxContainer" unique_id=263909228 instance=ExtResource("5_t27i6")]
 layout_mode = 2
-combatant_to_track = NodePath("../../../../../../CombatManager/Player")
 
 [node name="Spacer" parent="MainGame/UIBoxStreamlined/HBoxContainer/PlayerCombatant/VBoxContainer" unique_id=929488828 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
@@ -124,15 +124,15 @@ layout_mode = 2
 [node name="Spacer2" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=226584502 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
 
-[node name="EnemyCombatant" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=124855427 node_paths=PackedStringArray("combatant_to_track", "health_label", "attack_label", "speed_label") instance=ExtResource("2_tafwd")]
+[node name="EnemyCombatant" parent="MainGame/UIBoxStreamlined/HBoxContainer" unique_id=124855427 node_paths=PackedStringArray("health_label", "attack_label", "speed_label", "turn_timer") instance=ExtResource("2_tafwd")]
 visible = false
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 script = ExtResource("3_c6an6")
-combatant_to_track = NodePath("../../../../CombatManager/Enemy")
 health_label = NodePath("VBoxContainer/HBoxContainer/Label")
 attack_label = NodePath("VBoxContainer/HBoxContainer2/Label")
 speed_label = NodePath("VBoxContainer/HBoxContainer3/Label")
+turn_timer = NodePath("VBoxContainer/ProgressBar")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainGame/UIBoxStreamlined/HBoxContainer/EnemyCombatant" unique_id=1393319962]
 layout_mode = 2
@@ -146,9 +146,8 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("7_ave2a")
 
-[node name="ProgressBar" parent="MainGame/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer" unique_id=199866892 node_paths=PackedStringArray("combatant_to_track") instance=ExtResource("5_t27i6")]
+[node name="ProgressBar" parent="MainGame/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer" unique_id=199866892 instance=ExtResource("5_t27i6")]
 layout_mode = 2
-combatant_to_track = NodePath("../../../../../../CombatManager/Enemy")
 
 [node name="Spacer" parent="MainGame/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer" unique_id=938792618 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
@@ -512,33 +511,22 @@ material = ExtResource("35_80hqw")
 layout_mode = 2
 mouse_filter = 2
 
-[node name="CombatManager" type="Node2D" parent="." unique_id=241199902 node_paths=PackedStringArray("player_combatant", "enemy_combatant")]
+[node name="CombatManager" type="Node2D" parent="." unique_id=241199902]
 script = ExtResource("12_0vix3")
-player_combatant = NodePath("Player")
-enemy_combatant = NodePath("Enemy")
+player_combatant_base_scene = ExtResource("35_w1snj")
+enemy_combatant_base_scene = ExtResource("36_1fc2u")
 
-[node name="Player" type="Node2D" parent="CombatManager" unique_id=140390826]
-script = ExtResource("14_ave2a")
-starting_max_health = 150
-starting_attack = 40
-base_attack_speed = 2.0
-
-[node name="Enemy" type="Node2D" parent="CombatManager" unique_id=1896971410]
-script = ExtResource("14_ave2a")
-starting_max_health = 100
-starting_attack = 20
-base_attack_speed = 2.5
-
-[node name="UIManager" type="Node2D" parent="." unique_id=1224659959 node_paths=PackedStringArray("enemy_screen", "reward_screen", "special_reward_screen")]
+[node name="UIManager" type="Node2D" parent="." unique_id=1224659959 node_paths=PackedStringArray("enemy_screen", "reward_screen", "special_reward_screen", "player_combatant", "enemy_combatant")]
 script = ExtResource("21_obmf6")
 enemy_screen = NodePath("../MainGame/UIBoxStreamlined/HBoxContainer/EnemyCombatant")
 reward_screen = NodePath("../MainGame/UIBoxStreamlined/HBoxContainer/RewardScreen")
 special_reward_screen = NodePath("../MainGame/UIBoxStreamlined/Control/Pick Three")
+player_combatant = NodePath("../MainGame/UIBoxStreamlined/HBoxContainer/PlayerCombatant")
+enemy_combatant = NodePath("../MainGame/UIBoxStreamlined/HBoxContainer/EnemyCombatant")
 
 [node name="DebugManager" type="Node2D" parent="." unique_id=1958524432]
 script = ExtResource("35_q5k8v")
 
-[connection signal="pressed" from="MainGame/UIBoxStreamlined/Control/CombatStart" to="MainGame/UIBoxStreamlined/HBoxContainer/PlayerCombatant" method="_on_button_pressed"]
 [connection signal="pressed" from="MainGame/UIBoxStreamlined/Control/CombatStart" to="MainGame/UIBoxStreamlined/Control/CombatStart" method="_on_pressed"]
 [connection signal="pressed" from="MainGame/UIBoxStreamlined/Control/CombatWon" to="MainGame/UIBoxStreamlined/Control/CombatWon" method="_on_pressed"]
 [connection signal="pressed" from="MainGame/UIBoxStreamlined/Control/GameLost" to="MainGame/UIBoxStreamlined/Control/GameLost" method="_on_pressed"]
