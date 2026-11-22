@@ -1,3 +1,4 @@
+[[style overview]]
 # He Is Coming
 ![[Pasted image 20261020113421.png]]
 ![[Pasted image 20261020113451.png]]
@@ -14,5 +15,13 @@ text
 
 ![[Pasted image 20261020114322.png]]
 
-text
+text placeholder
 
+# 1 bit art & dithering
+![[Pasted image 20261122122225.png]]
+
+![[Pasted image 20261122122241.png]]
+
+![[Pasted image 20261122122419.png]]
+
+# placeholder
