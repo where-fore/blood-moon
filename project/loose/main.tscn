@@ -73,6 +73,7 @@ layout_mode = 2
 
 [node name="PlayerCombatant" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=1018818442 node_paths=PackedStringArray("health_label", "attack_label", "speed_label", "turn_timer") instance=ExtResource("2_tafwd")]
 layout_mode = 2
+size_flags_horizontal = 19
 script = ExtResource("3_c6an6")
 health_label = NodePath("VBoxContainer/HBoxContainer/Label")
 attack_label = NodePath("VBoxContainer/HBoxContainer2/Label")
@@ -92,6 +93,7 @@ layout_mode = 2
 texture = ExtResource("4_t27i6")
 
 [node name="ProgressBar" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/PlayerCombatant/VBoxContainer" unique_id=263909228 instance=ExtResource("5_t27i6")]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 
 [node name="Spacer" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/PlayerCombatant/VBoxContainer" unique_id=929488828 instance=ExtResource("2_wqdpu")]
@@ -143,8 +145,8 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="EnemyCombatant" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=124855427 node_paths=PackedStringArray("health_label", "attack_label", "speed_label", "turn_timer") instance=ExtResource("2_tafwd")]
-visible = false
 layout_mode = 2
+size_flags_horizontal = 19
 script = ExtResource("3_c6an6")
 health_label = NodePath("VBoxContainer/HBoxContainer/Label")
 attack_label = NodePath("VBoxContainer/HBoxContainer2/Label")
@@ -159,11 +161,11 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="TextureRect" type="TextureRect" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer/UIBoxMinimal" unique_id=1962244156]
-custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("7_ave2a")
 
 [node name="ProgressBar" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer" unique_id=199866892 instance=ExtResource("5_t27i6")]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 
 [node name="Spacer" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer" unique_id=938792618 instance=ExtResource("2_wqdpu")]
@@ -174,7 +176,6 @@ layout_mode = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer/HBoxContainer" unique_id=1488693546]
-custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("5_0vix3")
 
@@ -187,7 +188,6 @@ layout_mode = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer/HBoxContainer2" unique_id=313509857]
-custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("8_16p2t")
 
@@ -200,7 +200,6 @@ layout_mode = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer/HBoxContainer3" unique_id=1321329155]
-custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("9_hben2")
 
@@ -212,6 +211,7 @@ text = "30"
 layout_mode = 2
 
 [node name="RewardScreen" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=965647272 node_paths=PackedStringArray("reward_buttons") instance=ExtResource("2_tafwd")]
+visible = false
 layout_mode = 2
 script = ExtResource("11_f4q0r")
 reward_buttons = [NodePath("VBoxContainer/RewardChoice"), NodePath("VBoxContainer/RewardChoice3"), NodePath("VBoxContainer/RewardChoice2")]
