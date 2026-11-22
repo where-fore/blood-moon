@@ -22,4 +22,16 @@ is probably not good formatting. i should have a send_basic_message() function, 
 - the 9 patch borders are black, the purple part isn't the final edging. i kinda like it, it gives a bit of a border.. wonder if that should be a 1px purple though? does it look weird? maybe it should be the same size as the border between the lines and the corner pieces?
 ![[Pasted image 20261118110221.png]]
 looks great here, but could be a problem later when i'm not expecting it?
-- 
+
+## nice tooltip
+https://docs.godotengine.org/en/stable/classes/class_control.html#class-control-private-method-make-custom-tooltip
+
+seems like i have to override this on every control i want a custom tooltip for, if i want basic text
+
+i actually may want to fully override though, and have every control with:
+mouse_entered() -> void:
+	tooltipmanager.show(global_position, my_tooltip_data_object)
+
+
+so i can do a quick stylebox for tooltip, or i can do the full manager
+seems like for a ui mockup i can validate the font size with just a stylebox? the actual border changing colours etc is nice but should function identically resolution-wise, so it comes later

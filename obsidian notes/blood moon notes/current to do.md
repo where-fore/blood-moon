@@ -1,9 +1,3 @@
-- get a ui mockup in with working fonts at resolution
-	- mouseover tooltip with readable text at size
-	- figure out the whole subviewport thing and whether i'm doing it
-	this doesn't need to be perfect, i just want to settle on a resolution that works with fonts and rescaling before making anything further - have them in their viewports or whatever is actually necessary
-	![[Pasted image 20261122124452.png]]
-
 - get basic loop in
 	- simple combat: attack, kill, get loot, repeat
 	- simple upgrades: buy increased attack (cost scales exponentially), or meta upgrade (win the game)

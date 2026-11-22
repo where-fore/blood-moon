@@ -45,10 +45,14 @@ layout_mode = 2
 [node name="Combat" parent="MainGame/WindowBorder/Game" unique_id=239735525 node_paths=PackedStringArray("submenu") instance=ExtResource("2_qel8r")]
 layout_mode = 0
 offset_left = 134.0
-offset_top = 71.0
+offset_top = 92.0
 offset_right = 174.0
-offset_bottom = 111.0
-tooltip_text = "combat"
+offset_bottom = 132.0
+tooltip_text = "A fearless and ruthless
+warrior with incredible
+strength and martial
+prowess in all types of
+combat."
 submenu = NodePath("UIBoxStreamlined")
 
 [node name="UIBoxStreamlined" parent="MainGame/WindowBorder/Game/Combat" unique_id=899445150 instance=ExtResource("2_tafwd")]
