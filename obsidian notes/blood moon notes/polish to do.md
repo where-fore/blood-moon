@@ -4,6 +4,8 @@
 	- probably have an attack animation, and if a new attack fires during the animation (very fast game speed and/or fast attack speed), queue it and hasten the current animation, probably?
 - 
 # code / bugs
+## export variable validation
+having to create custom checks for every @export is so bad, i want a simple drag&drop where i get an error for something that has an @export that isn't defined on runtime
 ## global emit vs function
 `BasicEvents.send_basic_message.emit("Time Scale set to: ", GlobalSettings.combat_time_scale)`
 is probably not good formatting. i should have a send_basic_message() function, which calls the signal. having to access the signal properties correctly fails very easily (functions that expect parameters just break), so a function that can ask for arguments in tooltip is better for everyone
