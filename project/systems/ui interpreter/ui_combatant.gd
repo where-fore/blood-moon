@@ -17,6 +17,8 @@ func setup(combatant:Combatant) -> void:
 	
 	UiEvents.combatant_ui_update.connect(update)
 	combatant.send_ui_update()
+	
+	combatant.died.connect(death_animation)
 
 func update(combatant:Combatant) -> void:
 	if combatant == combatant_to_track:
@@ -25,3 +27,6 @@ func update(combatant:Combatant) -> void:
 		speed_label.text = str(snappedf(combatant.current_attack_speed, 0.01))
 		portrait.texture = combatant.portrait
 		turn_timer.update()
+
+func death_animation(_combatant_who_died:Combatant) -> void:
+	print_debug("eauhh i died")

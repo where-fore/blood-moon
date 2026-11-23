@@ -6,6 +6,8 @@ class_name Combatant
 @export var base_attack_speed:float
 @export var portrait:Texture
 
+signal died(combatant:Combatant)
+
 var is_the_player:bool = false:
 	set(value):
 		is_the_player = value
@@ -52,14 +54,14 @@ func increment_turn_timer(delta:float) -> void:
 func take_damage(amount:int) -> void:
 	current_sustained_damage += amount
 	if current_sustained_damage >= current_max_health:
-		BasicEvents.combatant_died.emit(self)
-		if is_the_player: BasicEvents.player_lost.emit()
+		died.emit(self)
 
 func take_turn() -> void:
 	current_target.take_damage(current_attack)
 
 func reset_after_combat() -> void:
 	elapsed_turn_timer = 0
+	if not is_the_player: current_sustained_damage = 0
 
 func upgrade_with_reward(reward:Reward) -> void:
 	match reward.stat:
@@ -86,4 +88,3 @@ func reset_stats_to_starting_base() -> void:
 
 func send_ui_update() -> void:
 	UiEvents.combatant_ui_update.emit(self)
-	

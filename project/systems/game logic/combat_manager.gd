@@ -10,7 +10,6 @@ var combatants:Array[Combatant]
 func _ready() -> void:
 	BasicEvents.ui_update.emit()
 	BasicEvents.start_combat.connect(start_combat)
-	BasicEvents.combatant_died.connect(end_combat)
 	
 	call_deferred("prepare_combat")
 
@@ -37,6 +36,7 @@ func prepare_combat() -> void:
 func create_combatant(combatant_base_scene:PackedScene) -> Combatant:
 	var new_combatant:Combatant = combatant_base_scene.instantiate()
 	add_child(new_combatant)
+	new_combatant.died.connect(end_combat)
 	return new_combatant
 
 func start_combat() -> void:
