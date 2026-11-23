@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bjkc5itfgl2aa" path="res://sprites/strength.png" id="7_7a8pb"]
 [ext_resource type="Texture2D" uid="uid://cdrdpsiijftie" path="res://sprites/dexterity.png" id="8_maq2t"]
 
-[node name="CombatantSmall" type="VBoxContainer" unique_id=1546746057 node_paths=PackedStringArray("health_label", "attack_label", "speed_label", "turn_timer")]
+[node name="CombatantSmall" type="VBoxContainer" unique_id=1546746057 node_paths=PackedStringArray("health_label", "attack_label", "speed_label", "turn_timer", "portrait")]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -22,6 +22,7 @@ health_label = NodePath("Health/Label")
 attack_label = NodePath("Attack/Label")
 speed_label = NodePath("AttackSpeed/Label")
 turn_timer = NodePath("ProgressBar")
+portrait = NodePath("UIBoxMinimal/TextureRect")
 
 [node name="UIBoxMinimal" parent="." unique_id=1542736023 instance=ExtResource("2_iov6t")]
 layout_mode = 2

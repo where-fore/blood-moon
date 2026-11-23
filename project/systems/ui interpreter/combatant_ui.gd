@@ -16,6 +16,7 @@ func setup(combatant:Combatant) -> void:
 	turn_timer.setup(combatant_to_track)
 	
 	UiEvents.combatant_ui_update.connect(update)
+	print_debug("test")
 
 func update(combatant:Combatant) -> void:
 	if combatant == combatant_to_track:

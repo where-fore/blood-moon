@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://dk6a5xx2ybrrb"]
 
 [ext_resource type="Script" uid="uid://dyeno2clhdjwo" path="res://systems/game logic/combatant.gd" id="1_wt6kk"]
+[ext_resource type="Texture2D" uid="uid://dfay83r2c6v5v" path="res://sprites/enemy_skull.png" id="2_m4tjd"]
 
 [node name="Enemy" type="Node2D" unique_id=677038345]
 script = ExtResource("1_wt6kk")
 starting_max_health = 100
-starting_attack = 20
+starting_attack = 10
 base_attack_speed = 2.5
+portrait = ExtResource("2_m4tjd")

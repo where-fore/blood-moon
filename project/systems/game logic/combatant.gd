@@ -18,7 +18,7 @@ var current_max_health:int
 var current_sustained_damage:int:
 	set(value):
 		current_sustained_damage = value
-		UiEvents.combatant_ui_update.emit(self)
+		send_ui_update()
 var current_attack:int
 var current_base_attack_speed:float
 var current_attack_speed_multiplier:int
@@ -31,7 +31,7 @@ var current_target:Combatant
 var elapsed_turn_timer:float = 0:
 	set(value):
 		elapsed_turn_timer = value
-		UiEvents.combatant_ui_update.emit(self)
+		send_ui_update()
 
 func _ready() -> void:
 	if not starting_max_health: push_error("starting_max_health not initialized on: ", name)
@@ -59,16 +59,14 @@ func take_turn() -> void:
 	current_target.take_damage(current_attack)
 
 func reset_after_combat() -> void:
-	current_sustained_damage = 0
 	elapsed_turn_timer = 0
-	UiEvents.combatant_ui_update.emit(self)
 
 func upgrade_with_reward(reward:Reward) -> void:
 	match reward.stat:
 		Stats.Names.HEALTH: current_max_health += reward.value
 		Stats.Names.ATTACK: current_attack += reward.value
 		Stats.Names.ATTACK_SPEED_MULTIPLIER: current_attack_speed_multiplier += reward.value
-	UiEvents.combatant_ui_update.emit(self)
+	send_ui_update()
 	UiEvents.send_aura_to_tracker.emit(reward)
 
 func upgrade_over_time() -> void:
@@ -85,3 +83,7 @@ func reset_stats_to_starting_base() -> void:
 	
 	current_sustained_damage = 0
 	elapsed_turn_timer = 0
+
+func send_ui_update() -> void:
+	UiEvents.combatant_ui_update.emit(self)
+	

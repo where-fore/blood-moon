@@ -1,11 +1,13 @@
-hp damage attack speed, attack speed bar
-icon for portraits
-ui suite for: start/stop combat (one button that changes icon), later skills & inventories & consumables
+
+- 1: ready: initalize combatants, combat is paused
+- 2: press pause/unpause button
+- 3: combat begins as before, turn timers tick down
+- 4: when one dies, pause turn timers
+- 5: loot, reset new enemy
+- 6: new combat: keep damaged hp, reset turn timer
+- back to step 4
+- if player dies, instead of "loot": "rest"
+
+
 
 thinking small and big windows for this stuff, small window to simply track and large window to fine tune? nothing to fine tune right now ofc but for later when you have builds and rewards and etc
-
-
-
-
-
-current combatants are instantiated by the manager with default values. i'd like to have a lil resource/script for CombatantData that has unique stats and portaits

@@ -11,47 +11,55 @@ func _ready() -> void:
 	BasicEvents.ui_update.emit()
 	BasicEvents.start_combat.connect(start_combat)
 	BasicEvents.combatant_died.connect(end_combat)
-	BasicEvents.player_lost.connect(restart_game)
-	@warning_ignore("untyped_declaration")
-	BasicEvents.reward_chosen.connect(func(_reward:Reward): strengthen_enemies())
 	
-	var new_player_combatant:Combatant = player_combatant_base_scene.instantiate()
-	add_child(new_player_combatant)
-	player_combatant = new_player_combatant
+	call_deferred("prepare_combat")
+
+func prepare_combat() -> void:
+	var player_prepped:bool = false
+	var enemy_prepped:bool = false
+	for combatant:Combatant in combatants:
+		if combatant.is_the_player: player_prepped = true
+		if not combatant.is_the_player: enemy_prepped = false
 	
-	var new_enemy_combatant:Combatant = enemy_combatant_base_scene.instantiate()
-	add_child(new_enemy_combatant)
-	enemy_combatant = new_enemy_combatant
+	if not player_prepped:
+		player_combatant = create_combatant(player_combatant_base_scene)
+		combatants.append(player_combatant)
+		UiEvents.new_player_combatant.emit(player_combatant)
+	if not enemy_prepped:
+		enemy_combatant = create_combatant(enemy_combatant_base_scene)
+		combatants.append(enemy_combatant)
+		UiEvents.new_enemy_combatant.emit(enemy_combatant)
 	
-	player_combatant.is_the_player = true
-	
-	combatants = [player_combatant, enemy_combatant]
 	player_combatant.current_target = enemy_combatant
 	enemy_combatant.current_target = player_combatant
 	
-	call_deferred("send_signals")
 
-func send_signals() -> void:
-	UiEvents.new_player_combatant.emit(player_combatant)
-	UiEvents.new_enemy_combatant.emit(enemy_combatant)
+func create_combatant(combatant_base_scene:PackedScene) -> Combatant:
+	var new_combatant:Combatant = combatant_base_scene.instantiate()
+	add_child(new_combatant)
+	return new_combatant
 
 func start_combat() -> void:
 	for combatant:Combatant in combatants:
 		combatant.active_in_combat = true
 
 func end_combat(dead_combatant:Combatant) -> void:
+	if dead_combatant.is_the_player:
+		pass
+	else:
+		combatants.erase(dead_combatant)
+		dead_combatant.queue_free()
 	end_of_combat_cleanup()
-	if not dead_combatant.is_the_player: BasicEvents.swap_to_reward_screen.emit()
 
-func restart_game() -> void:
-	end_of_combat_cleanup()
-	for combatant:Combatant in combatants:
-		combatant.reset_stats_to_starting_base()
+#func restart_game() -> void:
+#	end_of_combat_cleanup()
+#	for combatant:Combatant in combatants:
+#		combatant.reset_stats_to_starting_base()
 
-func strengthen_enemies() -> void:
-	for combatant:Combatant in combatants:
-		if not combatant.is_the_player:
-			combatant.upgrade_over_time()
+#func strengthen_enemies() -> void:
+#	for combatant:Combatant in combatants:
+#		if not combatant.is_the_player:
+#			combatant.upgrade_over_time()
 
 func end_of_combat_cleanup() -> void:
 	for combatant:Combatant in combatants:
