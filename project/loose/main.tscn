@@ -25,6 +25,7 @@
 [ext_resource type="Script" uid="uid://cbuks5fcerdtp" path="res://systems/ui interpreter/aura_tracker.gd" id="22_w1snj"]
 [ext_resource type="PackedScene" uid="uid://bksdgxm552rkr" path="res://ui pieces/aura_icon.tscn" id="23_1fc2u"]
 [ext_resource type="Texture2D" uid="uid://5snfqg1jkgi7" path="res://sprites/play.png" id="23_rjmfi"]
+[ext_resource type="Script" uid="uid://6jgkwbsqcufi" path="res://systems/ui interpreter/ui_manager.gd" id="30_ireyf"]
 [ext_resource type="Material" uid="uid://db4ka5skbpxq4" path="res://loose/crt filter/crt_major.tres" id="35_80hqw"]
 [ext_resource type="Script" uid="uid://bx63smibeun4i" path="res://loose/debug_manager.gd" id="35_q5k8v"]
 [ext_resource type="PackedScene" uid="uid://cj3lkwi5lkv4j" path="res://content/combatants/player.tscn" id="35_w1snj"]
@@ -242,7 +243,10 @@ script = ExtResource("12_0vix3")
 player_combatant_base_scene = ExtResource("35_w1snj")
 enemy_combatant_base_scene = ExtResource("36_1fc2u")
 
-[node name="UIManager" type="Node2D" parent="." unique_id=1224659959]
+[node name="UIManager" type="Node2D" parent="." unique_id=1224659959 node_paths=PackedStringArray("player_combatant", "enemy_combatant")]
+script = ExtResource("30_ireyf")
+player_combatant = NodePath("../MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/Hero/CombatantSmall")
+enemy_combatant = NodePath("../MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/Enemy/CombatantSmall")
 
 [node name="DebugManager" type="Node2D" parent="." unique_id=1958524432]
 script = ExtResource("35_q5k8v")
