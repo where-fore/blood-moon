@@ -19,9 +19,12 @@
 [ext_resource type="Resource" uid="uid://bdjxchvidh3mu" path="res://content/rewards/rare_attack_speed.tres" id="17_ireyf"]
 [ext_resource type="Resource" uid="uid://533lghi30ttw" path="res://content/rewards/rare_health.tres" id="18_rjmfi"]
 [ext_resource type="Texture2D" uid="uid://duitjco1lpx50" path="res://sprites/potion.png" id="20_yqr2s"]
+[ext_resource type="Texture2D" uid="uid://dla85vl5duj3t" path="res://sprites/pause.png" id="21_1j0u7"]
 [ext_resource type="PackedScene" uid="uid://dq8dbyqhsikqt" path="res://ui pieces/foundational/button_basic_icon.tscn" id="21_nf78q"]
+[ext_resource type="Script" uid="uid://c1s6gv52ouj73" path="res://systems/ui interpreter/combat_pause.gd" id="22_ireyf"]
 [ext_resource type="Script" uid="uid://cbuks5fcerdtp" path="res://systems/ui interpreter/aura_tracker.gd" id="22_w1snj"]
 [ext_resource type="PackedScene" uid="uid://bksdgxm552rkr" path="res://ui pieces/aura_icon.tscn" id="23_1fc2u"]
+[ext_resource type="Texture2D" uid="uid://5snfqg1jkgi7" path="res://sprites/play.png" id="23_rjmfi"]
 [ext_resource type="Material" uid="uid://db4ka5skbpxq4" path="res://loose/crt filter/crt_major.tres" id="35_80hqw"]
 [ext_resource type="Script" uid="uid://bx63smibeun4i" path="res://loose/debug_manager.gd" id="35_q5k8v"]
 [ext_resource type="PackedScene" uid="uid://cj3lkwi5lkv4j" path="res://content/combatants/player.tscn" id="35_w1snj"]
@@ -175,8 +178,12 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="TextureButton" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/Buttons/VBoxContainer" unique_id=1105146277 instance=ExtResource("21_nf78q")]
+[node name="PauseButton" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/Buttons/VBoxContainer" unique_id=1105146277 instance=ExtResource("21_nf78q")]
 layout_mode = 2
+texture_normal = ExtResource("21_1j0u7")
+script = ExtResource("22_ireyf")
+play_texture = ExtResource("23_rjmfi")
+pause_texture = ExtResource("21_1j0u7")
 
 [node name="Other" parent="MainGame/WindowBorder/Game" unique_id=1449220356 node_paths=PackedStringArray("submenu") instance=ExtResource("4_xalbe")]
 layout_mode = 1
@@ -239,3 +246,5 @@ enemy_combatant_base_scene = ExtResource("36_1fc2u")
 
 [node name="DebugManager" type="Node2D" parent="." unique_id=1958524432]
 script = ExtResource("35_q5k8v")
+
+[connection signal="pressed" from="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/Buttons/VBoxContainer/PauseButton" to="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/Buttons/VBoxContainer/PauseButton" method="on_pressed"]
