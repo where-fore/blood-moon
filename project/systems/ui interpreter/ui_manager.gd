@@ -19,6 +19,7 @@ func _ready() -> void:
 	
 	UiEvents.new_player_combatant.connect(setup_player_combatant_ui)
 	UiEvents.new_enemy_combatant.connect(setup_enemy_combatant_ui)
+	print_debug("test")
 
 func swap_to_combat() -> void:
 	enemy_screen.visible = true
