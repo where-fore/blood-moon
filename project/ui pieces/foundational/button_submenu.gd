@@ -1,4 +1,4 @@
-extends TextureRect
+extends TextureButton
 
 @export var submenu:Control
 

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dq8dbyqhsikqt" path="res://ui pieces/foundational/button_basic_icon.tscn" id="1_xmcme"]
 [ext_resource type="Script" uid="uid://byvby67eshlbq" path="res://ui pieces/foundational/button_submenu.gd" id="2_tlmdj"]
 
-[node name="TextureRect" unique_id=1105146277 instance=ExtResource("1_xmcme")]
+[node name="TextureButton" unique_id=1105146277 instance=ExtResource("1_xmcme")]
 script = ExtResource("2_tlmdj")
 
-[connection signal="pressed" from="TextureButton" to="." method="_on_pressed"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dt7jpbn71da3l" path="res://ui pieces/foundational/ui_box_streamlined.tscn" id="2_tafwd"]
 [ext_resource type="PackedScene" uid="uid://b7fjh8x3yifx4" path="res://ui pieces/foundational/spacer.tscn" id="2_wqdpu"]
 [ext_resource type="PackedScene" uid="uid://drn7hyslxtts4" path="res://ui pieces/foundational/ui_box_minimal.tscn" id="3_bfd2p"]
+[ext_resource type="Texture2D" uid="uid://dvj4yhla7iisl" path="res://sprites/cross_swords.png" id="3_xalbe"]
 [ext_resource type="PackedScene" uid="uid://brjln1m5s0lm4" path="res://systems/ui interpreter/combatant_ui_small.tscn" id="4_f4q0r"]
 [ext_resource type="PackedScene" uid="uid://biw0gqvgc6d85" path="res://ui pieces/foundational/button_submenu.tscn" id="4_xalbe"]
 [ext_resource type="Script" uid="uid://careygatuk6hp" path="res://systems/game logic/reward_screen.gd" id="11_f4q0r"]
@@ -43,6 +44,8 @@ offset_left = -172.0
 offset_top = -73.0
 offset_right = -148.0
 offset_bottom = -49.0
+texture_normal = ExtResource("3_xalbe")
+stretch_mode = 3
 submenu = NodePath("UIBoxStreamlined")
 
 [node name="UIBoxStreamlined" parent="MainGame/WindowBorder/Game/Combat" unique_id=899445150 instance=ExtResource("2_tafwd")]
@@ -172,7 +175,7 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="TextureRect" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/Buttons/VBoxContainer" unique_id=1105146277 instance=ExtResource("21_nf78q")]
+[node name="TextureButton" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/Buttons/VBoxContainer" unique_id=1105146277 instance=ExtResource("21_nf78q")]
 layout_mode = 2
 
 [node name="Other" parent="MainGame/WindowBorder/Game" unique_id=1449220356 node_paths=PackedStringArray("submenu") instance=ExtResource("4_xalbe")]
@@ -181,9 +184,10 @@ offset_left = 140.0
 offset_top = 70.0
 offset_right = 164.0
 offset_bottom = 94.0
-submenu = NodePath("TextureRect")
+stretch_mode = 3
+submenu = NodePath("TextureRect2")
 
-[node name="TextureRect" type="TextureRect" parent="MainGame/WindowBorder/Game/Other" unique_id=1417856989]
+[node name="TextureRect2" type="TextureRect" parent="MainGame/WindowBorder/Game/Other" unique_id=1417856989]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
