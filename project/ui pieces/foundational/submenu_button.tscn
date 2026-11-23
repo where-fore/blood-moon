@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bosnqbat0y1ey"]
 
 [ext_resource type="Texture2D" uid="uid://bfn37k0tfdrtx" path="res://sprites/question.png" id="1_5vkic"]
-[ext_resource type="Script" uid="uid://byvby67eshlbq" path="res://ui pieces/submenu_button.gd" id="2_b1h6i"]
+[ext_resource type="Script" uid="uid://byvby67eshlbq" path="res://ui pieces/foundational/submenu_button.gd" id="2_b1h6i"]
 [ext_resource type="PackedScene" uid="uid://drn7hyslxtts4" path="res://ui pieces/foundational/ui_box_minimal.tscn" id="3_b1h6i"]
 
 [node name="SubmenuButton" type="TextureButton" unique_id=239735525]
