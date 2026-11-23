@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var player_combatant:CombatantUI
-@export var enemy_combatant:CombatantUI
+@export var player_combatant:UICombatant
+@export var enemy_combatant:UICombatant
 
 func _ready() -> void:
 	UiEvents.new_player_combatant.connect(setup_player_combatant_ui)
@@ -13,5 +13,5 @@ func setup_player_combatant_ui(combatant:Combatant) -> void:
 func setup_enemy_combatant_ui(combatant:Combatant) -> void:
 	setup_combatant_ui(enemy_combatant, combatant)
 
-func setup_combatant_ui(ui:CombatantUI, combatant:Combatant) -> void:
+func setup_combatant_ui(ui:UICombatant, combatant:Combatant) -> void:
 	ui.setup(combatant)

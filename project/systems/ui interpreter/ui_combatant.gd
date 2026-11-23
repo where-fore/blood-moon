@@ -1,5 +1,5 @@
 extends Control
-class_name CombatantUI
+class_name UICombatant
 
 var combatant_to_track:Combatant
 @export var health_label:Label
