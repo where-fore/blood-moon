@@ -2,7 +2,14 @@
 # cool stuff
 - attack animation / damage numbers
 	- probably have an attack animation, and if a new attack fires during the animation (very fast game speed and/or fast attack speed), queue it and hasten the current animation, probably?
-- 
+- combat rewards: have enemies give different rewards based on how you kill them?
+	- killing a skeleton with slashing/piercing gives you literal bones you can work with, but bludgeoning gives you splinters which are worth more gold or something?
+	- if you kill enemies while they are stunned, you get more rewards?
+	- if you kill enemies above 50% hp you get more rewards (mix with a vampirism ability)?
+	- a perk tree for rewards for combat, or maybe different rewards per enemy? both?
+- combat interactivity: have daily consumables or other cooldown based buttons, which reward you for activating them at a certain time.
+	- eg. 2 healing potions per day which restore to full, so you want to time them within the autocombat to heal the most.
+	- or 2x attack speed potion, and your character has chances to enrage, so you want to stack those
 # code / bugs
 ## export variable validation
 having to create custom checks for every @export is so bad, i want a simple drag&drop where i get an error for something that has an @export that isn't defined on runtime

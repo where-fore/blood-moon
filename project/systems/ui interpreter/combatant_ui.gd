@@ -1,4 +1,4 @@
-extends PanelContainer
+extends Control
 class_name CombatantUI
 
 var combatant_to_track:Combatant
@@ -6,6 +6,7 @@ var combatant_to_track:Combatant
 @export var attack_label:Label
 @export var speed_label:Label
 @export var turn_timer:TurnTimer
+@export var portrait:TextureRect
 
 func setup(combatant:Combatant) -> void:
 	combatant_to_track = combatant
@@ -21,4 +22,5 @@ func update(combatant:Combatant) -> void:
 		health_label.text = str(combatant.current_max_health - combatant.current_sustained_damage)
 		attack_label.text = str(combatant.current_attack)
 		speed_label.text = str(snappedf(combatant.current_attack_speed, 0.01))
+		portrait.texture = combatant.portrait
 		turn_timer.update()

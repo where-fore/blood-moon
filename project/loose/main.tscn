@@ -1,17 +1,11 @@
 [gd_scene format=3 uid="uid://cqow47bch5ocs"]
 
 [ext_resource type="PackedScene" uid="uid://bhb073mvlb6mj" path="res://ui pieces/foundational/ui_box_elaborate.tscn" id="1_sup1h"]
-[ext_resource type="PackedScene" uid="uid://bosnqbat0y1ey" path="res://ui pieces/foundational/submenu_button.tscn" id="2_qel8r"]
 [ext_resource type="PackedScene" uid="uid://dt7jpbn71da3l" path="res://ui pieces/foundational/ui_box_streamlined.tscn" id="2_tafwd"]
 [ext_resource type="PackedScene" uid="uid://b7fjh8x3yifx4" path="res://ui pieces/foundational/spacer.tscn" id="2_wqdpu"]
 [ext_resource type="PackedScene" uid="uid://drn7hyslxtts4" path="res://ui pieces/foundational/ui_box_minimal.tscn" id="3_bfd2p"]
-[ext_resource type="Script" uid="uid://dxpeesw3qdsj0" path="res://systems/ui interpreter/combatant_ui.gd" id="3_c6an6"]
-[ext_resource type="Texture2D" uid="uid://bgv0xar3ewpfd" path="res://sprites/player.png" id="4_t27i6"]
-[ext_resource type="Texture2D" uid="uid://gw80on1ihg7f" path="res://sprites/heart.png" id="5_0vix3"]
-[ext_resource type="PackedScene" uid="uid://bqoxy48346yrt" path="res://ui pieces/turn_bar.tscn" id="5_t27i6"]
-[ext_resource type="Texture2D" uid="uid://dfay83r2c6v5v" path="res://sprites/enemy_skull.png" id="7_ave2a"]
-[ext_resource type="Texture2D" uid="uid://bjkc5itfgl2aa" path="res://sprites/strength.png" id="8_16p2t"]
-[ext_resource type="Texture2D" uid="uid://cdrdpsiijftie" path="res://sprites/dexterity.png" id="9_hben2"]
+[ext_resource type="PackedScene" uid="uid://brjln1m5s0lm4" path="res://systems/ui interpreter/combatant_ui_small.tscn" id="4_f4q0r"]
+[ext_resource type="PackedScene" uid="uid://biw0gqvgc6d85" path="res://ui pieces/foundational/button_submenu.tscn" id="4_xalbe"]
 [ext_resource type="Script" uid="uid://careygatuk6hp" path="res://systems/game logic/reward_screen.gd" id="11_f4q0r"]
 [ext_resource type="Texture2D" uid="uid://dhuid4jl0xyt7" path="res://sprites/bag.png" id="11_uaqc7"]
 [ext_resource type="Script" uid="uid://clexac1mmhg6h" path="res://systems/game logic/combat_manager.gd" id="12_0vix3"]
@@ -23,9 +17,10 @@
 [ext_resource type="Resource" uid="uid://d0mq1bgq1jmbe" path="res://content/rewards/rare_attack.tres" id="16_1j0u7"]
 [ext_resource type="Resource" uid="uid://bdjxchvidh3mu" path="res://content/rewards/rare_attack_speed.tres" id="17_ireyf"]
 [ext_resource type="Resource" uid="uid://533lghi30ttw" path="res://content/rewards/rare_health.tres" id="18_rjmfi"]
+[ext_resource type="Texture2D" uid="uid://duitjco1lpx50" path="res://sprites/potion.png" id="20_yqr2s"]
+[ext_resource type="PackedScene" uid="uid://dq8dbyqhsikqt" path="res://ui pieces/foundational/button_basic_icon.tscn" id="21_nf78q"]
 [ext_resource type="Script" uid="uid://cbuks5fcerdtp" path="res://systems/ui interpreter/aura_tracker.gd" id="22_w1snj"]
 [ext_resource type="PackedScene" uid="uid://bksdgxm552rkr" path="res://ui pieces/aura_icon.tscn" id="23_1fc2u"]
-[ext_resource type="Texture2D" uid="uid://c0ly6ter3l7b5" path="res://sprites/pike.png" id="25_ireyf"]
 [ext_resource type="Material" uid="uid://db4ka5skbpxq4" path="res://loose/crt filter/crt_major.tres" id="35_80hqw"]
 [ext_resource type="Script" uid="uid://bx63smibeun4i" path="res://loose/debug_manager.gd" id="35_q5k8v"]
 [ext_resource type="PackedScene" uid="uid://cj3lkwi5lkv4j" path="res://content/combatants/player.tscn" id="35_w1snj"]
@@ -42,30 +37,23 @@ metadata/_edit_lock_ = true
 [node name="Game" type="Control" parent="MainGame/WindowBorder" unique_id=445792644]
 layout_mode = 2
 
-[node name="Combat" parent="MainGame/WindowBorder/Game" unique_id=239735525 node_paths=PackedStringArray("submenu") instance=ExtResource("2_qel8r")]
-layout_mode = 0
-offset_left = 134.0
-offset_top = 92.0
-offset_right = 174.0
-offset_bottom = 132.0
-tooltip_text = "A fearless and ruthless
-warrior with incredible
-strength and martial
-prowess in all types of
-combat."
+[node name="Combat" parent="MainGame/WindowBorder/Game" unique_id=843963902 node_paths=PackedStringArray("submenu") instance=ExtResource("4_xalbe")]
+layout_mode = 1
+offset_left = -172.0
+offset_top = -73.0
+offset_right = -148.0
+offset_bottom = -49.0
 submenu = NodePath("UIBoxStreamlined")
 
 [node name="UIBoxStreamlined" parent="MainGame/WindowBorder/Game/Combat" unique_id=899445150 instance=ExtResource("2_tafwd")]
-custom_minimum_size = Vector2(200, 150)
-custom_maximum_size = Vector2(200, 150)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -109.0
-offset_right = 150.0
-offset_bottom = 109.0
+offset_top = -68.0
+offset_right = 184.0
+offset_bottom = 68.0
 grow_horizontal = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined" unique_id=1208593396]
@@ -75,143 +63,22 @@ layout_mode = 2
 [node name="Spacer" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=466240430 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
 
-[node name="PlayerCombatant" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=1018818442 node_paths=PackedStringArray("health_label", "attack_label", "speed_label", "turn_timer") instance=ExtResource("2_tafwd")]
-layout_mode = 2
-size_flags_horizontal = 19
-script = ExtResource("3_c6an6")
-health_label = NodePath("VBoxContainer/HBoxContainer/Label")
-attack_label = NodePath("VBoxContainer/HBoxContainer2/Label")
-speed_label = NodePath("VBoxContainer/HBoxContainer3/Label")
-turn_timer = NodePath("VBoxContainer/ProgressBar")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/PlayerCombatant" unique_id=1772241150]
+[node name="Hero" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=1169952161 instance=ExtResource("2_tafwd")]
 layout_mode = 2
 
-[node name="UIBoxMinimal" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/PlayerCombatant/VBoxContainer" unique_id=970874160 instance=ExtResource("3_bfd2p")]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="TextureRect" type="TextureRect" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/PlayerCombatant/VBoxContainer/UIBoxMinimal" unique_id=1161578025]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-texture = ExtResource("4_t27i6")
-
-[node name="ProgressBar" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/PlayerCombatant/VBoxContainer" unique_id=263909228 instance=ExtResource("5_t27i6")]
-custom_minimum_size = Vector2(10, 10)
-layout_mode = 2
-
-[node name="Spacer" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/PlayerCombatant/VBoxContainer" unique_id=929488828 instance=ExtResource("2_wqdpu")]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/PlayerCombatant/VBoxContainer" unique_id=155995394]
-layout_mode = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/PlayerCombatant/VBoxContainer/HBoxContainer" unique_id=2111243425]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-texture = ExtResource("5_0vix3")
-
-[node name="Label" type="Label" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/PlayerCombatant/VBoxContainer/HBoxContainer" unique_id=2135164495]
-layout_mode = 2
-text = "200"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/PlayerCombatant/VBoxContainer" unique_id=1784990364]
-layout_mode = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/PlayerCombatant/VBoxContainer/HBoxContainer2" unique_id=313658189]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-texture = ExtResource("8_16p2t")
-
-[node name="Label" type="Label" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/PlayerCombatant/VBoxContainer/HBoxContainer2" unique_id=1026955465]
-layout_mode = 2
-text = "30"
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/PlayerCombatant/VBoxContainer" unique_id=1228280604]
-layout_mode = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/PlayerCombatant/VBoxContainer/HBoxContainer3" unique_id=912606041]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-texture = ExtResource("9_hben2")
-
-[node name="Label" type="Label" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/PlayerCombatant/VBoxContainer/HBoxContainer3" unique_id=1205761815]
-layout_mode = 2
-text = "30"
-
-[node name="Spacer2" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/PlayerCombatant/VBoxContainer" unique_id=1936070573 instance=ExtResource("2_wqdpu")]
+[node name="CombatantSmall" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/Hero" unique_id=1546746057 instance=ExtResource("4_f4q0r")]
 layout_mode = 2
 
 [node name="Spacer2" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=226584502 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
 
-[node name="EnemyCombatant" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=124855427 node_paths=PackedStringArray("health_label", "attack_label", "speed_label", "turn_timer") instance=ExtResource("2_tafwd")]
-layout_mode = 2
-size_flags_horizontal = 19
-script = ExtResource("3_c6an6")
-health_label = NodePath("VBoxContainer/HBoxContainer/Label")
-attack_label = NodePath("VBoxContainer/HBoxContainer2/Label")
-speed_label = NodePath("VBoxContainer/HBoxContainer3/Label")
-turn_timer = NodePath("VBoxContainer/ProgressBar")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/EnemyCombatant" unique_id=1393319962]
+[node name="Enemy" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=1167542757 instance=ExtResource("2_tafwd")]
 layout_mode = 2
 
-[node name="UIBoxMinimal" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer" unique_id=708474694 instance=ExtResource("3_bfd2p")]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="TextureRect" type="TextureRect" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer/UIBoxMinimal" unique_id=1962244156]
-layout_mode = 2
-texture = ExtResource("7_ave2a")
-
-[node name="ProgressBar" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer" unique_id=199866892 instance=ExtResource("5_t27i6")]
-custom_minimum_size = Vector2(10, 10)
+[node name="CombatantSmall" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/Enemy" unique_id=1585932579 instance=ExtResource("4_f4q0r")]
 layout_mode = 2
 
-[node name="Spacer" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer" unique_id=938792618 instance=ExtResource("2_wqdpu")]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer" unique_id=559441300]
-layout_mode = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer/HBoxContainer" unique_id=1488693546]
-layout_mode = 2
-texture = ExtResource("5_0vix3")
-
-[node name="Label" type="Label" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer/HBoxContainer" unique_id=1566676022]
-layout_mode = 2
-text = "200"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer" unique_id=1545911163]
-layout_mode = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer/HBoxContainer2" unique_id=313509857]
-layout_mode = 2
-texture = ExtResource("8_16p2t")
-
-[node name="Label" type="Label" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer/HBoxContainer2" unique_id=1693061532]
-layout_mode = 2
-text = "30"
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer" unique_id=1194915612]
-layout_mode = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer/HBoxContainer3" unique_id=1321329155]
-layout_mode = 2
-texture = ExtResource("9_hben2")
-
-[node name="Label" type="Label" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer/HBoxContainer3" unique_id=2103291860]
-layout_mode = 2
-text = "30"
-
-[node name="Spacer2" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/EnemyCombatant/VBoxContainer" unique_id=562158122 instance=ExtResource("2_wqdpu")]
+[node name="Spacer3" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=1767361082 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
 
 [node name="RewardScreen" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=965647272 node_paths=PackedStringArray("reward_buttons") instance=ExtResource("2_tafwd")]
@@ -250,9 +117,6 @@ layout_mode = 2
 reward = ExtResource("13_npwt7")
 
 [node name="Spacer2" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=212561815 instance=ExtResource("2_wqdpu")]
-layout_mode = 2
-
-[node name="Spacer3" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=1767361082 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
 
 [node name="AuraTracker" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=1997915480 node_paths=PackedStringArray("vbox_for_aura_displays", "display_to_delete_on_runtime") instance=ExtResource("1_sup1h")]
@@ -301,17 +165,25 @@ layout_mode = 2
 [node name="AuraIcon9" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1384488659 instance=ExtResource("23_1fc2u")]
 layout_mode = 2
 
-[node name="Other" parent="MainGame/WindowBorder/Game" unique_id=1523104906 node_paths=PackedStringArray("submenu") instance=ExtResource("2_qel8r")]
-layout_mode = 0
-offset_left = 403.0
-offset_top = 218.0
-offset_right = 443.0
-offset_bottom = 258.0
-tooltip_text = "spear"
+[node name="Buttons" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=823752889 instance=ExtResource("3_bfd2p")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/Buttons" unique_id=929420798]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/Buttons/VBoxContainer" unique_id=1105146277 instance=ExtResource("21_nf78q")]
+layout_mode = 2
+
+[node name="Other" parent="MainGame/WindowBorder/Game" unique_id=1449220356 node_paths=PackedStringArray("submenu") instance=ExtResource("4_xalbe")]
+layout_mode = 1
+offset_left = 140.0
+offset_top = 70.0
+offset_right = 164.0
+offset_bottom = 94.0
 submenu = NodePath("TextureRect")
 
-[node name="TextureRect" type="TextureRect" parent="MainGame/WindowBorder/Game/Other" unique_id=1063780082]
-custom_minimum_size = Vector2(64, 64)
+[node name="TextureRect" type="TextureRect" parent="MainGame/WindowBorder/Game/Other" unique_id=1417856989]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -322,7 +194,7 @@ offset_top = -20.0
 offset_right = 40.0
 offset_bottom = 20.0
 grow_vertical = 2
-texture = ExtResource("25_ireyf")
+texture = ExtResource("20_yqr2s")
 
 [node name="OverlaidText" type="Panel" parent="MainGame/WindowBorder" unique_id=1676341060]
 custom_minimum_size = Vector2(0, 40)

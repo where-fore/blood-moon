@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://brjln1m5s0lm4"]
+
+[ext_resource type="Script" uid="uid://dxpeesw3qdsj0" path="res://systems/ui interpreter/combatant_ui.gd" id="1_ffqo1"]
+[ext_resource type="PackedScene" uid="uid://drn7hyslxtts4" path="res://ui pieces/foundational/ui_box_minimal.tscn" id="2_iov6t"]
+[ext_resource type="Texture2D" uid="uid://bgv0xar3ewpfd" path="res://sprites/player.png" id="3_74htk"]
+[ext_resource type="PackedScene" uid="uid://bqoxy48346yrt" path="res://ui pieces/turn_bar.tscn" id="4_tucq0"]
+[ext_resource type="PackedScene" uid="uid://b7fjh8x3yifx4" path="res://ui pieces/foundational/spacer.tscn" id="5_xw7dr"]
+[ext_resource type="Texture2D" uid="uid://gw80on1ihg7f" path="res://sprites/heart.png" id="6_ej7jr"]
+[ext_resource type="Texture2D" uid="uid://bjkc5itfgl2aa" path="res://sprites/strength.png" id="7_7a8pb"]
+[ext_resource type="Texture2D" uid="uid://cdrdpsiijftie" path="res://sprites/dexterity.png" id="8_maq2t"]
+
+[node name="CombatantSmall" type="VBoxContainer" unique_id=1546746057 node_paths=PackedStringArray("health_label", "attack_label", "speed_label", "turn_timer")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.0
+offset_right = 22.0
+offset_bottom = 108.0
+grow_horizontal = 2
+script = ExtResource("1_ffqo1")
+health_label = NodePath("Health/Label")
+attack_label = NodePath("Attack/Label")
+speed_label = NodePath("AttackSpeed/Label")
+turn_timer = NodePath("ProgressBar")
+
+[node name="UIBoxMinimal" parent="." unique_id=1542736023 instance=ExtResource("2_iov6t")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="UIBoxMinimal" unique_id=287151698]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("3_74htk")
+
+[node name="ProgressBar" parent="." unique_id=263909228 instance=ExtResource("4_tucq0")]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="Spacer" parent="." unique_id=466240430 instance=ExtResource("5_xw7dr")]
+layout_mode = 2
+
+[node name="Health" type="HBoxContainer" parent="." unique_id=1403224137]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Health" unique_id=1269069817]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("6_ej7jr")
+
+[node name="Label" type="Label" parent="Health" unique_id=917310753]
+layout_mode = 2
+text = "200"
+
+[node name="Attack" type="HBoxContainer" parent="." unique_id=271412414]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Attack" unique_id=1426411502]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("7_7a8pb")
+
+[node name="Label" type="Label" parent="Attack" unique_id=2069828441]
+layout_mode = 2
+text = "30"
+
+[node name="AttackSpeed" type="HBoxContainer" parent="." unique_id=1659483848]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="AttackSpeed" unique_id=1834148012]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("8_maq2t")
+
+[node name="Label" type="Label" parent="AttackSpeed" unique_id=1660374282]
+layout_mode = 2
+text = "30"
+
+[node name="Spacer2" parent="." unique_id=783695406 instance=ExtResource("5_xw7dr")]
+layout_mode = 2

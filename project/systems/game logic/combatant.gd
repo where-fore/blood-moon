@@ -4,6 +4,7 @@ class_name Combatant
 @export var starting_max_health:int
 @export var starting_attack:int
 @export var base_attack_speed:float
+@export var portrait:Texture
 
 var is_the_player:bool = false:
 	set(value):
