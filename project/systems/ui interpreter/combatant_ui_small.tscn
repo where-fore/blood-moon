@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bjkc5itfgl2aa" path="res://sprites/strength.png" id="7_7a8pb"]
 [ext_resource type="Texture2D" uid="uid://cdrdpsiijftie" path="res://sprites/dexterity.png" id="8_maq2t"]
 
-[node name="Control" type="Control" unique_id=1820696189 node_paths=PackedStringArray("health_label", "attack_label", "speed_label", "turn_timer", "portrait", "death_colour", "hide_on_death")]
+[node name="Control" type="Control" unique_id=1820696189 node_paths=PackedStringArray("health_label", "attack_label", "speed_label", "turn_timer", "portrait", "death_colour")]
 custom_minimum_size = Vector2(50, 100)
 layout_mode = 3
 anchors_preset = 15
@@ -24,7 +24,6 @@ speed_label = NodePath("CombatantSmall/AttackSpeed/Label")
 turn_timer = NodePath("CombatantSmall/ProgressBar")
 portrait = NodePath("CombatantSmall/Portrait/TextureRect")
 death_colour = NodePath("ColorRect")
-hide_on_death = [NodePath("CombatantSmall/Health"), NodePath("CombatantSmall/Attack"), NodePath("CombatantSmall/AttackSpeed"), NodePath("CombatantSmall/ProgressBar")]
 
 [node name="CombatantSmall" type="VBoxContainer" parent="." unique_id=1546746057]
 layout_mode = 1

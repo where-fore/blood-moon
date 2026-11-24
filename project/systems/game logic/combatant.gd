@@ -62,6 +62,9 @@ func take_turn() -> void:
 func reset_after_combat() -> void:
 	elapsed_turn_timer = 0
 	if not is_the_player: current_sustained_damage = 0
+	if is_the_player:
+		if current_sustained_damage >= current_max_health:
+			current_sustained_damage = 0
 
 func upgrade_with_reward(reward:Reward) -> void:
 	match reward.stat:

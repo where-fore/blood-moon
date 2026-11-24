@@ -8,22 +8,18 @@ var combatant_to_track:Combatant
 @export var turn_timer:TurnTimer
 @export var portrait:TextureRect
 @export var death_colour:ColorRect
-@export var hide_on_death:Array[Control]
 
 func _ready() -> void:
 	death_colour.visible = false
+	UiEvents.combatant_ui_update.connect(update)
 
-func setup(combatant:Combatant) -> void:
-	for control:Control in hide_on_death:
-		control.visible = true
-	
+func setup(combatant:Combatant) -> void:	
 	combatant_to_track = combatant
 	if not combatant_to_track: push_error(name, " was not assigned a combatant to track")
 	
 	if not turn_timer: push_error(name, " was not assigned a turntimer to track")
 	turn_timer.setup(combatant_to_track)
 	
-	UiEvents.combatant_ui_update.connect(update)
 	combatant.send_ui_update()
 	
 	combatant.died.connect(death_animation)
@@ -37,22 +33,26 @@ func update(combatant:Combatant) -> void:
 		turn_timer.update()
 
 func death_animation(_combatant_who_died:Combatant) -> void:
+	var animation_time:float = 1.0
+	var pause_time:float = 1.0
+	
 	death_colour.modulate = Color(1,1,1,0)
 	death_colour.visible = true
 	
 	var tween:Tween = create_tween()
-	tween.tween_property(death_colour, "modulate", Color(1,1,1,1), 1)
+	tween.tween_property(death_colour, "modulate", Color(1,1,1,1), animation_time)
 	
 	await tween.finished
-	print_debug("send signal to get new combatant and loot and stuff")
+	await get_tree().create_timer(pause_time).timeout
+	
+	UiEvents.death_animation_finished.emit()
+	
 	await hide_death_animation()
 
 func hide_death_animation() -> void:
-	for control:Control in hide_on_death:
-		control.visible = false
-	
+	var animation_time:float = 1.0
 	var tween:Tween = create_tween()
-	tween.tween_property(death_colour, "modulate", Color(1,1,1,0), 1)
+	tween.tween_property(death_colour, "modulate", Color(1,1,1,0), animation_time)
 	
 	await tween.finished
 	death_colour.visible = false

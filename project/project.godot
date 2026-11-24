@@ -21,6 +21,7 @@ BasicEvents="*uid://d106xelvglssr"
 UiEvents="*uid://dgtrw54h21gnc"
 Stats="*uid://d0ycmraajt78k"
 GlobalSettings="*uid://k0garqm3ejhx"
+GameflowEvents="*uid://2kopaxwi7mu"
 
 [debug]
 

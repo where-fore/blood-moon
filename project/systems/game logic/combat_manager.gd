@@ -10,6 +10,7 @@ var combatants:Array[Combatant]
 func _ready() -> void:
 	BasicEvents.ui_update.emit()
 	BasicEvents.start_combat.connect(start_combat)
+	GameflowEvents.start_new_combat.connect(prepare_combat)
 	
 	call_deferred("prepare_combat")
 
@@ -18,10 +19,11 @@ func prepare_combat() -> void:
 	var enemy_prepped:bool = false
 	for combatant:Combatant in combatants:
 		if combatant.is_the_player: player_prepped = true
-		if not combatant.is_the_player: enemy_prepped = false
+		elif not combatant.is_the_player: enemy_prepped = true
 	
 	if not player_prepped:
 		player_combatant = create_combatant(player_combatant_base_scene)
+		player_combatant.is_the_player = true
 		combatants.append(player_combatant)
 		UiEvents.new_player_combatant.emit(player_combatant)
 	if not enemy_prepped:
@@ -31,7 +33,6 @@ func prepare_combat() -> void:
 	
 	player_combatant.current_target = enemy_combatant
 	enemy_combatant.current_target = player_combatant
-	
 
 func create_combatant(combatant_base_scene:PackedScene) -> Combatant:
 	var new_combatant:Combatant = combatant_base_scene.instantiate()

@@ -5,7 +5,7 @@
 
 [node name="Enemy" type="Node2D" unique_id=677038345]
 script = ExtResource("1_wt6kk")
-starting_max_health = 100
+starting_max_health = 20
 starting_attack = 10
-base_attack_speed = 2.5
+base_attack_speed = 0.7
 portrait = ExtResource("2_m4tjd")

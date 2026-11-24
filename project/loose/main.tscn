@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://c1s6gv52ouj73" path="res://systems/ui interpreter/begin_combat.gd" id="22_ireyf"]
 [ext_resource type="Script" uid="uid://cbuks5fcerdtp" path="res://systems/ui interpreter/aura_tracker.gd" id="22_w1snj"]
 [ext_resource type="PackedScene" uid="uid://bksdgxm552rkr" path="res://ui pieces/aura_icon.tscn" id="23_1fc2u"]
+[ext_resource type="Script" uid="uid://0o0t55ccpsu" path="res://systems/game logic/game_flow_manager.gd" id="30_1j0u7"]
 [ext_resource type="Script" uid="uid://6jgkwbsqcufi" path="res://systems/ui interpreter/ui_manager.gd" id="30_ireyf"]
 [ext_resource type="Material" uid="uid://db4ka5skbpxq4" path="res://loose/crt filter/crt_major.tres" id="35_80hqw"]
 [ext_resource type="Script" uid="uid://bx63smibeun4i" path="res://loose/debug_manager.gd" id="35_q5k8v"]
@@ -249,5 +250,9 @@ enemy_combatant = NodePath("../MainGame/WindowBorder/Game/Combat/UIBoxStreamline
 
 [node name="DebugManager" type="Node2D" parent="." unique_id=1958524432]
 script = ExtResource("35_q5k8v")
+
+[node name="GameFlowManager" type="Node2D" parent="." unique_id=435619535]
+position = Vector2(154, 45)
+script = ExtResource("30_1j0u7")
 
 [connection signal="pressed" from="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/Control/PauseButton" to="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/Control/PauseButton" method="on_pressed"]
