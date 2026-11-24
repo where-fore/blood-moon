@@ -7,6 +7,10 @@
 	- this is a big scope creep hole, i think it's a core feature but it is very easy to get too bogged down here
 - time-before-the-end system
 	- each action costs a time resource (can unlock a toggle to auto-redo them). once enough time elapses, the day completes.
+		- consider instead of a resource drain, a progression gate
+			- either you need certain upgrades to reach values (100x power when unlocking so you're not literally gated, just practically - like magic tower)
+			- or you need certain resources to purchase the next day (age of empire feudal age cost)
+			- i think i prefer those mechanics but not sure how to tell that story? surely "time until apocalypse" implies a time limit? maybe throw out the story schell style?
 	- things also happen in real time, which can be increased through meta progression, to save real-life time but maintains balance
 - prestige system
 	- when you lose, you instead restart everything but a certain set of exp/bonuses/characters, which build and unlock over time. very powerful unlocks ala magic tower

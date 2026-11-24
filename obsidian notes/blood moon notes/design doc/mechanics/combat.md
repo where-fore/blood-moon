@@ -3,7 +3,10 @@
 start idle-iktah like. basic attack & attack speed vs enemy hp.
 
 
+# active buttons
+to add some texture and strategy - have some cooldown gated powers which help the current action, and provide the player with multiple simultaneous actions. combat, with a 15s cd auto-kill; while also mining with a 10s cd extra ore for 3s buff. both can be minmaxed to be cast at specific times, the auto kill you may want to wait 2s for the next fresh mob or maybe that 2s isn't worth the uptime - the ore you want it to clip two nodes to get double the benefit
 
+but your attention isn't always possible to stretch there? just a neat lil minigame?
 ## auras
 
 - items/auras with custom effects, as detailed below. stunned when hit but extra attack, stun enemy for first few seconds, buff that lasts a few seconds, crit chance, procs on crit, etc.

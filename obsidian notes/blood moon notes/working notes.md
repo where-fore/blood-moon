@@ -2,7 +2,7 @@
 - ~~1: ready: initalize combatants, combat is paused~~
 - ~~2: press pause/unpause button~~
 - ~~3: combat begins as before, turn timers tick down~~
-- 4: when one dies, pause turn timers
+- ~~4: when one dies, pause turn timers~~
 - 5: loot, reset new enemy
 - 6: new combat: keep damaged hp, reset turn timer
 - back to step 4

@@ -9,75 +9,102 @@
 [ext_resource type="Texture2D" uid="uid://bjkc5itfgl2aa" path="res://sprites/strength.png" id="7_7a8pb"]
 [ext_resource type="Texture2D" uid="uid://cdrdpsiijftie" path="res://sprites/dexterity.png" id="8_maq2t"]
 
-[node name="CombatantSmall" type="VBoxContainer" unique_id=1546746057 node_paths=PackedStringArray("health_label", "attack_label", "speed_label", "turn_timer", "portrait")]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -22.0
-offset_right = 22.0
-offset_bottom = 108.0
+[node name="Control" type="Control" unique_id=1820696189 node_paths=PackedStringArray("health_label", "attack_label", "speed_label", "turn_timer", "portrait", "death_colour", "hide_on_death")]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ffqo1")
-health_label = NodePath("Health/Label")
-attack_label = NodePath("Attack/Label")
-speed_label = NodePath("AttackSpeed/Label")
-turn_timer = NodePath("ProgressBar")
-portrait = NodePath("UIBoxMinimal/TextureRect")
+health_label = NodePath("CombatantSmall/Health/Label")
+attack_label = NodePath("CombatantSmall/Attack/Label")
+speed_label = NodePath("CombatantSmall/AttackSpeed/Label")
+turn_timer = NodePath("CombatantSmall/ProgressBar")
+portrait = NodePath("CombatantSmall/Portrait/TextureRect")
+death_colour = NodePath("ColorRect")
+hide_on_death = [NodePath("CombatantSmall/Health"), NodePath("CombatantSmall/Attack"), NodePath("CombatantSmall/AttackSpeed"), NodePath("CombatantSmall/ProgressBar")]
 
-[node name="UIBoxMinimal" parent="." unique_id=1542736023 instance=ExtResource("2_iov6t")]
+[node name="CombatantSmall" type="VBoxContainer" parent="." unique_id=1546746057]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -54.0
+offset_right = 22.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Portrait" parent="CombatantSmall" unique_id=1542736023 instance=ExtResource("2_iov6t")]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="TextureRect" type="TextureRect" parent="UIBoxMinimal" unique_id=287151698]
+[node name="TextureRect" type="TextureRect" parent="CombatantSmall/Portrait" unique_id=287151698]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("3_74htk")
 
-[node name="ProgressBar" parent="." unique_id=263909228 instance=ExtResource("4_tucq0")]
+[node name="ProgressBar" parent="CombatantSmall" unique_id=263909228 instance=ExtResource("4_tucq0")]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 
-[node name="Spacer" parent="." unique_id=466240430 instance=ExtResource("5_xw7dr")]
+[node name="Spacer" parent="CombatantSmall" unique_id=466240430 instance=ExtResource("5_xw7dr")]
 layout_mode = 2
 
-[node name="Health" type="HBoxContainer" parent="." unique_id=1403224137]
+[node name="Health" type="HBoxContainer" parent="CombatantSmall" unique_id=1403224137]
 layout_mode = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Health" unique_id=1269069817]
+[node name="TextureRect" type="TextureRect" parent="CombatantSmall/Health" unique_id=1269069817]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("6_ej7jr")
 
-[node name="Label" type="Label" parent="Health" unique_id=917310753]
+[node name="Label" type="Label" parent="CombatantSmall/Health" unique_id=917310753]
 layout_mode = 2
 text = "200"
 
-[node name="Attack" type="HBoxContainer" parent="." unique_id=271412414]
+[node name="Attack" type="HBoxContainer" parent="CombatantSmall" unique_id=271412414]
 layout_mode = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Attack" unique_id=1426411502]
+[node name="TextureRect" type="TextureRect" parent="CombatantSmall/Attack" unique_id=1426411502]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("7_7a8pb")
 
-[node name="Label" type="Label" parent="Attack" unique_id=2069828441]
+[node name="Label" type="Label" parent="CombatantSmall/Attack" unique_id=2069828441]
 layout_mode = 2
 text = "30"
 
-[node name="AttackSpeed" type="HBoxContainer" parent="." unique_id=1659483848]
+[node name="AttackSpeed" type="HBoxContainer" parent="CombatantSmall" unique_id=1659483848]
 layout_mode = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="AttackSpeed" unique_id=1834148012]
+[node name="TextureRect" type="TextureRect" parent="CombatantSmall/AttackSpeed" unique_id=1834148012]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("8_maq2t")
 
-[node name="Label" type="Label" parent="AttackSpeed" unique_id=1660374282]
+[node name="Label" type="Label" parent="CombatantSmall/AttackSpeed" unique_id=1660374282]
 layout_mode = 2
 text = "30"
 
-[node name="Spacer2" parent="." unique_id=783695406 instance=ExtResource("5_xw7dr")]
+[node name="Spacer2" parent="CombatantSmall" unique_id=783695406 instance=ExtResource("5_xw7dr")]
 layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1004988674]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.49411765, 0.12156863, 0.13725491, 1)
