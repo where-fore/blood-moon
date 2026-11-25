@@ -18,7 +18,6 @@
 [ext_resource type="Resource" uid="uid://d0mq1bgq1jmbe" path="res://content/rewards/rare_attack.tres" id="16_1j0u7"]
 [ext_resource type="Resource" uid="uid://bdjxchvidh3mu" path="res://content/rewards/rare_attack_speed.tres" id="17_ireyf"]
 [ext_resource type="Resource" uid="uid://533lghi30ttw" path="res://content/rewards/rare_health.tres" id="18_rjmfi"]
-[ext_resource type="Texture2D" uid="uid://duitjco1lpx50" path="res://sprites/potion.png" id="20_yqr2s"]
 [ext_resource type="PackedScene" uid="uid://dq8dbyqhsikqt" path="res://ui pieces/foundational/button_basic_icon.tscn" id="21_nf78q"]
 [ext_resource type="Script" uid="uid://c1s6gv52ouj73" path="res://systems/ui interpreter/begin_combat.gd" id="22_ireyf"]
 [ext_resource type="Script" uid="uid://cbuks5fcerdtp" path="res://systems/ui interpreter/aura_tracker.gd" id="22_w1snj"]
@@ -82,13 +81,15 @@ layout_mode = 2
 size_flags_vertical = 19
 
 [node name="Combat" parent="MainGame/WindowBorder/Game/VBoxContainer/Town" unique_id=843963902 node_paths=PackedStringArray("submenu") instance=ExtResource("4_xalbe")]
+custom_minimum_size = Vector2(0, 0)
 layout_mode = 1
 offset_left = -242.0
 offset_top = -63.0
 offset_right = -218.0
 offset_bottom = -39.0
 texture_normal = ExtResource("3_xalbe")
-stretch_mode = 3
+texture_hover = null
+texture_click_mask = null
 submenu = NodePath("UIBoxStreamlined")
 
 [node name="UIBoxStreamlined" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat" unique_id=892091800 instance=ExtResource("2_tafwd")]
@@ -216,38 +217,52 @@ layout_mode = 2
 size_flags_horizontal = 19
 
 [node name="PauseButton" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/Control" unique_id=1105146277 instance=ExtResource("21_nf78q")]
-custom_minimum_size = Vector2(24, 24)
 layout_mode = 1
 offset_left = -12.0
 offset_top = -61.0
 offset_right = 12.0
 offset_bottom = 61.0
 texture_normal = ExtResource("3_xalbe")
-stretch_mode = 3
 script = ExtResource("22_ireyf")
 
 [node name="Training" parent="MainGame/WindowBorder/Game/VBoxContainer/Town" unique_id=1449220356 node_paths=PackedStringArray("submenu") instance=ExtResource("4_xalbe")]
 layout_mode = 1
-offset_left = 68.0
-offset_top = 35.0
-offset_right = 92.0
-offset_bottom = 59.0
+offset_left = 17.0
+offset_top = 37.0
+offset_right = 41.0
+offset_bottom = 61.0
 texture_normal = ExtResource("23_u46kj")
-stretch_mode = 3
-submenu = NodePath("TextureRect2")
+texture_click_mask = null
+submenu = NodePath("UIBoxStreamlined")
 
-[node name="TextureRect2" type="TextureRect" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Training" unique_id=1417856989]
+[node name="UIBoxStreamlined" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Training" unique_id=1986422534 instance=ExtResource("2_tafwd")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -20.0
-offset_right = 40.0
-offset_bottom = 20.0
-grow_vertical = 2
-texture = ExtResource("20_yqr2s")
+offset_top = -7.0
+offset_right = 14.0
+offset_bottom = 7.0
+grow_horizontal = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Training/UIBoxStreamlined" unique_id=88641069]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="UIBoxMinimal" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Training/UIBoxStreamlined/VBoxContainer" unique_id=1707445508 instance=ExtResource("3_bfd2p")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Training/UIBoxStreamlined/VBoxContainer/UIBoxMinimal" unique_id=445233389]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Training/UIBoxStreamlined/VBoxContainer/UIBoxMinimal/HBoxContainer" unique_id=968978579]
+custom_minimum_size = Vector2(150, 24)
+layout_mode = 2
+
+[node name="TextureButton" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Training/UIBoxStreamlined/VBoxContainer/UIBoxMinimal/HBoxContainer" unique_id=115277839 instance=ExtResource("21_nf78q")]
+layout_mode = 2
 
 [node name="OverlaidText" type="Panel" parent="MainGame/WindowBorder" unique_id=1676341060]
 custom_minimum_size = Vector2(0, 40)

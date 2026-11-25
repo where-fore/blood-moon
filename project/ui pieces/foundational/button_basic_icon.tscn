@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://dq8dbyqhsikqt"]
 
 [ext_resource type="Texture2D" uid="uid://dqtgob8hvbt3i" path="res://sprites/box_inner.png" id="2_43x0r"]
+[ext_resource type="BitMap" uid="uid://cg3ydt24t15x3" path="res://sprites/button_bitmap.png" id="2_de6so"]
 [ext_resource type="Texture2D" uid="uid://bfn37k0tfdrtx" path="res://sprites/question.png" id="2_hvfue"]
+[ext_resource type="Texture2D" uid="uid://cfxrxb5l0btjy" path="res://sprites/fire.png" id="2_jod7t"]
 
 [node name="TextureButton" type="TextureButton" unique_id=115277839]
+custom_minimum_size = Vector2(24, 24)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -16,19 +19,16 @@ offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("2_hvfue")
-stretch_mode = 5
+texture_hover = ExtResource("2_jod7t")
+texture_click_mask = ExtResource("2_de6so")
+stretch_mode = 3
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1105146277]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -12.0
-offset_top = -12.0
-offset_right = 12.0
-offset_bottom = 12.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_43x0r")
