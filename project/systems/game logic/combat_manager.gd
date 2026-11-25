@@ -48,6 +48,7 @@ func end_combat(dead_combatant:Combatant) -> void:
 	if dead_combatant.is_the_player:
 		pass
 	else:
+		dead_combatant.get_reward_for_defeat()
 		combatants.erase(dead_combatant)
 		dead_combatant.queue_free()
 	end_of_combat_cleanup()

@@ -26,6 +26,7 @@
 [ext_resource type="Script" uid="uid://0o0t55ccpsu" path="res://systems/game logic/game_flow_manager.gd" id="30_1j0u7"]
 [ext_resource type="Script" uid="uid://6jgkwbsqcufi" path="res://systems/ui interpreter/ui_manager.gd" id="30_ireyf"]
 [ext_resource type="Script" uid="uid://bf00yq7px8vo4" path="res://systems/resource system/supply_manager.gd" id="31_ireyf"]
+[ext_resource type="PackedScene" uid="uid://bwqh4jygktnqu" path="res://ui pieces/supply_tracker.tscn" id="32_rjmfi"]
 [ext_resource type="Material" uid="uid://db4ka5skbpxq4" path="res://loose/crt filter/crt_major.tres" id="35_80hqw"]
 [ext_resource type="Script" uid="uid://bx63smibeun4i" path="res://loose/debug_manager.gd" id="35_q5k8v"]
 [ext_resource type="PackedScene" uid="uid://cj3lkwi5lkv4j" path="res://content/combatants/player.tscn" id="35_w1snj"]
@@ -58,6 +59,7 @@ layout_mode = 2
 [node name="ScrollContainer" type="ScrollContainer" parent="MainGame/WindowBorder/Game/VBoxContainer/ResourceBar" unique_id=1021970872]
 layout_mode = 2
 horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainGame/WindowBorder/Game/VBoxContainer/ResourceBar/ScrollContainer" unique_id=1476059685]
 layout_mode = 2
@@ -65,7 +67,13 @@ size_flags_horizontal = 19
 size_flags_vertical = 19
 alignment = 1
 
-[node name="AuraIcon" parent="MainGame/WindowBorder/Game/VBoxContainer/ResourceBar/ScrollContainer/HBoxContainer" unique_id=1327891929 instance=ExtResource("23_1fc2u")]
+[node name="SupplyTracker" parent="MainGame/WindowBorder/Game/VBoxContainer/ResourceBar/ScrollContainer/HBoxContainer" unique_id=1645751841 instance=ExtResource("32_rjmfi")]
+layout_mode = 2
+
+[node name="SupplyTracker2" parent="MainGame/WindowBorder/Game/VBoxContainer/ResourceBar/ScrollContainer/HBoxContainer" unique_id=362445453 instance=ExtResource("32_rjmfi")]
+layout_mode = 2
+
+[node name="SupplyTracker3" parent="MainGame/WindowBorder/Game/VBoxContainer/ResourceBar/ScrollContainer/HBoxContainer" unique_id=2014926299 instance=ExtResource("32_rjmfi")]
 layout_mode = 2
 
 [node name="Town" type="Control" parent="MainGame/WindowBorder/Game/VBoxContainer" unique_id=1675164465]
@@ -286,7 +294,9 @@ script = ExtResource("35_q5k8v")
 position = Vector2(154, 45)
 script = ExtResource("30_1j0u7")
 
-[node name="SupplyManager" type="Node2D" parent="." unique_id=1548352465]
+[node name="SupplyManager" type="Node2D" parent="." unique_id=1548352465 node_paths=PackedStringArray("home_for_supply_trackers")]
 script = ExtResource("31_ireyf")
+supply_tracker_base_scene = ExtResource("32_rjmfi")
+home_for_supply_trackers = NodePath("../MainGame/WindowBorder/Game/VBoxContainer/ResourceBar/ScrollContainer/HBoxContainer")
 
 [connection signal="pressed" from="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/Control/PauseButton" to="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/Control/PauseButton" method="on_pressed"]

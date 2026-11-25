@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dyeno2clhdjwo" path="res://systems/game logic/combatant.gd" id="1_wt6kk"]
 [ext_resource type="Texture2D" uid="uid://dfay83r2c6v5v" path="res://sprites/enemy_skull.png" id="2_m4tjd"]
+[ext_resource type="Resource" uid="uid://dxvhfnebqig2m" path="res://content/supplies/skulls.tres" id="3_54all"]
 
 [node name="Enemy" type="Node2D" unique_id=677038345]
 script = ExtResource("1_wt6kk")
@@ -9,3 +10,5 @@ starting_max_health = 20
 starting_attack = 10
 base_attack_speed = 0.7
 portrait = ExtResource("2_m4tjd")
+supply_on_defeat = ExtResource("3_54all")
+number_of_that_supply = 1

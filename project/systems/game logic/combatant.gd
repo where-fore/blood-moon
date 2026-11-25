@@ -5,6 +5,8 @@ class_name Combatant
 @export var starting_attack:int
 @export var base_attack_speed:float
 @export var portrait:Texture
+@export var supply_on_defeat:Supply
+@export var number_of_that_supply:int
 
 signal died(combatant:Combatant)
 
@@ -91,3 +93,8 @@ func reset_stats_to_starting_base() -> void:
 
 func send_ui_update() -> void:
 	UiEvents.combatant_ui_update.emit(self)
+
+func get_reward_for_defeat() -> void:
+	if not supply_on_defeat: push_error("was told to give a reward for defeating, but was not supplied a suitable reward. on: ", name)
+	if not number_of_that_supply: push_error("was told to give a reward for defeating, but was not supplied a suitable value for that reward. on: ", name)
+	BasicEvents.supply_change.emit(supply_on_defeat, number_of_that_supply)
