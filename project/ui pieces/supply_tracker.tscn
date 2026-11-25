@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://drn7hyslxtts4" path="res://ui pieces/foundational/ui_box_minimal.tscn" id="1_oslvf"]
 [ext_resource type="Script" uid="uid://cqhetp686pkmx" path="res://ui pieces/supply_tracker.gd" id="2_w7045"]
-[ext_resource type="Texture2D" uid="uid://dfay83r2c6v5v" path="res://sprites/enemy_skull.png" id="3_a57b0"]
+[ext_resource type="Texture2D" uid="uid://bfn37k0tfdrtx" path="res://sprites/question.png" id="3_oslvf"]
 
 [node name="SupplyTracker" unique_id=1542736023 node_paths=PackedStringArray("icon", "label") instance=ExtResource("1_oslvf")]
 anchors_preset = 4
@@ -23,7 +23,7 @@ layout_mode = 2
 [node name="SupplyIcon" type="TextureRect" parent="HBoxContainer" index="0" unique_id=1327891929]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
-texture = ExtResource("3_a57b0")
+texture = ExtResource("3_oslvf")
 expand_mode = 3
 
 [node name="Label" type="Label" parent="HBoxContainer" index="1" unique_id=1844894898]

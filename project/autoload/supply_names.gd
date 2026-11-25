@@ -1,4 +1,5 @@
 extends Node
 
-enum Names {SKULLS, }
+enum Names {SKULLS, HEARTS}
 var SKULLS:StringName = &"Skulls"
+var HEARTS:StringName = &"Hearts"

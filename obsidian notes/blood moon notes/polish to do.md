@@ -24,6 +24,10 @@ is probably not good formatting. i should have a send_basic_message() function, 
 	- each stat, and has their own function stats.get(name, 0), which returns the stat and signals the ui
 	- make sure there's a boilerplate for a ui object that listens to these updates
 # UI
+- the top resource bar shifts size when first adding a resource tracker
+	- currently it's set to a manual pixel minimum size
+	- not sure how else to do this. it clears placeholders, so i could manually mess around with placeholders, but if i change the placeholder size later in development the minimum size won't update
+	- a code check to make the minimum size it's current size, before clearing?
 - the 9 patch should probably be drawn at like 20x20 not 16x16, cause they usually used with a 2px inner border
 - the big choices should be their own part of a window probably, currently it's one window with three buttons, would rather three windows stacked
 - the 9 patch borders are black, the purple part isn't the final edging. i kinda like it, it gives a bit of a border.. wonder if that should be a 1px purple though? does it look weird? maybe it should be the same size as the border between the lines and the corner pieces?
