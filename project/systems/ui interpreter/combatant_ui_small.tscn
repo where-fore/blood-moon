@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bqoxy48346yrt" path="res://ui pieces/turn_bar.tscn" id="4_tucq0"]
 [ext_resource type="PackedScene" uid="uid://b7fjh8x3yifx4" path="res://ui pieces/foundational/spacer.tscn" id="5_xw7dr"]
 [ext_resource type="Texture2D" uid="uid://gw80on1ihg7f" path="res://sprites/heart.png" id="6_ej7jr"]
-[ext_resource type="Texture2D" uid="uid://bjkc5itfgl2aa" path="res://sprites/strength.png" id="7_7a8pb"]
+[ext_resource type="Texture2D" uid="uid://k4ccseptpqxp" path="res://sprites/sword_basic.png" id="7_ffqo1"]
 [ext_resource type="Texture2D" uid="uid://cdrdpsiijftie" path="res://sprites/dexterity.png" id="8_maq2t"]
 
 [node name="Control" type="Control" unique_id=1820696189 node_paths=PackedStringArray("health_label", "attack_label", "speed_label", "turn_timer", "portrait", "death_colour")]
@@ -75,7 +75,7 @@ alignment = 1
 [node name="TextureRect" type="TextureRect" parent="CombatantSmall/Attack" unique_id=1426411502]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
-texture = ExtResource("7_7a8pb")
+texture = ExtResource("7_ffqo1")
 
 [node name="Label" type="Label" parent="CombatantSmall/Attack" unique_id=2069828441]
 layout_mode = 2

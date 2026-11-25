@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://c1s6gv52ouj73" path="res://systems/ui interpreter/begin_combat.gd" id="22_ireyf"]
 [ext_resource type="Script" uid="uid://cbuks5fcerdtp" path="res://systems/ui interpreter/aura_tracker.gd" id="22_w1snj"]
 [ext_resource type="PackedScene" uid="uid://bksdgxm552rkr" path="res://ui pieces/aura_icon.tscn" id="23_1fc2u"]
+[ext_resource type="Texture2D" uid="uid://bjkc5itfgl2aa" path="res://sprites/strength.png" id="23_u46kj"]
 [ext_resource type="Script" uid="uid://0o0t55ccpsu" path="res://systems/game logic/game_flow_manager.gd" id="30_1j0u7"]
 [ext_resource type="Script" uid="uid://6jgkwbsqcufi" path="res://systems/ui interpreter/ui_manager.gd" id="30_ireyf"]
 [ext_resource type="Script" uid="uid://bf00yq7px8vo4" path="res://systems/resource system/supply_manager.gd" id="31_ireyf"]
@@ -82,10 +83,10 @@ size_flags_vertical = 19
 
 [node name="Combat" parent="MainGame/WindowBorder/Game/VBoxContainer/Town" unique_id=843963902 node_paths=PackedStringArray("submenu") instance=ExtResource("4_xalbe")]
 layout_mode = 1
-offset_left = -248.0
-offset_top = -70.0
-offset_right = -224.0
-offset_bottom = -46.0
+offset_left = -242.0
+offset_top = -63.0
+offset_right = -218.0
+offset_bottom = -39.0
 texture_normal = ExtResource("3_xalbe")
 stretch_mode = 3
 submenu = NodePath("UIBoxStreamlined")
@@ -225,16 +226,17 @@ texture_normal = ExtResource("3_xalbe")
 stretch_mode = 3
 script = ExtResource("22_ireyf")
 
-[node name="Other" parent="MainGame/WindowBorder/Game/VBoxContainer/Town" unique_id=1449220356 node_paths=PackedStringArray("submenu") instance=ExtResource("4_xalbe")]
+[node name="Training" parent="MainGame/WindowBorder/Game/VBoxContainer/Town" unique_id=1449220356 node_paths=PackedStringArray("submenu") instance=ExtResource("4_xalbe")]
 layout_mode = 1
-offset_left = 164.0
-offset_top = 66.0
-offset_right = 188.0
-offset_bottom = 90.0
+offset_left = 68.0
+offset_top = 35.0
+offset_right = 92.0
+offset_bottom = 59.0
+texture_normal = ExtResource("23_u46kj")
 stretch_mode = 3
 submenu = NodePath("TextureRect2")
 
-[node name="TextureRect2" type="TextureRect" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Other" unique_id=1417856989]
+[node name="TextureRect2" type="TextureRect" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Training" unique_id=1417856989]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0

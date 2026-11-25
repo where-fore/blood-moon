@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Supply" format=3 uid="uid://cwa2sktpie81t"]
+
+[ext_resource type="Texture2D" uid="uid://bjkc5itfgl2aa" path="res://sprites/strength.png" id="1_r758g"]
+[ext_resource type="Script" uid="uid://btdxrs1l48yy" path="res://systems/resource system/supply.gd" id="2_7kl6v"]
+
+[resource]
+script = ExtResource("2_7kl6v")
+icon = ExtResource("1_r758g")
+name = 2
+metadata/_custom_type_script = "uid://btdxrs1l48yy"
