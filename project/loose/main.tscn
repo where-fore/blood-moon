@@ -41,17 +41,40 @@ metadata/_edit_lock_ = true
 [node name="Game" type="Control" parent="MainGame/WindowBorder" unique_id=445792644]
 layout_mode = 2
 
-[node name="Combat" parent="MainGame/WindowBorder/Game" unique_id=843963902 node_paths=PackedStringArray("submenu") instance=ExtResource("4_xalbe")]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainGame/WindowBorder/Game" unique_id=609691381]
 layout_mode = 1
-offset_left = -172.0
-offset_top = -73.0
-offset_right = -148.0
-offset_bottom = -49.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="ResourceBar" parent="MainGame/WindowBorder/Game/VBoxContainer" unique_id=899445150 instance=ExtResource("2_tafwd")]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainGame/WindowBorder/Game/VBoxContainer/ResourceBar" unique_id=1476059685]
+layout_mode = 2
+
+[node name="AuraIcon" parent="MainGame/WindowBorder/Game/VBoxContainer/ResourceBar/HBoxContainer" unique_id=1327891929 instance=ExtResource("23_1fc2u")]
+layout_mode = 2
+
+[node name="Town" type="Control" parent="MainGame/WindowBorder/Game/VBoxContainer" unique_id=1675164465]
+layout_mode = 2
+size_flags_vertical = 19
+
+[node name="Combat" parent="MainGame/WindowBorder/Game/VBoxContainer/Town" unique_id=843963902 node_paths=PackedStringArray("submenu") instance=ExtResource("4_xalbe")]
+layout_mode = 1
+offset_left = -248.0
+offset_top = -70.0
+offset_right = -224.0
+offset_bottom = -46.0
 texture_normal = ExtResource("3_xalbe")
 stretch_mode = 3
 submenu = NodePath("UIBoxStreamlined")
 
-[node name="UIBoxStreamlined" parent="MainGame/WindowBorder/Game/Combat" unique_id=899445150 instance=ExtResource("2_tafwd")]
+[node name="UIBoxStreamlined" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat" unique_id=892091800 instance=ExtResource("2_tafwd")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -62,32 +85,32 @@ offset_right = 184.0
 offset_bottom = 68.0
 grow_horizontal = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined" unique_id=1208593396]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined" unique_id=1208593396]
 clip_contents = true
 layout_mode = 2
 
-[node name="Spacer" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=466240430 instance=ExtResource("2_wqdpu")]
+[node name="Spacer" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer" unique_id=466240430 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
 
-[node name="Hero" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=1169952161 instance=ExtResource("2_tafwd")]
+[node name="Hero" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer" unique_id=1169952161 instance=ExtResource("2_tafwd")]
 layout_mode = 2
 
-[node name="CombatantSmall" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/Hero" unique_id=1546746057 instance=ExtResource("4_f4q0r")]
+[node name="CombatantSmall" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/Hero" unique_id=1546746057 instance=ExtResource("4_f4q0r")]
 layout_mode = 2
 
-[node name="Spacer2" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=226584502 instance=ExtResource("2_wqdpu")]
+[node name="Spacer2" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer" unique_id=226584502 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
 
-[node name="Enemy" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=1167542757 instance=ExtResource("2_tafwd")]
+[node name="Enemy" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer" unique_id=1167542757 instance=ExtResource("2_tafwd")]
 layout_mode = 2
 
-[node name="CombatantSmall" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/Enemy" unique_id=1585932579 instance=ExtResource("4_f4q0r")]
+[node name="CombatantSmall" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/Enemy" unique_id=1585932579 instance=ExtResource("4_f4q0r")]
 layout_mode = 2
 
-[node name="Spacer3" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=1767361082 instance=ExtResource("2_wqdpu")]
+[node name="Spacer3" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer" unique_id=1767361082 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
 
-[node name="RewardScreen" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=965647272 node_paths=PackedStringArray("reward_buttons") instance=ExtResource("2_tafwd")]
+[node name="RewardScreen" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer" unique_id=965647272 node_paths=PackedStringArray("reward_buttons") instance=ExtResource("2_tafwd")]
 visible = false
 layout_mode = 2
 script = ExtResource("11_f4q0r")
@@ -95,37 +118,37 @@ reward_buttons = [NodePath("VBoxContainer/RewardChoice"), NodePath("VBoxContaine
 basic_rewards = Array[ExtResource("12_qmb71")]([ExtResource("13_npwt7"), ExtResource("14_obmf6"), ExtResource("15_f4q0r")])
 rare_rewards = Array[ExtResource("12_qmb71")]([ExtResource("16_1j0u7"), ExtResource("17_ireyf"), ExtResource("18_rjmfi")])
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/RewardScreen" unique_id=1441539978]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/RewardScreen" unique_id=1441539978]
 layout_mode = 2
 
-[node name="UIBoxMinimal" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=1935041440 instance=ExtResource("3_bfd2p")]
+[node name="UIBoxMinimal" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=1935041440 instance=ExtResource("3_bfd2p")]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="TextureRect" type="TextureRect" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer/UIBoxMinimal" unique_id=1305448536]
+[node name="TextureRect" type="TextureRect" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer/UIBoxMinimal" unique_id=1305448536]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("11_uaqc7")
 
-[node name="Spacer" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=1028665169 instance=ExtResource("2_wqdpu")]
+[node name="Spacer" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=1028665169 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
 
-[node name="RewardChoice" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=669457632 instance=ExtResource("12_g13l7")]
-layout_mode = 2
-reward = ExtResource("15_f4q0r")
-
-[node name="RewardChoice3" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=1410422511 instance=ExtResource("12_g13l7")]
+[node name="RewardChoice" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=669457632 instance=ExtResource("12_g13l7")]
 layout_mode = 2
 reward = ExtResource("15_f4q0r")
 
-[node name="RewardChoice2" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=691708868 instance=ExtResource("12_g13l7")]
+[node name="RewardChoice3" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=1410422511 instance=ExtResource("12_g13l7")]
+layout_mode = 2
+reward = ExtResource("15_f4q0r")
+
+[node name="RewardChoice2" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=691708868 instance=ExtResource("12_g13l7")]
 layout_mode = 2
 reward = ExtResource("13_npwt7")
 
-[node name="Spacer2" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=212561815 instance=ExtResource("2_wqdpu")]
+[node name="Spacer2" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/RewardScreen/VBoxContainer" unique_id=212561815 instance=ExtResource("2_wqdpu")]
 layout_mode = 2
 
-[node name="AuraTracker" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=1997915480 node_paths=PackedStringArray("vbox_for_aura_displays", "display_to_delete_on_runtime") instance=ExtResource("1_sup1h")]
+[node name="AuraTracker" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer" unique_id=1997915480 node_paths=PackedStringArray("vbox_for_aura_displays", "display_to_delete_on_runtime") instance=ExtResource("1_sup1h")]
 visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -134,48 +157,48 @@ aura_icon_scene = ExtResource("23_1fc2u")
 vbox_for_aura_displays = NodePath("ScrollContainer/VBoxContainer")
 display_to_delete_on_runtime = [NodePath("ScrollContainer/VBoxContainer/AuraIcon"), NodePath("ScrollContainer/VBoxContainer/AuraIcon2"), NodePath("ScrollContainer/VBoxContainer/AuraIcon3"), NodePath("ScrollContainer/VBoxContainer/AuraIcon4"), NodePath("ScrollContainer/VBoxContainer/AuraIcon5"), NodePath("ScrollContainer/VBoxContainer/AuraIcon6"), NodePath("ScrollContainer/VBoxContainer/AuraIcon7"), NodePath("ScrollContainer/VBoxContainer/AuraIcon8"), NodePath("ScrollContainer/VBoxContainer/AuraIcon9")]
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker" unique_id=762327374]
+[node name="ScrollContainer" type="ScrollContainer" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker" unique_id=762327374]
 layout_mode = 2
 vertical_scroll_mode = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer" unique_id=906113762]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer" unique_id=906113762]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="AuraIcon" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1327891929 instance=ExtResource("23_1fc2u")]
+[node name="AuraIcon" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1506417308 instance=ExtResource("23_1fc2u")]
 layout_mode = 2
 
-[node name="AuraIcon2" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1355016088 instance=ExtResource("23_1fc2u")]
+[node name="AuraIcon2" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1355016088 instance=ExtResource("23_1fc2u")]
 layout_mode = 2
 
-[node name="AuraIcon3" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=212098475 instance=ExtResource("23_1fc2u")]
+[node name="AuraIcon3" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=212098475 instance=ExtResource("23_1fc2u")]
 layout_mode = 2
 
-[node name="AuraIcon4" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1148208731 instance=ExtResource("23_1fc2u")]
+[node name="AuraIcon4" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1148208731 instance=ExtResource("23_1fc2u")]
 layout_mode = 2
 
-[node name="AuraIcon5" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1547594636 instance=ExtResource("23_1fc2u")]
+[node name="AuraIcon5" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1547594636 instance=ExtResource("23_1fc2u")]
 layout_mode = 2
 
-[node name="AuraIcon6" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1043721779 instance=ExtResource("23_1fc2u")]
+[node name="AuraIcon6" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1043721779 instance=ExtResource("23_1fc2u")]
 layout_mode = 2
 
-[node name="AuraIcon7" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1460231650 instance=ExtResource("23_1fc2u")]
+[node name="AuraIcon7" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1460231650 instance=ExtResource("23_1fc2u")]
 layout_mode = 2
 
-[node name="AuraIcon8" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=128962693 instance=ExtResource("23_1fc2u")]
+[node name="AuraIcon8" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=128962693 instance=ExtResource("23_1fc2u")]
 layout_mode = 2
 
-[node name="AuraIcon9" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1384488659 instance=ExtResource("23_1fc2u")]
+[node name="AuraIcon9" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/AuraTracker/ScrollContainer/VBoxContainer" unique_id=1384488659 instance=ExtResource("23_1fc2u")]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer" unique_id=1705712804]
+[node name="Control" type="Control" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer" unique_id=1705712804]
 layout_mode = 2
 size_flags_horizontal = 19
 
-[node name="PauseButton" parent="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/Control" unique_id=1105146277 instance=ExtResource("21_nf78q")]
+[node name="PauseButton" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/Control" unique_id=1105146277 instance=ExtResource("21_nf78q")]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 1
 offset_left = -12.0
@@ -186,16 +209,16 @@ texture_normal = ExtResource("3_xalbe")
 stretch_mode = 3
 script = ExtResource("22_ireyf")
 
-[node name="Other" parent="MainGame/WindowBorder/Game" unique_id=1449220356 node_paths=PackedStringArray("submenu") instance=ExtResource("4_xalbe")]
+[node name="Other" parent="MainGame/WindowBorder/Game/VBoxContainer/Town" unique_id=1449220356 node_paths=PackedStringArray("submenu") instance=ExtResource("4_xalbe")]
 layout_mode = 1
-offset_left = 140.0
-offset_top = 70.0
-offset_right = 164.0
-offset_bottom = 94.0
+offset_left = 164.0
+offset_top = 66.0
+offset_right = 188.0
+offset_bottom = 90.0
 stretch_mode = 3
 submenu = NodePath("TextureRect2")
 
-[node name="TextureRect2" type="TextureRect" parent="MainGame/WindowBorder/Game/Other" unique_id=1417856989]
+[node name="TextureRect2" type="TextureRect" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Other" unique_id=1417856989]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -245,8 +268,8 @@ enemy_combatant_base_scene = ExtResource("36_1fc2u")
 
 [node name="UIManager" type="Node2D" parent="." unique_id=1224659959 node_paths=PackedStringArray("player_combatant", "enemy_combatant")]
 script = ExtResource("30_ireyf")
-player_combatant = NodePath("../MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/Hero/CombatantSmall")
-enemy_combatant = NodePath("../MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/Enemy/CombatantSmall")
+player_combatant = NodePath("../MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/Hero/CombatantSmall")
+enemy_combatant = NodePath("../MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/Enemy/CombatantSmall")
 
 [node name="DebugManager" type="Node2D" parent="." unique_id=1958524432]
 script = ExtResource("35_q5k8v")
@@ -255,4 +278,4 @@ script = ExtResource("35_q5k8v")
 position = Vector2(154, 45)
 script = ExtResource("30_1j0u7")
 
-[connection signal="pressed" from="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/Control/PauseButton" to="MainGame/WindowBorder/Game/Combat/UIBoxStreamlined/HBoxContainer/Control/PauseButton" method="on_pressed"]
+[connection signal="pressed" from="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/Control/PauseButton" to="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/Control/PauseButton" method="on_pressed"]

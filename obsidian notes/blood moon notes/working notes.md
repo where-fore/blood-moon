@@ -1,14 +1,16 @@
 
-- ~~1: ready: initalize combatants, combat is paused~~
-- ~~2: press pause/unpause button~~
-- ~~3: combat begins as before, turn timers tick down~~
-- ~~4: when one dies, pause turn timers~~
-- 5: loot, reset new enemy
-- 6: new combat: keep damaged hp, reset turn timer
-- back to step 4
-- if player dies, instead of "loot": "rest". this resets combat for enemy and player, healing enemy to full or similar. dont want to kill/respawn enemy, but want it to recover?
+- get some sort of meta currency from kills
+	- track it on a ui somewhere, a bar along the top?
+- have second ui button thing open a submenu to spend them
+- have this spending permanently increase your attack/speed/health
 
-combatant own died signal, not global. connect on setup of ui combatant, so it can play an animation or whatever
-	red radially growing from center to cover?
 
-thinking small and big windows for this stuff, small window to simply track and large window to fine tune? nothing to fine tune right now ofc but for later when you have builds and rewards and etc
+- have a resourcemanager
+- have a class called "resource" which has a stringname and an icon, and later other things like minimums and maximums and time limits etc
+- have a global list of "resources" which are just a stringname match
+- when you should get a resource anywhere in the game, signal "gain resource"
+- manager hears
+	- increment the resource internally, game logic wise
+	- check if i have already made a resourcetracker for this resource
+	- if not, instantiate a new one, to an @export ui location (specific for each resource, eg. @export var bones_tracker_control:Control)
+	- now there is a tracker, and thus call tracker.ui_update(resource)

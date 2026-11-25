@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cakf3salod063" path="res://ui pieces/aura_icon.gd" id="1_voiqv"]
 
 [node name="AuraIcon" type="TextureRect" unique_id=1327891929]
+custom_minimum_size = Vector2(16, 16)
 texture = ExtResource("1_0n4cc")
-expand_mode = 4
+expand_mode = 3
 script = ExtResource("1_voiqv")
