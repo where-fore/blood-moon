@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c1f2v6b43kw1r"]
+
+[ext_resource type="PackedScene" uid="uid://drn7hyslxtts4" path="res://ui pieces/foundational/ui_box_minimal.tscn" id="1_6jaiq"]
+[ext_resource type="Script" uid="uid://ddqjdptdt5ykm" path="res://ui pieces/unlock menu/unlock_button.gd" id="2_7ut3r"]
+[ext_resource type="PackedScene" uid="uid://dq8dbyqhsikqt" path="res://ui pieces/foundational/button_basic_icon.tscn" id="3_22pmx"]
+
+[node name="UpgradeButton" unique_id=1542736023 node_paths=PackedStringArray("description_label", "cost_label", "button") instance=ExtResource("1_6jaiq")]
+script = ExtResource("2_7ut3r")
+description_label = NodePath("HBoxContainer/Label")
+cost_label = NodePath("HBoxContainer/TextureButton/Label")
+button = NodePath("HBoxContainer/TextureButton")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." index="0" unique_id=623512103]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="HBoxContainer" index="0" unique_id=1947770205]
+custom_minimum_size = Vector2(110, 24)
+layout_mode = 2
+text = "A nice, flowery description"
+
+[node name="TextureButton" parent="HBoxContainer" index="1" unique_id=115277839 instance=ExtResource("3_22pmx")]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HBoxContainer/TextureButton" index="1" unique_id=1645358611]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 2

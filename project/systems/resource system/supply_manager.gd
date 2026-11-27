@@ -11,7 +11,7 @@ var supply_trackers:Array[SupplyTracker]
 
 func _ready() -> void:
 	BasicEvents.supply_change.connect(increment_supply)
-	clear_placeholder_ui_objects(home_for_supply_trackers)
+	Toolbox.clear_placeholder_ui_objects(home_for_supply_trackers)
 
 func increment_supply(supply_changed:Supply, change:int) -> void:
 	if not check_if_already_tracking(supply_changed): create_new_tracker(supply_changed)
@@ -39,7 +39,3 @@ func create_new_tracker(supply_to_track:Supply) -> void:
 	new_tracker.setup(supply_to_track)
 	home_for_supply_trackers.add_child(new_tracker)
 	supply_trackers.append(new_tracker)
-
-func clear_placeholder_ui_objects(control_to_purge:Control) -> void:
-	for child_control:Control in control_to_purge.get_children():
-		child_control.queue_free()

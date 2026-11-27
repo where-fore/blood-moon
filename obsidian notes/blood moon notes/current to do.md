@@ -14,4 +14,5 @@
 	- fail condition, which you have to prestige to beat
 
 
-
+- consider: what do i need to test and validate before moving forward
+	- i know that basic idle combat + resources is good and fun. that's what i'm building now. what can i build that answers a question?

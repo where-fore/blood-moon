@@ -23,6 +23,10 @@
 [ext_resource type="Script" uid="uid://cbuks5fcerdtp" path="res://systems/ui interpreter/aura_tracker.gd" id="22_w1snj"]
 [ext_resource type="PackedScene" uid="uid://bksdgxm552rkr" path="res://ui pieces/aura_icon.tscn" id="23_1fc2u"]
 [ext_resource type="Texture2D" uid="uid://bjkc5itfgl2aa" path="res://sprites/strength.png" id="23_u46kj"]
+[ext_resource type="PackedScene" uid="uid://6sc78g8r4bu1" path="res://ui pieces/unlock menu/unlock_menu.tscn" id="24_u46kj"]
+[ext_resource type="PackedScene" uid="uid://c1f2v6b43kw1r" path="res://ui pieces/unlock menu/unlock_button.tscn" id="25_q5k8v"]
+[ext_resource type="Script" uid="uid://cgudcjlwli3cs" path="res://ui pieces/unlock menu/unlock_data.gd" id="26_h0uu6"]
+[ext_resource type="Resource" uid="uid://dhq484dupwnm" path="res://content/unlocks/basic_attack_boost.tres" id="27_w1snj"]
 [ext_resource type="Script" uid="uid://0o0t55ccpsu" path="res://systems/game logic/game_flow_manager.gd" id="30_1j0u7"]
 [ext_resource type="Script" uid="uid://6jgkwbsqcufi" path="res://systems/ui interpreter/ui_manager.gd" id="30_ireyf"]
 [ext_resource type="Script" uid="uid://bf00yq7px8vo4" path="res://systems/resource system/supply_manager.gd" id="31_ireyf"]
@@ -68,12 +72,15 @@ size_flags_vertical = 19
 alignment = 1
 
 [node name="SupplyTracker" parent="MainGame/WindowBorder/Game/VBoxContainer/ResourceBar/ScrollContainer/HBoxContainer" unique_id=1645751841 instance=ExtResource("32_rjmfi")]
+custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
 
 [node name="SupplyTracker2" parent="MainGame/WindowBorder/Game/VBoxContainer/ResourceBar/ScrollContainer/HBoxContainer" unique_id=362445453 instance=ExtResource("32_rjmfi")]
+custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
 
 [node name="SupplyTracker3" parent="MainGame/WindowBorder/Game/VBoxContainer/ResourceBar/ScrollContainer/HBoxContainer" unique_id=2014926299 instance=ExtResource("32_rjmfi")]
+custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
 
 [node name="Town" type="Control" parent="MainGame/WindowBorder/Game/VBoxContainer" unique_id=1675164465]
@@ -226,10 +233,10 @@ script = ExtResource("22_ireyf")
 
 [node name="Training" parent="MainGame/WindowBorder/Game/VBoxContainer/Town" unique_id=1449220356 node_paths=PackedStringArray("submenu") instance=ExtResource("4_xalbe")]
 layout_mode = 1
-offset_left = 17.0
-offset_top = 37.0
-offset_right = 41.0
-offset_bottom = 61.0
+offset_left = -28.0
+offset_top = 31.0
+offset_right = -4.0
+offset_bottom = 55.0
 texture_normal = ExtResource("23_u46kj")
 submenu = NodePath("UIBoxStreamlined")
 
@@ -244,23 +251,10 @@ offset_right = 14.0
 offset_bottom = 7.0
 grow_horizontal = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Training/UIBoxStreamlined" unique_id=88641069]
+[node name="UpgradeMenu" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Training/UIBoxStreamlined" unique_id=939565118 instance=ExtResource("24_u46kj")]
 layout_mode = 2
-mouse_filter = 2
-
-[node name="UIBoxMinimal" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Training/UIBoxStreamlined/VBoxContainer" unique_id=1707445508 instance=ExtResource("3_bfd2p")]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Training/UIBoxStreamlined/VBoxContainer/UIBoxMinimal" unique_id=445233389]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Training/UIBoxStreamlined/VBoxContainer/UIBoxMinimal/HBoxContainer" unique_id=968978579]
-custom_minimum_size = Vector2(110, 24)
-layout_mode = 2
-
-[node name="TextureButton" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Training/UIBoxStreamlined/VBoxContainer/UIBoxMinimal/HBoxContainer" unique_id=115277839 instance=ExtResource("21_nf78q")]
-layout_mode = 2
+unlock_button_scene = ExtResource("25_q5k8v")
+unlocks_to_populate = Array[ExtResource("26_h0uu6")]([ExtResource("27_w1snj"), ExtResource("27_w1snj")])
 
 [node name="OverlaidText" type="Panel" parent="MainGame/WindowBorder" unique_id=1676341060]
 custom_minimum_size = Vector2(0, 40)

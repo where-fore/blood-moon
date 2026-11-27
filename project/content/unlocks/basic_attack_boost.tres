@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UnlockData" format=3 uid="uid://dhq484dupwnm"]
+
+[ext_resource type="Resource" uid="uid://cwa2sktpie81t" path="res://content/supplies/xp.tres" id="1_4oehg"]
+[ext_resource type="Script" uid="uid://cgudcjlwli3cs" path="res://ui pieces/unlock menu/unlock_data.gd" id="1_rjwop"]
+
+[resource]
+script = ExtResource("1_rjwop")
+description = "Grow your might. +20 attack."
+cost = 5
+cost_supply = ExtResource("1_4oehg")
+metadata/_custom_type_script = "uid://cgudcjlwli3cs"

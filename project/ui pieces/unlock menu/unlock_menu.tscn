@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://6sc78g8r4bu1"]
+
+[ext_resource type="Script" uid="uid://6sxq1ekp0yut" path="res://ui pieces/unlock menu/unlock_menu.gd" id="1_pfis7"]
+[ext_resource type="PackedScene" uid="uid://c1f2v6b43kw1r" path="res://ui pieces/unlock menu/unlock_button.tscn" id="2_ltxrh"]
+
+[node name="UpgradeMenu" type="VBoxContainer" unique_id=939565118]
+mouse_filter = 2
+script = ExtResource("1_pfis7")
+unlock_button_scene = ExtResource("2_ltxrh")
+
+[node name="UpgradeButton" parent="." unique_id=1542736023 instance=ExtResource("2_ltxrh")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+
+[node name="UpgradeButton2" parent="." unique_id=1309267314 instance=ExtResource("2_ltxrh")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+
+[node name="UpgradeButton3" parent="." unique_id=641167747 instance=ExtResource("2_ltxrh")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+
+[node name="UpgradeButton4" parent="." unique_id=1982285067 instance=ExtResource("2_ltxrh")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2

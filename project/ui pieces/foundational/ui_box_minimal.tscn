@@ -17,6 +17,7 @@ axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 48, 48)
 
 [node name="UIBoxMinimal" type="PanelContainer" unique_id=1542736023]
+custom_minimum_size = Vector2(20, 20)
 custom_maximum_size = Vector2(568, 320)
 anchors_preset = 15
 anchor_right = 1.0
