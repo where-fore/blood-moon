@@ -11,5 +11,10 @@
 
 
 button functionality:
-- activate/deactivate button visual based on supply updates
 - if supply meets cost, apply effect
+	- button does its thing
+		- not sure how this gets defined. currently the unlockdata is a resource with @export functions. it sounds like i want these to be scripts like lieutenant? since unlocks will have to have custom scripts attached. or at least a custom script field, unlock_script - some unlocks will be basic stats, some with custom scripts? and unlock data calls certain functions on the script, if present?
+
+
+
+supply_changed.name returns the enum index, not the stringname

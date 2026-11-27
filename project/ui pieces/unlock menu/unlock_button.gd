@@ -19,9 +19,9 @@ func setup(new_unlock_data:UnlockData) -> void:
 	
 	fade_out()
 
-func check_if_activateable(supply_updated:Supply, new_value:int) -> void:
+func check_if_activateable(supply_updated:Supply) -> void:
 	if supply_updated == unlock_data.cost_supply:
-		if new_value >= unlock_data.cost:
+		if Economy.can_afford(supply_updated, unlock_data.cost):
 			if not activateable: fade_in()
 		else:
 			if activateable: fade_out()
@@ -33,3 +33,8 @@ func fade_out() -> void:
 func fade_in() -> void:
 	modulate = Color(1, 1, 1, 1)
 	activateable = true
+
+
+func _on_texture_button_pressed() -> void:
+	if Economy.can_afford(unlock_data.cost_supply, unlock_data.cost):
+		Economy.remove_supply(unlock_data.cost_supply, unlock_data.cost)

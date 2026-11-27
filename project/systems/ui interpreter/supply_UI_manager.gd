@@ -1,6 +1,5 @@
 extends Node
 
-var supplies:Dictionary[Supply, int]
 
 var supply_trackers:Array[SupplyTracker]
 @export var supply_tracker_base_scene:PackedScene
@@ -10,24 +9,16 @@ var supply_trackers:Array[SupplyTracker]
 	#but for now they all live in the top bar together
 
 func _ready() -> void:
-	BasicEvents.supply_change.connect(increment_supply)
 	Toolbox.clear_placeholder_ui_objects(home_for_supply_trackers)
-
-func increment_supply(supply_changed:Supply, change:int) -> void:
-	if not check_if_already_tracking(supply_changed): create_new_tracker(supply_changed)
-	
-	if supply_changed in supplies:
-		supplies[supply_changed] += change
-	else:
-		supplies[supply_changed] = change
-	
-	update_tracker_for(supply_changed)
-	UiEvents.supply_updated.emit(supply_changed, supplies[supply_changed])
+	UiEvents.supply_updated.connect(update_tracker_for)
 
 func update_tracker_for(supply_changed:Supply) -> void:
+	if not check_if_already_tracking(supply_changed):
+		create_new_tracker(supply_changed)
+	
 	for tracker:SupplyTracker in supply_trackers:
 		if tracker.supply_tracking == supply_changed:
-			tracker.update_ui(supplies[supply_changed])
+			tracker.update_ui()
 
 func check_if_already_tracking(supply_to_check:Supply) -> bool:
 	for tracker:SupplyTracker in supply_trackers:
