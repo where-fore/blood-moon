@@ -88,8 +88,6 @@ offset_top = -63.0
 offset_right = -218.0
 offset_bottom = -39.0
 texture_normal = ExtResource("3_xalbe")
-texture_hover = null
-texture_click_mask = null
 submenu = NodePath("UIBoxStreamlined")
 
 [node name="UIBoxStreamlined" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat" unique_id=892091800 instance=ExtResource("2_tafwd")]
@@ -213,15 +211,16 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Control" type="Control" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer" unique_id=1705712804]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 19
 
 [node name="PauseButton" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Combat/UIBoxStreamlined/HBoxContainer/Control" unique_id=1105146277 instance=ExtResource("21_nf78q")]
 layout_mode = 1
 offset_left = -12.0
-offset_top = -61.0
+offset_top = -12.0
 offset_right = 12.0
-offset_bottom = 61.0
+offset_bottom = 12.0
 texture_normal = ExtResource("3_xalbe")
 script = ExtResource("22_ireyf")
 
@@ -232,7 +231,6 @@ offset_top = 37.0
 offset_right = 41.0
 offset_bottom = 61.0
 texture_normal = ExtResource("23_u46kj")
-texture_click_mask = null
 submenu = NodePath("UIBoxStreamlined")
 
 [node name="UIBoxStreamlined" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Training" unique_id=1986422534 instance=ExtResource("2_tafwd")]
@@ -258,7 +256,7 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="Label" type="Label" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Training/UIBoxStreamlined/VBoxContainer/UIBoxMinimal/HBoxContainer" unique_id=968978579]
-custom_minimum_size = Vector2(150, 24)
+custom_minimum_size = Vector2(110, 24)
 layout_mode = 2
 
 [node name="TextureButton" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Training/UIBoxStreamlined/VBoxContainer/UIBoxMinimal/HBoxContainer" unique_id=115277839 instance=ExtResource("21_nf78q")]
