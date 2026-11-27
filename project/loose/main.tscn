@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://bksdgxm552rkr" path="res://ui pieces/aura_icon.tscn" id="23_1fc2u"]
 [ext_resource type="Texture2D" uid="uid://bjkc5itfgl2aa" path="res://sprites/strength.png" id="23_u46kj"]
 [ext_resource type="PackedScene" uid="uid://6sc78g8r4bu1" path="res://ui pieces/unlock menu/unlock_menu.tscn" id="24_u46kj"]
-[ext_resource type="PackedScene" uid="uid://c1f2v6b43kw1r" path="res://ui pieces/unlock menu/unlock_button.tscn" id="25_q5k8v"]
 [ext_resource type="Script" uid="uid://cgudcjlwli3cs" path="res://ui pieces/unlock menu/unlock_data.gd" id="26_h0uu6"]
 [ext_resource type="Resource" uid="uid://dhq484dupwnm" path="res://content/unlocks/basic_attack_boost.tres" id="27_w1snj"]
 [ext_resource type="Script" uid="uid://0o0t55ccpsu" path="res://systems/game logic/game_flow_manager.gd" id="30_1j0u7"]
@@ -253,7 +252,6 @@ grow_horizontal = 1
 
 [node name="UpgradeMenu" parent="MainGame/WindowBorder/Game/VBoxContainer/Town/Training/UIBoxStreamlined" unique_id=939565118 instance=ExtResource("24_u46kj")]
 layout_mode = 2
-unlock_button_scene = ExtResource("25_q5k8v")
 unlocks_to_populate = Array[ExtResource("26_h0uu6")]([ExtResource("27_w1snj"), ExtResource("27_w1snj")])
 
 [node name="OverlaidText" type="Panel" parent="MainGame/WindowBorder" unique_id=1676341060]

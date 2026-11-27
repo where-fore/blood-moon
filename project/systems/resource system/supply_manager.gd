@@ -22,6 +22,7 @@ func increment_supply(supply_changed:Supply, change:int) -> void:
 		supplies[supply_changed] = change
 	
 	update_tracker_for(supply_changed)
+	UiEvents.supply_updated.emit(supply_changed, supplies[supply_changed])
 
 func update_tracker_for(supply_changed:Supply) -> void:
 	for tracker:SupplyTracker in supply_trackers:

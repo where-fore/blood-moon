@@ -4,10 +4,32 @@ class_name UnlockButton
 @export var description_label:Label
 @export var cost_label:Label
 @export var button:TextureButton
-var data_object:UnlockData
+var unlock_data:UnlockData
 
-func setup(unlock_data:UnlockData) -> void:
-	data_object = unlock_data
-	description_label.text = data_object.description
-	cost_label.text = str(data_object.cost)
-	button.texture_normal = data_object.cost_supply.icon
+var activateable:bool = false
+
+func setup(new_unlock_data:UnlockData) -> void:
+	unlock_data = new_unlock_data
+	
+	description_label.text = unlock_data.description
+	cost_label.text = str(unlock_data.cost)
+	button.texture_normal = unlock_data.cost_supply.icon
+	
+	UiEvents.supply_updated.connect(check_if_activateable)
+	
+	fade_out()
+
+func check_if_activateable(supply_updated:Supply, new_value:int) -> void:
+	if supply_updated == unlock_data.cost_supply:
+		if new_value >= unlock_data.cost:
+			if not activateable: fade_in()
+		else:
+			if activateable: fade_out()
+
+func fade_out() -> void:
+	modulate = Color(0.2, 0.2, 0.2, 1)
+	activateable = false
+
+func fade_in() -> void:
+	modulate = Color(1, 1, 1, 1)
+	activateable = true
