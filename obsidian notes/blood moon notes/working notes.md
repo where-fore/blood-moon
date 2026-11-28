@@ -24,6 +24,13 @@ global buff_manager
  - okay so there's a difference between "all fighters have +10 attack" and "you have +10 attack", but what is it? do "you" fight? do "fighters" use the same stats? is your combat different from theirs?
 okay so i don't know what else i want, so for now ill just do basic "all fighters have +10 attack"?
 
+okay so thinking globaleffects
+- has a stat dictionary additive, and multiplicative
+	- when changed, push update to combatants
+	- combatants hear, check if controlledbyplayer, if so, recalculate stats
+- when a combatant controlledbyplayer flag is set, recalc stats from global effects
+
+
 
 supply_changed.name returns the enum index, not the stringname
 	probably change the autoload to "supplies", the enum to nameEnum, and the names dictionary to names? there's got to be an idiomatic way, look it up

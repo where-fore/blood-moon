@@ -1,10 +1,12 @@
 extends Node2D
 class_name Combatant
 
+@export_category("Base Logic")
 @export var starting_max_health:int
 @export var starting_attack:int
 @export var base_attack_speed:float
 @export var portrait:Texture
+@export_category("Enemy Logic")
 @export var supply_on_defeat:Supply
 @export var number_of_that_supply:int
 
@@ -14,9 +16,9 @@ var controlled_by_player:bool = false:
 	set(value):
 		controlled_by_player = value
 		if controlled_by_player: 
-			BasicEvents.reward_chosen.connect(upgrade_with_reward)
+			pass #BasicEvents.reward_chosen.connect(upgrade_with_reward)
 		else:
-			BasicEvents.reward_chosen.disconnect(upgrade_with_reward)
+			pass #BasicEvents.reward_chosen.disconnect(upgrade_with_reward)
 
 var current_max_health:int
 var current_sustained_damage:int:
