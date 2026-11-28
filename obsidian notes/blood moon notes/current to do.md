@@ -1,9 +1,10 @@
 - get basic loop in
-	- simple combat: attack, kill, get loot, repeat
+	- ~~simple combat: attack, kill, get loot, repeat~~
 	- simple upgrades: buy increased attack (cost scales exponentially), or meta upgrade (win the game)
-	- this is ui based, so:
-		- overall map. click on dungeon, it opens a submenu. click on home, it closes that and opens another submenu
-		- or a tab based, click tab at bottom to swap panels
+	- ~~this is ui based, so:~~
+		- ~~overall map. click on dungeon, it opens a submenu. click on home, it closes that and opens another submenu~~
+		- ~~or a tab based, click tab at bottom to swap panels~~
+	- have a game won screen (maybe flood the screen purple and do black text)
 - get advanced loop in
 	- game action costs "time" resource
 	- sun travels overhead or other way to show time passing

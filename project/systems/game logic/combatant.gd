@@ -10,10 +10,10 @@ class_name Combatant
 
 signal died(combatant:Combatant)
 
-var is_the_player:bool = false:
+var controlled_by_player:bool = false:
 	set(value):
-		is_the_player = value
-		if is_the_player: 
+		controlled_by_player = value
+		if controlled_by_player: 
 			BasicEvents.reward_chosen.connect(upgrade_with_reward)
 		else:
 			BasicEvents.reward_chosen.disconnect(upgrade_with_reward)
@@ -63,8 +63,8 @@ func take_turn() -> void:
 
 func reset_after_combat() -> void:
 	elapsed_turn_timer = 0
-	if not is_the_player: current_sustained_damage = 0
-	if is_the_player:
+	if not controlled_by_player: current_sustained_damage = 0
+	if controlled_by_player:
 		if current_sustained_damage >= current_max_health:
 			current_sustained_damage = 0
 

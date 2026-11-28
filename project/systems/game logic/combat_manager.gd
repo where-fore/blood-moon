@@ -18,12 +18,12 @@ func prepare_combat() -> void:
 	var player_prepped:bool = false
 	var enemy_prepped:bool = false
 	for combatant:Combatant in combatants:
-		if combatant.is_the_player: player_prepped = true
-		elif not combatant.is_the_player: enemy_prepped = true
+		if combatant.controlled_by_player: player_prepped = true
+		elif not combatant.controlled_by_player: enemy_prepped = true
 	
 	if not player_prepped:
 		player_combatant = create_combatant(player_combatant_base_scene)
-		player_combatant.is_the_player = true
+		player_combatant.controlled_by_player = true
 		combatants.append(player_combatant)
 		UiEvents.new_player_combatant.emit(player_combatant)
 	if not enemy_prepped:
@@ -45,7 +45,7 @@ func start_combat() -> void:
 		combatant.active_in_combat = true
 
 func end_combat(dead_combatant:Combatant) -> void:
-	if dead_combatant.is_the_player:
+	if dead_combatant.controlled_by_player:
 		pass
 	else:
 		dead_combatant.get_reward_for_defeat()
@@ -60,7 +60,7 @@ func end_combat(dead_combatant:Combatant) -> void:
 
 #func strengthen_enemies() -> void:
 #	for combatant:Combatant in combatants:
-#		if not combatant.is_the_player:
+#		if not combatant.controlled_by_player:
 #			combatant.upgrade_over_time()
 
 func end_of_combat_cleanup() -> void:

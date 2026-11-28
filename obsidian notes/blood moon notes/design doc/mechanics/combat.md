@@ -20,6 +20,10 @@ okay so i just need auras. i want to implement
 - when picked, start combats with 3s of extra power
 all of which explode on death
 # atb combat brain dump
+
+## rewards for mastery
+a lot of the texture in a kills/minute check like this comes from understanding breakpoints vs specific mobs, eg. +10 attack doesn't change anything if you kill in the same number of hits anyways and it's just overkill.
+and thus maybe provide a selection of enemies to slay, and give 2x rewards for shuffling them, but giving you the option to hunt specific ones. the idea being you can optimize your build past the 2x shuffle baseline for this specific enemy. also lets you target resources too for other systems sake
 ## abilities to try
 - You start by ambushing the enemy, they wait 1,2,3,4 seconds at start of combat (per rank)
 - Every time you attack, gain x% attack speed
