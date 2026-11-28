@@ -5,6 +5,7 @@ class_name Combatant
 @export var starting_max_health:int
 @export var starting_attack:int
 @export var base_attack_speed:float
+@export var base_attack_speed_multiplier:int
 @export var portrait:Texture
 @export_category("Enemy Logic")
 @export var supply_on_defeat:Supply
@@ -19,6 +20,7 @@ var controlled_by_player:bool = false:
 			pass #BasicEvents.reward_chosen.connect(upgrade_with_reward)
 		else:
 			pass #BasicEvents.reward_chosen.disconnect(upgrade_with_reward)
+		recalculate_stats()
 
 var current_max_health:int
 var current_sustained_damage:int:
@@ -43,7 +45,7 @@ func _ready() -> void:
 	if not starting_max_health: push_error("starting_max_health not initialized on: ", name)
 	if not starting_attack: push_error("starting_attack not initialized on: ", name)
 	if not base_attack_speed: push_error("starting_turn_cooldown not initialized on: ", name)
-	reset_stats_to_starting_base()
+	recalculate_stats()
 
 func _process(delta: float) -> void:
 	if active_in_combat:
@@ -70,13 +72,6 @@ func reset_after_combat() -> void:
 		if current_sustained_damage >= current_max_health:
 			current_sustained_damage = 0
 
-func upgrade_with_reward(reward:Reward) -> void:
-	match reward.stat:
-		Stats.Names.HEALTH: current_max_health += reward.value
-		Stats.Names.ATTACK: current_attack += reward.value
-		Stats.Names.ATTACK_SPEED_MULTIPLIER: current_attack_speed_multiplier += reward.value
-	send_ui_update()
-	UiEvents.send_aura_to_tracker.emit(reward)
 
 func upgrade_over_time() -> void:
 	var multiplier:int = 7
@@ -84,14 +79,23 @@ func upgrade_over_time() -> void:
 	current_attack += randi_range(1,2) * multiplier
 	current_attack_speed_multiplier += randi_range(1,2) * multiplier
 
-func reset_stats_to_starting_base() -> void:
+func recalculate_stats() -> void:
 	current_max_health = starting_max_health
 	current_attack = starting_attack
 	current_base_attack_speed = base_attack_speed
-	current_attack_speed_multiplier = 0
+	current_attack_speed_multiplier = base_attack_speed_multiplier
 	
-	current_sustained_damage = 0
-	elapsed_turn_timer = 0
+	if controlled_by_player: upgrade_stats_with_global_additive()
+	
+	send_ui_update()
+
+func upgrade_stats_with_global_additive() -> void:
+	for stat:Stats.Names in GlobalEffects.additive_stat_dictionary:
+		var value:int = GlobalEffects.additive_stat_dictionary[stat]
+		match stat:
+			Stats.Names.HEALTH: current_max_health += value
+			Stats.Names.ATTACK: current_attack += value
+			Stats.Names.ATTACK_SPEED_MULTIPLIER: current_attack_speed_multiplier += value
 
 func send_ui_update() -> void:
 	UiEvents.combatant_ui_update.emit(self)

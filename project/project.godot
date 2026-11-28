@@ -25,6 +25,7 @@ GameflowEvents="*uid://2kopaxwi7mu"
 SupplyNames="*uid://c6xlbu01xa1en"
 Toolbox="*uid://7iym4i4173yu"
 Economy="*uid://dygyjs571bbpq"
+GlobalEffects="*uid://bk4gb5y7k8xic"
 
 [debug]
 

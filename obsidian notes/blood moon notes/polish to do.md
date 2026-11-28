@@ -12,6 +12,9 @@
 	- or 2x attack speed potion, and your character has chances to enrage, so you want to stack those
 # code / bugs
 - combatants in content are saved as scenes, they should be resources. a combatantdata resource that the combatant reads some initialization data from, all the current @exports
+
+## autosaving
+generally my code isn't error-preventing, and it crashes frequently enough in edge cases i don't expect. obviously i'd like to get better at that, but in the meantime i should have a robust auto save system so it's not a problem to the end user
 ## export variable validation
 having to create custom checks for every @export is so bad, i want a simple drag&drop where i get an error for something that has an @export that isn't defined on runtime
 ## global emit vs function
