@@ -5,7 +5,9 @@
 
 [resource]
 script = ExtResource("1_rjwop")
-description = "Grow your might. +20 attack."
+description = "Grow your might."
 cost = 5
 cost_supply = ExtResource("1_4oehg")
+bonus_stat = 1
+bonus_value = 5
 metadata/_custom_type_script = "uid://cgudcjlwli3cs"

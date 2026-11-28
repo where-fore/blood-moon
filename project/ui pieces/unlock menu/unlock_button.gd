@@ -34,7 +34,7 @@ func fade_in() -> void:
 	modulate = Color(1, 1, 1, 1)
 	activateable = true
 
-
 func _on_texture_button_pressed() -> void:
 	if Economy.can_afford(unlock_data.cost_supply, unlock_data.cost):
 		Economy.remove_supply(unlock_data.cost_supply, unlock_data.cost)
+		GlobalEffects.increase_additive_bonus(unlock_data.bonus_stat, unlock_data.bonus_value)

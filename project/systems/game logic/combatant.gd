@@ -17,9 +17,9 @@ var controlled_by_player:bool = false:
 	set(value):
 		controlled_by_player = value
 		if controlled_by_player: 
-			pass #BasicEvents.reward_chosen.connect(upgrade_with_reward)
+			GlobalEffects.effects_update.connect(recalculate_stats)
 		else:
-			pass #BasicEvents.reward_chosen.disconnect(upgrade_with_reward)
+			GlobalEffects.effects_update.disconnect(recalculate_stats)
 		recalculate_stats()
 
 var current_max_health:int

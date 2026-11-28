@@ -13,6 +13,10 @@
 # code / bugs
 - combatants in content are saved as scenes, they should be resources. a combatantdata resource that the combatant reads some initialization data from, all the current @exports
 
+## unlock scripting functionality:
+- not sure how this gets defined. currently the unlockdata is a resource with @export functions. it sounds like i want these to be scripts like lieutenant? since unlocks will have to have custom scripts attached. or at least a custom script field, unlock_script - some unlocks will be basic stats, some with custom scripts? and unlock data calls certain functions on the script, if present?
+	- can have unlockscript class which does stuff, and unlockdata has an @export array for that, and then if there's anything in the array it slaps through them?
+
 ## autosaving
 generally my code isn't error-preventing, and it crashes frequently enough in edge cases i don't expect. obviously i'd like to get better at that, but in the meantime i should have a robust auto save system so it's not a problem to the end user
 ## export variable validation
